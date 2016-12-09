@@ -58,9 +58,9 @@ outline:none
 
     </style>
 </head>
-<body id="secondapp-layout">
-    <nav class="navbar navbar-default navbar-static-top">
-       <div class="container-fluid"> 
+    <body id="secondapp-layout">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid"> 
            <!--  <div class="navbar-header">
             
                Collapsed Hamburger
@@ -82,52 +82,54 @@ outline:none
                 <div class="col-md-5">
                     <a href="{{url('/home') }}">
 
-                   <img src="/images/Olympic-logo.png" width="77">
-                   <a>
+                        <img src="/images/Olympic-logo.png" width="77">
+                    <a>
                         
-                   </div>
+                </div>
             <div class="col-md-2 col-xs-5">
 
-            <select dir class="selectpicker"><br>
-                                <option>Clubbers</option>
+                <select dir class="selectpicker"><br>
+                    <option>Clubbers</option>
                                 
-                            </select>
+                        </select>
              </div>
 
 
              <div class="col-md-1">
                    <a href="{{url('/home') }}">
-                    <p>CONTROL PANEL</p>
+                        <p>CONTROL PANEL</p>
+                    </a>
 
 
 
-          </div>
- <div class="col-md-1 col-xs-5">
+            </div>
+        <div class="col-md-1 col-xs-5">
 
             <select dir class="B2B"><br>
-                                <option>B2B<option>
-                                    <option>profile<option>
-                                        <option>profile<option>
+                 <option>B2B<option>
+                    <option>profile<option>
+                        <option>profile<option>
                                 
-                            </select>
-             </div>
+            </select>
+        </div>
 
              <div class="col-md-2 col-xs-5">
 
-            <select dir class="venues"><br>
-                                <option>Venues<option>
-                                    <option>profile<option>
-                                        <option>profile<option>
+                <select dir class="venues"><br>
+                    <option>Venues<option>
+                        <option>profile<option>
+                            <option>profile<option>
                                 
-                            </select>
+                </select>
              </div>
-             <div class="col-md-1">
-                   <a href="{{url('/home') }}">
-                    <p>LOG OUT</p>
+        <div class="col-md-1">
+            <a href="{{url('/home') }}">
+                <p>LOG OUT</p>
+            </a>
 
 
 
-          </div>
+        </div>
 
           
         </div> 
