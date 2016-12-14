@@ -68,6 +68,7 @@ position: relative;
                         Login
                      </button>
                     </a>
+                  </div>
                      <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
