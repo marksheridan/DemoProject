@@ -51,3 +51,9 @@ Route::get('/editvenue/{num}','VenueController@edit');
 Route::post('/updatevenue/{num}','VenueController@update');
 
 Route::get('/deletevenue/{num}','VenueController@delete');
+Route::get('/addevent','HomeController@addevent');
+Route::get('/addvenue','HomeController@addvenue');
+Route::get('/eventdisplay','HomeController@eventdisplay');
+Route::get('/artist','UserController@artist');
+Route::get('/promoters','UserController@promoters');
+Route::get('/addtoguestlist','HomeController@addtoguestlist');

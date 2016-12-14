@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
  @if(count($errors) > 0)
@@ -16,63 +16,88 @@
  </div>
 @endif  
 
+
+<style>
+
+ h4{
+            color: #3989AE;
+    }
+
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Update City</div>
-
+          <div class="panel-heading text-center">
+                <div class="panel-heading"><h4><strong>UPDATE CITY</strong></h4></div>
+                      <div class="jumbotron">
    
 
     {{Form::open(['url' => ['updatecity/'.$city->city_id], 'method' => 'post']) }}
 
-    <table>
-            <tr>
-            <td>
-            <label for="city_name">
+            <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+                  
+                        <label for="cityname" class="col-md-4 control-label">
+        
                       City Name
             </label>
-            </td>
-            <td>
+            </div>
+            <div class="col-md-3">
             <input id="city_name" type="text"  name="city_name" value=" {{ $city->city_name }} ">
-            </td>
-            </tr>
-            
-            <tr>
-            <td>
-            <label for="city_status">
+            </div>
+            <div class="col-md-3">
+                        </div>
+            </div>
+        </div>
+        <br>
+            <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+                  
+                        <label for="citystatus" class="col-md-4 control-label">
                       City Status
             </label>
-            </td>
-            <td>
+            </div>
+             <div class="col-md-3">
         	{{ Form::select('city_status', ['active' => 'Active', 'inactive' => 'In Active'], $city->city_status, ['class' =>'city_status','id' =>'city_status', 'placeholder' => 'Pick a Status']) }}          
-            </td>
-            </tr>
-            
-            <tr>
-            <td>
-            <label for="city_tier">
+            </div>
+        </div>
+    </div>
+            <br>
+           <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+            <label for="city_tier" class="col-md-4 control-label">
                       City Tier
             </label>
-            </td>
-            <td>
+            </div>
+            <div class="col-md-3">
         	{{ Form::select('city_tier', ['1' => '1', '2' => '2'], $city->city_tier, ['class' =>'city_tier','id' =>'city_tier', 'placeholder' => 'Pick a Tier']) }}          
-            </td>
-            </tr>
+            </div>
 
-            <tr>
-            <td>
-            <button type="submit" >
-                    Update
-            </button>
-            </td>
-            </tr>        
-    </table>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+    
+            <div class="form-group">
+
+                           <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
+                            Add</button>
+                        </div>
+                    </div>
     
     {!! Form::close() !!}
     
 
-      
+                </div>
          
             </div>
         </div>
