@@ -33,10 +33,10 @@ position: relative;
 <body id="secondapp-layout">
     <nav class="navbar navbar-default navbar-static-top">
        
-<div class="container-fluid text-centxser hidden-"></div>
        <div class="container-fluid"> 
            
             <div class="row">
+
             <div class="col-md-3 col-xs-5">
                <a href="{{url('/') }}">
 
@@ -45,7 +45,7 @@ position: relative;
 
             
              </div>
-             <div class="col-md-6 hidden-xs text-center">
+             <div class="col-md-6 text-center">
               <a href="{{url('/home') }}">
 
                    <img src="/images/1014d3e2908092bb2deb3c54dc16ae42.jpg" width="44">
@@ -54,7 +54,7 @@ position: relative;
                     <p>!clubbers</p>
 
 
-                   </div>
+                </div>
                    <div class="col-md-3 col-xs-7 text-right">
 
                     <a href="{{url('/home') }}">
@@ -69,69 +69,69 @@ position: relative;
                      </button>
                     </a>
                   </div>
-                     <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <div class="col-md-12 hdden-xs text-center">
-              <a href="{{url('/home') }}">
-
-                   <img src="/images/1014d3e2908092bb2deb3c54dc16ae42.jpg" width="44">
-                   <a>
-                    <br>
-                    <p>!clubbers</p>
-
-
-                   </div>
-        </div>
-        <div class="modal-body">
-            <form method="post" action="{{ url('/storeevent') }}" enctype="multipart/form-data">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div class="row">
-          <div class="form-group">
-          
-             
-          
-            <div class="col-md-6">
-              <input id="name" type="text" class="form-control" name="name" placeholder="user name">
-          </div>
-        </div>
-      </div>
- <div class="row">
-          <div class="form-group">
-          
-             
-          
-            <div class="col-md-6 text-center">
-              <input id="name" type="text" class="form-control" name="name" placeholder="password">
-          </div>
-        </div>
-      </div>
-
-
-        </div>
-        <div class="modal-footer">
-          <div class="col-md-12 text-center">
-            <!-- <button type="button" class="Button" data-dismiss="modal">Close</button> -->
-           <input type="submit" value="login" onclick="return validate()" data-target="#myModal2" class="Button"  data-toggle="modal"/>
-
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+              <!--        <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+                  
+                    Modal content
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="col-md-12 hdden-xs text-center">
+                            <a href="{{url('/home') }}">
+              
+                                 <img src="/images/1014d3e2908092bb2deb3c54dc16ae42.jpg" width="44">
+                                 <a>
+                                  <br>
+                                  <p>!clubbers</p>
+              
+              
+                                 </div>
+                      </div>
+                      <div class="modal-body">
+                          <form method="post" action="{{ url('/storeevent') }}" enctype="multipart/form-data">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <div class="row">
+                        <div class="form-group">
+                        
+                           
+                        
+                          <div class="col-md-6">
+                            <input id="name" type="text" class="form-control" name="name" placeholder="user name">
+                        </div>
+                      </div>
+                    </div>
+               <div class="row">
+                        <div class="form-group">
+                        
+                           
+                        
+                          <div class="col-md-6 text-center">
+                            <input id="name" type="text" class="form-control" name="name" placeholder="password">
+                        </div>
+                      </div>
+                    </div>
+              
+              
+                      </div>
+                      <div class="modal-footer">
+                        <div class="col-md-12 text-center">
+                          <button type="button" class="Button" data-dismiss="modal">Close</button>
+                         <input type="submit" value="login" onclick="return validate()" data-target="#myModal2" class="Button"  data-toggle="modal"/>
+              
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div> -->
 
                   
                  
 
             <!-- <div class="collapse navbar-collapse" id="app-navbar-collapse"> -->
                
-            </div>
-          </div>
+            
+          
            <!--  <div>
            
                    <a href="{{url('/home') }}">
@@ -139,7 +139,9 @@ position: relative;
                   <img src="file:///var/www/html/clubbers/DemoProject/public/images/ic_bottom_search.png" width="32">
                   <a>
                   </div>  -->
-        </div> 
+                  </div>
+</div>
+      
     </nav>
 
     @yield('content')

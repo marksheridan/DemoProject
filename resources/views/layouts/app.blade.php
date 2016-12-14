@@ -54,8 +54,7 @@ position: relative;
                                 <option>mumbai</option>
                             </select>
              </div>
-             <div class="col-md-4">
-             </div>
+            
              <div class="col-md-6 hidden-xs text-center">
               <a href="{{url('/home') }}">
 

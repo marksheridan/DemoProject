@@ -12,11 +12,23 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+   public function addevent()
+   {
+    return view('events.addevent');
+   }
+   public function addvenue()
+   {
+    return view('venues.addvenue');
+   }
+public function eventdisplay()
+{
+    return view('auth.eventdisplay');
+}
 
+public function addtoguestlist()
+{
+    return view('auth.addtoguestlist');
+}
     /**
      * Show the application dashboard.
      *

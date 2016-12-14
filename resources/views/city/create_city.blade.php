@@ -29,7 +29,24 @@
    }
 
 
-</style>   
+</style>  
+
+<div class="alert">
+<script type="text/javascript">
+
+  function validate()
+    {
+      var NameTB = document.getElementById("name");
+
+      var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+      if(!namefilter.test(NameTB.value))
+        {
+          alert("Please enter only characters");
+          return false;
+        }
+}
+</script>
+</div>
 
 <div class="container">
     <h4><strong>  ADD CITY <strong> </h4>
@@ -56,7 +73,7 @@
 
                         </div>
                        <div class="col-md-8">
-                           <input id="city_name" type="text" class="form-control" name="city_name" placeholder="City Name">
+                           <input id="name" type="text" class="form-control" name="city_name" placeholder="City Name">
                        </div>
                    </div>
                </div>
