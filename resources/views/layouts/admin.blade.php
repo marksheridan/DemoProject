@@ -18,6 +18,65 @@
     <style>
         body {
             font-family: 'Lato';
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+        }
+
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: #12131A;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #24D0F3;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+        #secondapp-layout{
+          font-family: 'Lato';
+            overflow-y: scroll;
+            overflow-x: hidden;
+
         }
 
         .fa-btn {
@@ -58,9 +117,9 @@ outline:none
 
     </style>
 </head>
-<body id="secondapp-layout">
-    <nav class="navbar navbar-default navbar-static-top">
-       <div class="container-fluid"> 
+    <body id="secondapp-layout">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid"> 
            <!--  <div class="navbar-header">
             
                Collapsed Hamburger
@@ -82,52 +141,70 @@ outline:none
                 <div class="col-md-5">
                     <a href="{{url('/home') }}">
 
-                   <img src="/images/Olympic-logo.png" width="77">
-                   <a>
+                        <img src="/images/Olympic-logo.png" width="77">
+                    <a>
                         
-                   </div>
+                </div>
             <div class="col-md-2 col-xs-5">
 
-            <select dir class="selectpicker"><br>
-                                <option>Clubbers</option>
-                                
-                            </select>
+                 <li class="dropdown">
+    <a href="#" class="dropbtn">Clubbers</a>
+    <div class="dropdown-content">
+      <a href="#">Profile</a>
+      
+    </div>
+  </li>
              </div>
 
 
              <div class="col-md-1">
                    <a href="{{url('/home') }}">
-                    <p>CONTROL PANEL</p>
+                        <p>CONTROL PANEL</p>
+                    </a>
 
 
 
-          </div>
- <div class="col-md-1 col-xs-5">
+            </div>
+        <div class="col-md-1 col-xs-5">
 
-            <select dir class="B2B"><br>
-                                <option>B2B<option>
-                                    <option>profile<option>
-                                        <option>profile<option>
-                                
-                            </select>
-             </div>
+
+                 <li class="dropdown">
+    <a href="#" class="dropbtn">B2B</a>
+    <div class="dropdown-content">
+      <a href="#">Profile</a>
+      <a href="#">Analytic</a>
+      <a href="#">Add B2B</a>
+      
+    </div>
+  </li>
+
+          
+        </div>
 
              <div class="col-md-2 col-xs-5">
 
-            <select dir class="venues"><br>
-                                <option>Venues<option>
-                                    <option>profile<option>
-                                        <option>profile<option>
-                                
-                            </select>
+
+               <li class="dropdown">
+    <a href="#" class="dropbtn">Venue</a>
+    <div class="dropdown-content">
+      <a href="#">Show Venues</a>
+      <a href="{{url('/showcity') }}">Show Cities</a>
+      <a href="#">Add Venue</a>
+      <a href="{{url('/createcity') }}">Add City</a>
+      
+    </div>
+  </li>
+
+                
              </div>
-             <div class="col-md-1">
-                   <a href="{{url('/home') }}">
-                    <p>LOG OUT</p>
+        <div class="col-md-1">
+            <a href="{{url('/home') }}">
+                <p>LOG OUT</p>
+            </a>
 
 
 
-          </div>
+        </div>
 
           
         </div> 
