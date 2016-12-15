@@ -46,10 +46,10 @@ position: relative;
             
              </div>
              <div class="col-md-6 text-center">
-              <a href="{{url('/home') }}">
+             
 
                    <img src="/images/1014d3e2908092bb2deb3c54dc16ae42.jpg" width="44">
-                   <a>
+                  
                     <br>
                     <p>!clubbers</p>
 

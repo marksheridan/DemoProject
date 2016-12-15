@@ -104,7 +104,7 @@ position: relative;
                              
 				 			</label>
 						<div class="col-md-8">
-							<select name="venue" class="status_options"><br>
+							<select name="event_status" class="status_options"><br>
 								<option>Event status</option>
 								<option>Closed</option>
 								<option>Deleted</option>
@@ -113,25 +113,7 @@ position: relative;
 					</div>
 				</div>
 				<br>
-				  <!-- <div class="row">
-				  					<div class="form-group">
-				  							<label for="date" class="col-md-4 control-label">
-				  								
-				  									Event Flyer Paid
-				  								
-				  							</label> 
 				  
-				  					  <div class="col-md-6">
-				  						<td>
-				  							<select name="venue" class="payment_options"><br>
-				  								<option>Flyer</option>
-				  								<option>paid</option>
-				  								<option>not paid</option>
-				  							</select>
-				  						</div>
-				  					</div>
-				  				</div> -->
-
 				<div class="row">
 					<div class="form-group">
 					
@@ -141,7 +123,7 @@ position: relative;
 							
 							</label>
 						<div class="col-md-6">
-							<select name="venue" class="type_options"><br>
+							<select name="event_type" class="type_options"><br>
 								<option>Event type<option>
 								<option>RSVP</option>
 								<option>Guest</option>
@@ -151,6 +133,50 @@ position: relative;
 				</div>
 				</div>
 				<br>
+                  <div class="row">
+					<div class="form-group">
+					
+							<label for="venue" class="col-md-4 control-label">
+								
+									Venue
+							
+							</label>
+						<div class="col-md-6">
+							<select name="venue" class="type_options"><br>
+								<option>venue</option>
+								<option>bangalore<option>
+								<option>hskdhk</option>
+								
+							</select>
+							
+					</div>
+				</div>
+				</div>
+                   <br>
+
+
+                   <div class="row">
+					<div class="form-group">
+					
+							<label for="city" class="col-md-4 control-label">
+								
+									City
+							
+							</label>
+						<div class="col-md-6">
+							<select name="city" class="type_options"><br>
+								<option>city</option>
+								<option>bangalore<option>
+								<option>hskdhk</option>
+								
+							</select>
+							
+					</div>
+				</div>
+				</div>
+                   <br>
+
+
 					<div class="row">
 					<div class="form-group">
 					
