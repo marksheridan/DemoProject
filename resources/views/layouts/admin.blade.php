@@ -187,9 +187,9 @@ outline:none
                <li class="dropdown">
     <a href="#" class="dropbtn">Venue</a>
     <div class="dropdown-content">
-      <a href="#">Show Venues</a>
+      <a href="{{url('/showvenue') }}">Show Venues</a>
       <a href="{{url('/showcity') }}">Show Cities</a>
-      <a href="#">Add Venue</a>
+      <a href="{{url('/createvenue') }}">Add Venue</a>
       <a href="{{url('/createcity') }}">Add City</a>
       
     </div>

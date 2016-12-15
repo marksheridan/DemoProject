@@ -33,6 +33,98 @@
 </style>
 
 
+
+<script type="text/javascript">
+  function validate()
+  {
+    var NameTB = document.getElementById("venue_name");
+    var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!namefilter.test(NameTB.value))
+    {
+      alert("EVENT NAME IS NOT VALID");
+      return false;
+    }
+
+    var PhoneTB = document.getElementById("venue_phone_no");
+
+      var phonefilter = new RegExp("^[0-9]{10}$");
+
+      if(!phonefilter.test(PhoneTB.value))
+        {
+          alert("Phone number must have 10 digit");
+          PhoneTB.focus();
+          return false;
+        }
+
+        var CatTB = document.getElementById("venue_category");
+    var catfilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!catfilter.test(CatTB.value))
+    {
+      alert("NOT VALID");
+      return false;
+    }
+
+
+var LatTB = document.getElementById("latitude");
+
+      var latfilter = new RegExp("^[0-9]+$");
+
+      if(!latfilter.test(LatTB.value))
+        {
+          alert("NUMBER PLEASE");
+          LatTB.focus();
+          return false;
+        }
+
+
+
+        var LotTB = document.getElementById("longitude");
+
+      var lotfilter = new RegExp("^[0-9]+$");
+
+      if(!lotfilter.test(LotTB.value))
+        {
+          alert("NUMBER PLEASE");
+          LotTB.focus();
+          return false;
+        }
+
+
+          var photoTB = document.getElementById("venue_cover_img").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(photoTB == '')
+        {
+          /*alert("Select a file.");
+          return false;*/
+        }
+
+        else
+        {
+          var extension = photoTB.substring(photoTB.lastIndexOf('.') +1).toLowerCase();
+          if(extension == "jpg" || extension == "png" || extension == "gif" || extension == "jpeg")
+
+          {
+           /* alert("file format is not valid");
+            return false;*/
+          }
+
+          else
+          {
+            alert("Invalid format");
+            document.getElementById("venue_cover_img").value = '';
+            return false;
+          }
+
+        }
+
+
+    
+    }
+  
+</script>
+
+
+
 <div class="container">
     <div class="row">
     <h4> <strong>  ADD VENUE <strong> </h4>
@@ -57,7 +149,7 @@
                         {{ Form::label('venuename', 'Venue Name') }}
                         </div>
                         <div class="col-md-8">
-                        {{ Form::text('venue_name')  }}
+                      <input id="venue_name" type="text" class="form-control" name="venue_name" placeholder="Venue Name"required>
                     </div>
                 </div>
             </div>
@@ -68,7 +160,8 @@
                         {{ Form::label('venuephno', 'Venue Phone-Number') }}
                         </div>
                         <div class="col-md-8">
-                        {{ Form::text('venue_phone_no')  }}
+                         <input id="venue_phone_no" type="text" class="form-control" name="venue_phone_no" placeholder="Eg:9999999999"required>
+
                    </div>
                </div>
            </div>
@@ -79,7 +172,7 @@
                         {{ Form::label('venuecategory', 'Venue Category') }}
                         </div>
                         <div class="col-md-8">
-                        {{ Form::text('venue_category')  }}
+                        <input id="venue_category" type="text" class="form-control" name="venue_category" placeholder="Venue Category Name"required>
                   </div>
               </div>
           </div>
@@ -90,7 +183,7 @@
                         {{ Form::label('latitude', 'Latitude') }}
                         </div>
                         <div class="col-md-8">
-                        {{ Form::text('latitude')  }}
+                        <input id="latitude" type="text" class="form-control" name="latitude" placeholder="latitude"required>
                      </div>
                  </div>
              </div>
@@ -101,7 +194,8 @@
                         {{ Form::label('longitude', 'Longitude') }}
                         </div>
                        <div class="col-md-8">
-                        {{ Form::text('longitude')  }}
+                        <input id="longitude" type="text" class="form-control" name="longitude" placeholder="longitude"required>
+
                      </div>
                  </div>
              </div>
@@ -124,7 +218,7 @@
                         {{ Form::label('venuecoverimg', 'Venue Cover Image') }}
                         </div>
                         <div class="col-md-8">
-                        {{ Form::file('venue_cover_img') }}   
+                       <input id="venue_cover_img" type="file" class="form-control" name="venue_cover_img"required>
                       </div>
                   </div>
               </div>

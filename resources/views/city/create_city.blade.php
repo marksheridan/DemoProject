@@ -73,7 +73,7 @@
 
                         </div>
                        <div class="col-md-8">
-                           <input id="name" type="text" class="form-control" name="city_name" placeholder="City Name"required pattern="[a-zA-Z]{1,15}" title="not a valid city">
+                           <input id="city_name" type="text" class="form-control" name="city_name" placeholder="City Name"required pattern="[a-zA-Z]{1,15}" title="not a valid city">
                        </div>
                    </div>
                </div>

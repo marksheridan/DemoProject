@@ -25,6 +25,97 @@ li{
     color:white;
 }
 </style>
+
+<script type="text/javascript">
+  function validate()
+  {
+    var NameTB = document.getElementById("venue_name");
+    var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!namefilter.test(NameTB.value))
+    {
+      alert("EVENT NAME IS NOT VALID");
+      return false;
+    }
+
+    var PhoneTB = document.getElementById("venue_phone_no");
+
+      var phonefilter = new RegExp("^[0-9]{10}$");
+
+      if(!phonefilter.test(PhoneTB.value))
+        {
+          alert("Phone number must have 10 digit");
+          PhoneTB.focus();
+          return false;
+        }
+
+        var CatTB = document.getElementById("venue_category");
+    var catfilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!catfilter.test(CatTB.value))
+    {
+      alert("NOT VALID");
+      return false;
+    }
+
+
+var LatTB = document.getElementById("latitude");
+
+      var latfilter = new RegExp("^[0-9]+$");
+
+      if(!latfilter.test(LatTB.value))
+        {
+          alert("NUMBER PLEASE");
+          LatTB.focus();
+          return false;
+        }
+
+
+
+        var LotTB = document.getElementById("longitude");
+
+      var lotfilter = new RegExp("^[0-9]+$");
+
+      if(!lotfilter.test(LotTB.value))
+        {
+          alert("NUMBER PLEASE");
+          LotTB.focus();
+          return false;
+        }
+
+
+          var photoTB = document.getElementById("venue_cover_img").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(photoTB == '')
+        {
+          /*alert("Select a file.");
+          return false;*/
+        }
+
+        else
+        {
+          var extension = photoTB.substring(photoTB.lastIndexOf('.') +1).toLowerCase();
+          if(extension == "jpg" || extension == "png" || extension == "gif" || extension == "jpeg")
+
+          {
+           /* alert("file format is not valid");
+            return false;*/
+          }
+
+          else
+          {
+            alert("Invalid format");
+            document.getElementById("venue_cover_img").value = '';
+            return false;
+          }
+
+        }
+
+
+    
+    }
+  
+</script>
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -219,7 +310,7 @@ li{
         </div>
         <div class="col-md-3">
            
-            <input id="venue_address" type="textarea"  name="venue_address" value=" {{ $ven->venue_address }} ">
+           {{ Form::textarea('venue_address')  }}
            </div>
        </div>
             <br>
