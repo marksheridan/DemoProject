@@ -11,19 +11,21 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+Route::get('/register','UserController@register');
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
-Route::auth();
+Route::get('/admin/main','AdminController@mainpage');
+//Route::auth();
 
 // city part
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 
 
 Route::get('/createcity','CityController@create');
@@ -51,9 +53,15 @@ Route::get('/editvenue/{num}','VenueController@edit');
 Route::post('/updatevenue/{num}','VenueController@update');
 
 Route::get('/deletevenue/{num}','VenueController@delete');
-Route::get('/addevent','HomeController@addevent');
+
+Route::get('/addevent','EventController@create');
+
 Route::get('/addvenue','HomeController@addvenue');
+
 Route::get('/eventdisplay','HomeController@eventdisplay');
+
 Route::get('/artist','UserController@artist');
+
 Route::get('/promoters','UserController@promoters');
+
 Route::get('/addtoguestlist','HomeController@addtoguestlist');

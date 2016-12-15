@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,7 +36,10 @@ public function addtoguestlist()
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    { 
+        //return "Hello";
+              $users=User::all();
+
+        return view('homepage',compact('users'));
     }
 }

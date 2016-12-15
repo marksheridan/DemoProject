@@ -72,13 +72,23 @@ position: relative;
                    <img src="/images/ic_action_search.png" width="32">
                    </a>
                   
-               <a href="{{url('/login') }}">
- 
-                     <button type="submit" class="Button" align="center">
-                        Login
-                     </button>
-                   </a>
-                 </div>
+                @if(Auth::guest())
+                    <a href="{{url('/login') }}">
+     
+                        <button type="submit" class="Button" align="center">
+                            Login
+                        </button>
+                    </a>
+                @else
+                    
+                    <a href="{{url('/logout') }}">
+     
+                        <button type="submit" class="Button" align="center">
+                            Logout
+                        </button>
+                    </a>
+                @endif
+                </div>
                    <!--  <div class="modal fade" id="myModal" role="dialog">
                        <div class="modal-dialog">
                        

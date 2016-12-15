@@ -173,7 +173,7 @@ outline:none
     <div class="dropdown-content">
       <a href="#">Profile</a>
       <a href="#">Analytic</a>
-      <a href="#">Add B2B</a>
+      <a href="/register">Add B2B</a>
       
     </div>
   </li>
@@ -198,7 +198,7 @@ outline:none
                 
              </div>
         <div class="col-md-1">
-            <a href="{{url('/home') }}">
+            <a href="{{url('/logout') }}">
                 <p>LOG OUT</p>
             </a>
 
