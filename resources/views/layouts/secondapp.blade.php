@@ -61,13 +61,23 @@ position: relative;
 
                    <img src="/images/ic_action_search.png" width="32">
                    </a>
-                   
-                      <a href="{{url('/login') }}">
-  
-                     <button type="submit" class="Button" align="center" data-toggle="modal" data-target="#myModal"> 
-                        Login
-                     </button>
+                  
+                @if(Auth::guest())
+                    <a href="{{url('/login') }}">
+     
+                        <button type="submit" class="Button" align="center">
+                            Login
+                        </button>
                     </a>
+                @else
+                    
+                    <a href="{{url('/logout') }}">
+     
+                        <button type="submit" class="Button" align="center">
+                            Logout
+                        </button>
+                    </a>
+                @endif
                   </div>
               <!--        <div class="modal fade" id="myModal" role="dialog">
                   <div class="modal-dialog">
@@ -160,7 +170,7 @@ position: relative;
   </p>
 </div>
 <div class="col-md-2">
- <a href="{{url('/home') }}">
+ <a href="{{url('/') }}">
 
                    <img src="/images/1014d3e2908092bb2deb3c54dc16ae42.jpg" width="44">
                    </a>
