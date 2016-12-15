@@ -62,7 +62,7 @@
                             <label for="mobile" class="col-md-4 control-label">Mobile</label>
 
                             <div class="col-md-6">
-                                <input id="user_phone_no" type="number" class="form-control" name="user_phone_no" value="{{ old('user_phone_no') }}">
+                                <input id="user_phone_no" type="text" class="form-control" name="user_phone_no" value="">
 
                                <!--  @if ($errors->has('user_email'))
                                     <span class="help-block">

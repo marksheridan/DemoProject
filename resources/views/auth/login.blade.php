@@ -80,7 +80,7 @@ select{
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="user_email" type="email" class="form-control" name="user_email" value="{{ old('user_email') }}">
+                                <input id="user_email" type="email" class="form-control" name="user_email" value="">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
