@@ -46,7 +46,7 @@
             </label>
             </div>
             <div class="col-md-3">
-            <input id="city_name" type="text"  name="city_name" value=" {{ $city->city_name }} ">
+            <input id="city_name" type="text" required pattern="[a-zA-Z]{1,15}" title="not a valid city"  name="city_name" value=" {{ $city->city_name }} ">
             </div>
             <div class="col-md-3">
                         </div>

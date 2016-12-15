@@ -192,7 +192,7 @@ select{
    <td width="500px">
     <div class="col-md-6"style="url(file:///var/www/html/clubbers/DemoProject/public/images/mountains1.jpg)">
      <h4>Venues</h4>
-      <img src="/images/mountains1.jpg" width="560px">
+      <img src="/images/location.jpg" width="560px">
         </div>
       </td>
 
@@ -201,7 +201,9 @@ select{
         <p id="hid">Monkey Bar</p>
         <p id="date">#610, 12th Main, Indiranagar, Towards 80ft Road, Opp. SBI, Bengaluru,
          Karnataka 560038 Bangalore</p>
-           <button type="button" class="Dir"> GET DIRECTION</button>
+         <a href="{{url('https://www.google.co.in/maps/@12.9539974,77.6309395,11z') }}">          
+         <button type="button" class="Dir"> GET DIRECTION</button>
+       </a>
           
       </div>
     </td>

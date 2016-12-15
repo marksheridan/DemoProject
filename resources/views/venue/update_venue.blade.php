@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
  @if(count($errors) > 0)
@@ -16,192 +16,231 @@
  </div>
 @endif  
 
+<style>
+
+ h4{
+            color: #3989AE;
+    }
+li{
+    color:white;
+}
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Update venue</div>
+          <div class="panel-heading text-center">
+                <div class="panel-heading"><h4><strong>UPDATE VENUE</strong></h4></div>
+                      <div class="jumbotron">
 
                 {{Form::open(['url' => ['updatevenue/'.$ven->venue_id], 'method' => 'post', 'files' => true]) }}
 
-    <table>
-            <tr>
-            <td>
+        <div class="row">
+           <div class="col-md-3">
+           </div>
+
+         <div class="col-md-3">
             <label for="venue_name">
                       Venue Name
             </label>
-            </td>
-            <td>
+         </div>
+         <div class="col-md-3">
             <input id="venue_name" type="text"  name="venue_name" value=" {{ $ven->venue_name }} ">
-            </td>
-            </tr>
-
-
-            <tr>
-            <td>
+           </div>
+        </div>
+          <br>
+          <div class="row">
+             <div class="col-md-3">
+           </div>
+            <div class="col-md-3">
             <label for="venue_phone_no">
                       Venue Phone Number
             </label>
-            </td>
-            <td>
+          </div>
+          <div class="col-md-3">
             <input id="venue_phone_no" type="text"  name="venue_phone_no" value=" {{ $ven->venue_phone_no }} ">
-            </td>
-            </tr>
-
-        
-
-            <tr>
-            <td>
+         </div>
+     </div>
+             <br>
+       <div class="row">
+         <div class="col-md-3">
+           </div>
+        <div class="col-md-3">
             <label for="venue_category">
                       Venue Category
             </label>
-            </td>
-            <td>
+           </div>
+           <div class="col-md-3">
             <input id="venue_category" type="text"  name="venue_category" value=" {{ $ven->venue_category }} ">
-            </td>
-            </tr>
+           </div>
+        </div>
+             <br>
 
-
-
-            <tr>
-            <td>
+         <div class="row">  
+             <div class="col-md-3">
+           </div>
+            <div class="col-md-3">
             <label for="venue_latitude">
                       Venue Latitude
             </label>
-            </td>
-            <td>
+           </div>
+           <div class="col-md-3">
+             <div class="col-md-3">
+           </div>
             <input id="latitude" type="text"  name="latitude" value=" {{ $ven->latitude }} ">
-            </td>
-            </tr>
+           </div>
+       </div>
+            <br>
 
-            <tr>
-            <td>
+           
+          <div class="row">
+             <div class="col-md-3">
+           </div>
+            <div class="col-md-3">
             <label for="venue_longitude">
                       Venue Longitude
             </label>
-            </td>
-            <td>
+           
+            </div>
+            <div class="col-md-3">
             <input id="longitude" type="text"  name="longitude" value=" {{ $ven->longitude }} ">
-            </td>
-            </tr>
+            </div>
+        </div>
 
-
-            <tr>
-            <td>
-            <label for="venue_city">
+            <br>
+         <div class="row">
+             <div class="col-md-3">
+           </div>
+            <div class="col-md-3">
+         <label for="venue_city">
                       Venue city
             </label>
-            </td>
-            <td>
+             </div>
+             <div class="col-md-3">
             {{ Form::select('venue_city', $city, Input::old('city_name'), 
             ['class' =>'venue_city','id' =>'venue_city', 'placeholder' => 'Pick a city']) }}       
-            </td>
-            </tr>
+           </div>
+       </div>
+            <br>
 
-
-            <tr>
-            <td>
+            <div class="row">
+                 <div class="col-md-3">
+           </div>
+                <div class="col-md-3">
             <label for="venue_cover_img">
                       Venue Cover Image
             </label>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
+           
             {{ Form::file('venue_cover_img',['class' =>'venue_cover_img', 'id' => 'venue_cover_img']) }}   
-            </td>
-            </tr>
+            </div>
+            </div>
 
-
-            
-            <tr>
-            <td>
+            <br>
+           <div class="row">
+             <div class="col-md-3">
+           </div>
+            <div class="col-md-3">
             <label for="venue_status">
                       Venue Status
             </label>
-            </td>
-            <td>
+            </div>
+            <div class="col-md-3">
             {{ Form::select('venue_status', ['active' => 'Active', 'inactive' => 'In Active', 'deleted' => 'Deleted'], 
             $ven->venue_status, ['class' =>'venue_status','id' =>'venue_status', 'placeholder' => 'Pick a Status']) }}          
-            </td>
-            </tr>
-
-
-            <tr>
-            <td>
+          </div>
+      </div>
+            <br>
+           <div class="row">
+             <div class="col-md-3">
+           </div>
+            <div class="col-md-3">
             <label for="venue_card">
                       Venue card
             </label>
-            </td>
-            <td>
+           </div>
+           <div class="col-md-3">
             {{ Form::select('venue_card', ['yes' => 'Yes', 'no' => 'No'], 
             $ven->venue_card, ['class' =>'venue_card','id' =>'venue_card', 'placeholder' => 'Pick a card']) }}          
-            </td>
-            </tr>
-
-
-            <tr>
-            <td>
+           </div>
+       </div>
+            <br>
+          <div class="row">
+             <div class="col-md-3">
+           </div>
+            <div class="col-md-3">
             <label for="venue_parking">
                       Venue Parking
             </label>
-            </td>
-            <td>
+           </div>
+           <div class="col-md-3">
             {{ Form::select('venue_parking', ['yes' => 'Yes', 'no' => 'No'], 
             $ven->venue_parking, ['class' =>'venue_parking','id' =>'venue_parking', 'placeholder' => 'Pick a parking']) }}          
-            </td>
-            </tr>
+            </div>
+        </div>
 
-
-            <tr>
-            <td>
+            <br>
+            <div class="row">
+                 <div class="col-md-3">
+           </div>
+                <div class="col-md-3">
             <label for="venue_seats">
                       Venue Seats
             </label>
-            </td>
-            <td>
+            </div>
+            <div class="col-md-3">
             {{ Form::select('venue_seats', ['yes' => 'Yes', 'no' => 'No'], 
             $ven->venue_seats, ['class' =>'venue_seats','id' =>'venue_seats', 'placeholder' => 'Pick a seats']) }}          
-            </td>
-            </tr>
+            </div>
+        </div>
+            <br>
 
-
-            <tr>
-            <td>
+           <div class="row">
+             <div class="col-md-3">
+           </div>
+            <div class="col-md-3">
             <label for="venue_smoking">
                       Venue smoking
             </label>
-            </td>
-            <td>
+           </div>
+           <div class="col-md-3">
             {{ Form::select('venue_smoking', ['yes' => 'Yes', 'no' => 'No'], 
             $ven->venue_smoking, ['class' =>'venue_smoking','id' =>'venue_smoking', 'placeholder' => 'Pick a smoking']) }}          
-            </td>
-            </tr>
-
-
-             <tr>
-            <td>
+           </div>
+       </div>
+            <br>
+            <div class="row">
+                 <div class="col-md-3">
+           </div>
+                <div class="col-md-3">
             <label for="venue_address">
                       Venue address
             </label>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
+           
             <input id="venue_address" type="textarea"  name="venue_address" value=" {{ $ven->venue_address }} ">
-            </td>
-            </tr>
-            
-            
-            <tr>
-            <td>
-            <button type="submit" >
-                    Update
-            </button>
-            </td>
-            </tr>        
-    </table>
+           </div>
+       </div>
+            <br>
+        
+
+                <div class="row">
+
+    
+            <div class="form-group">
+                   <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
+                            Add</button>
+                        </div>
+                
+            </div>
     
     {!! Form::close() !!}
+           </div>
          
             </div>
         </div>
     </div>
 </div>
+       
 @endsection
