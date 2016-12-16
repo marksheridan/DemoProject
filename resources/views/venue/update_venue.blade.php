@@ -26,6 +26,7 @@ li{
 }
 </style>
 
+
 <script type="text/javascript">
   function validate()
   {
@@ -37,7 +38,7 @@ li{
       return false;
     }
 
-    /*var PhoneTB = document.getElementById("venue_phone_no");
+    var PhoneTB = document.getElementById("venue_phone_no");
 
       var phonefilter = new RegExp("^[0-9]{10}$");
 
@@ -47,23 +48,23 @@ li{
           PhoneTB.focus();
           return false;
         }
-*/
+
         var CatTB = document.getElementById("venue_category");
     var catfilter= new RegExp("^[a-zA-Z\ ]+$","g");
     if(!catfilter.test(CatTB.value))
     {
-      alert("NOT VALID");
+      alert("CATEGORY NOT VALID");
       return false;
     }
 
 
-v/*ar LatTB = document.getElementById("latitude");
+var LatTB = document.getElementById("latitude");
 
-      var latfilter = new RegExp("^[0-9]$");
+      var latfilter = new RegExp("^[ .0-9]+$");
 
       if(!latfilter.test(LatTB.value))
         {
-          alert("NUMBER PLEASE");
+          alert("NUMBER PLEASE LAT");
           LatTB.focus();
           return false;
         }
@@ -72,14 +73,26 @@ v/*ar LatTB = document.getElementById("latitude");
 
         var LotTB = document.getElementById("longitude");
 
-      var lotfilter = new RegExp("^[0-9]$");
+      var lotfilter = new RegExp("^[ .0-9]+$");
 
       if(!lotfilter.test(LotTB.value))
         {
-          alert("NUMBER PLEASE");
+          alert("NUMBER PLEASE LOT");
           LotTB.focus();
           return false;
-        }*/
+        }
+ 
+  var e = document.getElementById("venue_city");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE CITY PLEASE");
+return false;
+}
+
+
 
 
           var photoTB = document.getElementById("venue_cover_img").value;
@@ -108,12 +121,77 @@ v/*ar LatTB = document.getElementById("latitude");
           }
 
         }
+           
+           var e = document.getElementById("venue_status");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE STATUS PLEASE");
+return false;
+}
+
+
+ var e = document.getElementById("venue_card");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE CARD PLEASE");
+return false;
+}
+
+
+var e = document.getElementById("venue_parking");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE PARKING PLEASE");
+return false;
+}
+
+
+var e = document.getElementById("venue_seats");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE SEATS PLEASE");
+return false;
+}
+
+var e = document.getElementById("venue_smoking");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE smoking PLEASE");
+return false;
+}
+
+
+  var addTB = document.getElementById("venue_address").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(addTB == '')
+        {
+          alert("address required ");
+          return false;
+        }
+
+
 
 
     
     }
   
 </script>
+
 
 
 <div class="container">

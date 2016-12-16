@@ -60,14 +60,14 @@
     var catfilter= new RegExp("^[a-zA-Z\ ]+$","g");
     if(!catfilter.test(CatTB.value))
     {
-      alert("NOT VALID");
+      alert(" CATEGORY NOT VALID");
       return false;
     }
 
 
 var LatTB = document.getElementById("latitude");
 
-      var latfilter = new RegExp("^[0-9]+$");
+      var latfilter = new RegExp("^[.0-9]+$");
 
       if(!latfilter.test(LatTB.value))
         {
@@ -80,7 +80,7 @@ var LatTB = document.getElementById("latitude");
 
         var LotTB = document.getElementById("longitude");
 
-      var lotfilter = new RegExp("^[0-9]+$");
+      var lotfilter = new RegExp("^[.0-9]+$");
 
       if(!lotfilter.test(LotTB.value))
         {
@@ -88,6 +88,18 @@ var LatTB = document.getElementById("latitude");
           LotTB.focus();
           return false;
         }
+ 
+  var e = document.getElementById("venue_city");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE CITY PLEASE");
+return false;
+}
+
+
 
 
           var photoTB = document.getElementById("venue_cover_img").value;
@@ -116,6 +128,70 @@ var LatTB = document.getElementById("latitude");
           }
 
         }
+           
+           var e = document.getElementById("venue_status");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE STATUS PLEASE");
+return false;
+}
+
+
+ var e = document.getElementById("venue_card");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE CARD PLEASE");
+return false;
+}
+
+
+var e = document.getElementById("venue_parking");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE PARKING PLEASE");
+return false;
+}
+
+
+var e = document.getElementById("venue_seats");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE SEATS PLEASE");
+return false;
+}
+
+var e = document.getElementById("venue_smoking");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("VENUE smoking PLEASE");
+return false;
+}
+
+
+  var addTB = document.getElementById("venue_address").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(addTB == '')
+        {
+          alert("address required ");
+          return false;
+        }
+
+
 
 
     
@@ -242,7 +318,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venuecard', 'venue_card') }}
                         </div>
                         <div class="col-md-8">
-                        {{ Form::select('venue_card', ['yes' => 'Yes','no' => 'No' ], "yes", ['placeholder' => 'Pick a card']) }}
+                        {{ Form::select('venue_card', ['yes' => 'Yes','no' => 'No' ], "yes", ['class' =>'venue_card','id' =>'venue_card','placeholder' => 'Pick a card']) }}
                         </div>
                     </div>
                 </div>
@@ -253,7 +329,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venueparking', 'venue_parking') }}
                        </div>
                        <div class="col-md-8">
-                        {{ Form::select('venue_parking', ['yes' => 'Yes','no' => 'No' ], "yes", ['placeholder' => 'Pick a parking']) }}
+                        {{ Form::select('venue_parking', ['yes' => 'Yes','no' => 'No' ], "yes", ['class' =>'venue_parking','id' =>'venue_parking','placeholder' => 'Pick a parking']) }}
                         </div>
                     </div>
                 </div>
@@ -265,7 +341,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venueseats', 'venue_seats') }}
                        </div>
                        <div class="col-md-8">
-                        {{ Form::select('venue_seats', ['yes' => 'Yes','no' => 'No' ], "yes", ['placeholder' => 'Pick seats']) }}
+                        {{ Form::select('venue_seats', ['yes' => 'Yes','no' => 'No' ], "yes", ['class' =>'venue_seats','id' =>'venue_seats','placeholder' => 'Pick seats']) }}
                         </div>
                     </div>
                 </div>
@@ -277,7 +353,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venuesmoking', 'venue_smoking') }}
                        </div>
                        <div class="col-md-8">
-                        {{ Form::select('venue_smoking', ['yes' => 'Yes','no' => 'No' ], "yes", ['placeholder' => 'Pick smoking']) }}
+                        {{ Form::select('venue_smoking', ['yes' => 'Yes','no' => 'No' ], "yes", ['class' =>'venue_smoking','id' =>'venue_smoking','placeholder' => 'Pick smoking']) }}
                       </div>
                   </div>
               </div>
@@ -288,7 +364,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venueaddress', 'venue_address') }}
                        </div>
                        <div class="col-md-8">
-                        {{ Form::textarea('venue_address')  }}
+                        {{ Form::textarea('venue_address',null,['class' => 'venue_address','id' =>'venue_address'])  }}
                         </div>
                     </div>
                 </div>
