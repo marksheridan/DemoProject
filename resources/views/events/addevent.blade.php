@@ -298,7 +298,7 @@ $(".event_city_id").change(function(){
     			url: '/venue-list/' + $(this).val(), 
     			success: function(response){ 
     				//alert("success");
-    				//$(".event_venue_id").empty()
+    				$(".event_venue_id").empty()
     		    	$.each(response, function(i, obj){
     		    		console.log(obj)
     		    		$(".event_venue_id").append("<option value="+obj.venue_id+">"+obj.venue_name+"</option>")

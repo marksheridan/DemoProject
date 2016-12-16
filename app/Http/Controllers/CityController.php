@@ -24,6 +24,7 @@ class CityController extends Controller
     {
         $this->validate($request, [
             'city_name' => 'required|unique:cities',
+            
         
         ]);
         $input = $request->all();
