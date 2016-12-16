@@ -54,6 +54,15 @@ Route::post('/updatevenue/{num}','VenueController@update');
 
 Route::get('/deletevenue/{num}','VenueController@delete');
 
+//guestlist part
+
+Route::get('/addtoguestlist','GuestController@create');
+
+Route::post('/storeguest','GuestController@store');
+
+
+
+
 
 
 Route::get('/addevent','EventController@create');
@@ -66,7 +75,7 @@ Route::get('/artist','UserController@artist');
 
 Route::get('/promoters','UserController@promoters');
 
-Route::get('/addtoguestlist','HomeController@addtoguestlist');
+
 
 Route::get('/venue-list/{value}', 'EventController@getVenues');
 
