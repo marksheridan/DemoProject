@@ -30,6 +30,14 @@ public function addtoguestlist()
 {
     return view('auth.addtoguestlist');
 }
+public function search()
+{
+    return view('search');
+}
+
+
+
+
     /**
      * Show the application dashboard.
      *

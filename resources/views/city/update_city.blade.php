@@ -26,6 +26,39 @@
     }
 
 </style>
+<script type="text/javascript">
+  function validate()
+  {
+    var CNameTB = document.getElementById("city_name");
+    var cnamefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!cnamefilter.test(CNameTB.value))
+    {
+      alert("NOT A VALID CITY");
+      return false;
+    }
+ var e = document.getElementById("city_status");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("CITY STATUS PLEASE");
+return false;
+}
+
+var t = document.getElementById("city_tier");
+var strUser = t.options[t.selectedIndex].value;
+
+var strUser1 = t.options[t.selectedIndex].text;
+if(strUser==0)
+{
+alert("CITY TIER PLEASE");
+return false;
+}
+
+    
+    }
+    </script>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -48,7 +81,7 @@
             </label>
             </div>
             <div class="col-md-3">
-            <input id="city_name" type="text" required pattern="[a-zA-Z]{1,15}" title="not a valid city"  name="city_name" value=" {{ $city->city_name }} ">
+            <input id="city_name" type="text"  name="city_name" value=" {{ $city->city_name }} ">
             </div>
             <div class="col-md-3">
                         </div>

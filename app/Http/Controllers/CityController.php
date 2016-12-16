@@ -66,7 +66,7 @@ class CityController extends Controller
     public function update(Request $request,$id)
     {
     $this->validate($request, [
-            'city_name' => 'required|unique:cities',
+            'city_name' => 'unique:cities',
         
     ]);
 

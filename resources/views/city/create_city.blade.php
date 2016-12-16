@@ -31,22 +31,45 @@
 
 </style>  
 
-<!-- <div class="alert">
+
+
+
 <script type="text/javascript">
 
   function validate()
     {
-      var NameTB = document.getElementById("name");
+      var CNameTB = document.getElementById("city_name");
 
-      var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
-      if(!namefilter.test(NameTB.value))
+      var cnamefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+      if(!cnamefilter.test(CNameTB.value))
         {
-          alert("Please enter only characters");
+          alert("VALID NAME PLEASE!");
           return false;
         }
+        var e = document.getElementById("city_status");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("CITY STATUS PLEASE");
+return false;
+}
+
+var t = document.getElementById("city_tier");
+var strUser = t.options[t.selectedIndex].value;
+
+var strUser1 = t.options[t.selectedIndex].text;
+if(strUser==0)
+{
+alert("CITY TIER PLEASE");
+return false;
+}
+
+
 }
 </script>
-</div> -->
+
 
 <div class="container">
     <h4><strong>  ADD CITY <strong> </h4>
@@ -73,7 +96,7 @@
 
                         </div>
                        <div class="col-md-8">
-                           <input id="city_name" type="text" class="form-control" name="city_name" placeholder="City Name"required pattern="[a-zA-Z]{1,15}" title="not a valid city">
+                           <input id="city_name" type="text" class="form-control" name="city_name" placeholder="City Name"required >
                        </div>
                    </div>
                </div>
@@ -107,7 +130,7 @@
                                 </div>
                             
                         <div class="col-md-8">
-                                {{ Form::select('city_tier', ['1' => '1','2' => '2' ], null, ['placeholder' => 'Pick a Tier']) }}
+                                {{ Form::select('city_tier', ['1' => '1','2' => '2' ], null, ['class' =>'city_tier','id' =>'city_tier','placeholder' => 'Pick a Tier']) }}
                                         </div>
                    </div>
                </div>

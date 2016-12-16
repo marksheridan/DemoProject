@@ -67,3 +67,5 @@ Route::get('/artist','UserController@artist');
 Route::get('/promoters','UserController@promoters');
 
 Route::get('/addtoguestlist','HomeController@addtoguestlist');
+
+Route::get('/search','HomeController@search');
