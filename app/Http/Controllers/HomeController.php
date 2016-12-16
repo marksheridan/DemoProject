@@ -42,6 +42,8 @@ class HomeController extends Controller
         $users=User::all();
         $events=Event::all();
 
-        return view('homepage',compact('users','events'));
+        $flyer=Event::lists('id','event_banner');
+
+        return view('homepage',compact('users','events','flyer'));
     }
 }

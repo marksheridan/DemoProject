@@ -97,18 +97,14 @@ select{
             <div class="item active">
                 <img src="/images/sweden.jpg" alt="Chania" width="460" height="345">
             </div>
-
+            @foreach($events as $event)
             <div class="item">
-                <img src="/images/Avengers-Slider.jpg" alt="Chania" width="460" height="345">
+                <a href="{{'/eventdisplay/'.$event->id}}">
+                    <img src="{{ url('eventimages').'/'. $event->event_banner}}" alt="Chania" width="300" height="155">
+                </a>
             </div>
-    
-            <div class="item">
-                <img src="/images/mountains1.jpg" alt="Flower" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="/images/batman-v-superman.png" alt="Flower" width="460" height="345">
-            </div>
+            @endforeach
+            
         </div>
 
     <!-- Left and right controls -->
