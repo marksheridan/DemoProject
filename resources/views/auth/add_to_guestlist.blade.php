@@ -100,9 +100,9 @@ position: absolute;
 				
 			</div>
 			<div class="panel-body">
-				{{Form::open(['url' => '/storeguest', 'method' => 'post']) }}
-			<form method="post"enctype="multipart/form-data">
-				<!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+				
+			<form action="{{ url('/storeguest/'.$cc) }}" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="row">
 					<div class="form-group">
 					

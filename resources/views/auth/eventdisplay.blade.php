@@ -114,7 +114,7 @@ select{
 			     <div class="col-md-6">
 				    <p id="hid">{{$event->event_name}}</p>
 				    <p id="date"><strong>{{ $event->event_venue_id }}</strong></p>
-          <a href="{{ url('/addtoguestlist') }}">
+          <a href="{{ url('/addtoguestlist/'.$event->id) }}">
             <button type="button" class="Guest"> 
               {{$event->event_type}}
             </button>

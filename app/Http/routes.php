@@ -56,9 +56,9 @@ Route::get('/deletevenue/{num}','VenueController@delete');
 
 //guestlist part
 
-Route::get('/addtoguestlist','GuestController@create');
+Route::get('/addtoguestlist/{num}','GuestController@create');
 
-Route::post('/storeguest','GuestController@store');
+Route::post('/storeguest/{num}','GuestController@store');
 
 
 
