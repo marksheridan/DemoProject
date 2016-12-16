@@ -8,6 +8,7 @@ use App\City;
 use App\Venue;
 use File;
 use Auth;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests;
 
 class EventController extends Controller
@@ -27,16 +28,25 @@ class EventController extends Controller
         
         /*$timestamp = date("m/d/Y", strtotime($request->event_date));
         $input['event_date']=$timestamp;*/
+
+        
         $input['created_by']=Auth::User()->id;
         $input['user_id']=Auth::User()->id;
+
+        $destinationPath = public_path('flyer');
         $filepath=public_path('/eventimages/');
+        
         $file=$request->event_banner;
         if($request->hasfile('event_banner'))
         { 
             $ext = File::extension($file);
-            $name = time().$ext;
-            $input['event_banner'] = $name;
-            $file->move($filepath, $name);
+            $input['event_banner'] = time().'.'. $file->getClientOriginalExtension();
+
+            $img = Image::make($file->getRealPath());
+            $img->resize(1000, 500)->save($destinationPath.'/'.$input['event_banner']);
+            
+            
+            $file->move($filepath, $input['event_banner']);
         }
         //dd($input);
     	Event::create($input);

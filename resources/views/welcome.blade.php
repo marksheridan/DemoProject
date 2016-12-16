@@ -144,7 +144,7 @@ select{
         <div class="col-md-4">
             <div class="jumbotron">
                 <a href="{{'/eventdisplay/'.$event->id}}">
-                    <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="294">
+                    <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="294" height="100">
                 </a>
                 <div class="text-left">
                     <div class="eventname">

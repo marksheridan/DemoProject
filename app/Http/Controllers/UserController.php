@@ -41,4 +41,13 @@ class UserController extends Controller
         dd($cities);
     }
 
+    public function showartist()
+    {
+         
+    }
+
+    public function showvenue()
+    {
+
+    }
 }
