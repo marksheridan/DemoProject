@@ -118,33 +118,4 @@ class VenueController extends Controller
     }
 
 
-
-
-     public function creategst()
-    {
-       // return("hai");
-        return view('add_guest');
-        
-    }
-
-    public function storeguest(Request $request)
-    {
-        //dd($request);
-
-    $input= $request->except('_token');
-    $input['business_user_id']= "2";
-    $input['clubber_id']= "4";
-    $input['event_id'] = "3";
-    $string = str_random(4);
-    $input['guest_entry_code']= $string; 
-
-    //dd($input);
-    
-    $gu = Guest::create($input);
-    //dd($gu); 
-    return redirect('/createguest');
-    
-    }
-
-
 }
