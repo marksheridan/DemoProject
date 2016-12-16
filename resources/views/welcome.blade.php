@@ -100,7 +100,7 @@ select{
             @foreach($events as $event)
             <div class="item">
                 <a href="{{'/eventdisplay/'.$event->id}}">
-                    <img src="{{ url('eventimages').'/'. $event->event_banner}}" alt="Chania" width="300" height="155">
+                    <img src="{{ url('flyer').'/'. $event->event_banner}}" alt="Chania" width="300" height="155">
                 </a>
             </div>
             @endforeach
