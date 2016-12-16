@@ -56,16 +56,20 @@ Route::get('/deletevenue/{num}','VenueController@delete');
 
 
 
-Route::get('/addevent','HomeController@addevent');
+Route::get('/addevent','EventController@create');
 
 Route::get('/addvenue','HomeController@addvenue');
 
-Route::get('/eventdisplay','HomeController@eventdisplay');
+Route::get('/eventdisplay/{value}','EventController@show');
 
 Route::get('/artist','UserController@artist');
 
 Route::get('/promoters','UserController@promoters');
 
 Route::get('/addtoguestlist','HomeController@addtoguestlist');
+
+Route::get('/venue-list/{value}', 'EventController@getVenues');
+
+Route::post('/storeevent','EventController@store');
 
 Route::get('/search','HomeController@search');

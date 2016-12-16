@@ -7,7 +7,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   .carousel-inner > .item > img,
@@ -107,17 +106,17 @@ select{
 		<tr>
 			   <td width="500px">
 				    <div class="col-md-6">
-					   <img src="/images/mountains1.jpg" width="560px">
+					   <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="560px">
 				    </div>
 			   </td>
 
 			 <td>
 			     <div class="col-md-6">
-				    <p id="hid">SUICIDE SQUAD PRESENTS JOCKER LIVE</p>
-				    <p id="date">monday<strong> Paradise bar</strong> kochi</p>
+				    <p id="hid">{{$event->event_name}}</p>
+				    <p id="date"><strong>{{ $event->event_venue_id }}</strong></p>
           <a href="{{ url('/addtoguestlist') }}">
             <button type="button" class="Guest"> 
-              ADD TO GUESTLIST
+              {{$event->event_type}}
             </button>
           </a> 
 			   </div>

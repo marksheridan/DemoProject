@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\User;
+use App\Event;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,41 +14,34 @@ class HomeController extends Controller
      *
      * @return void
      */
-   public function addevent()
-   {
+    public function addevent()
+    {
     return view('events.addevent');
-   }
-   public function addvenue()
-   {
+    }
+    public function addvenue()
+    {
     return view('venues.addvenue');
-   }
-public function eventdisplay()
-{
-    return view('auth.eventdisplay');
-}
+    }
+    public function eventdisplay()
+    {
+        return view('auth.eventdisplay');
+    }
 
-public function addtoguestlist()
-{
-    return view('auth.addtoguestlist');
-}
-public function search()
-{
-    return view('search');
-}
+    public function addtoguestlist()
+    {
+        return view('auth.addtoguestlist');
+    }
+    public function search()
+    {
+        return view('search');
+    }
 
-
-
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     { 
         //return "Hello";
-              $users=User::all();
+        $users=User::all();
+        $events=Event::all();
 
-        return view('homepage',compact('users'));
+        return view('homepage',compact('users','events'));
     }
 }

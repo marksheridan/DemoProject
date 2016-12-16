@@ -82,196 +82,101 @@ select{
 <body>
 
 <div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <br>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="/images/sweden.jpg" alt="Chania" width="460" height="345">
-      </div>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="/images/sweden.jpg" alt="Chania" width="460" height="345">
+            </div>
 
-      <div class="item">
-        <img src="/images/Avengers-Slider.jpg" alt="Chania" width="460" height="345">
-      </div>
+            <div class="item">
+                <img src="/images/Avengers-Slider.jpg" alt="Chania" width="460" height="345">
+            </div>
     
-      <div class="item">
-        <img src="/images/mountains1.jpg" alt="Flower" width="460" height="345">
-      </div>
+            <div class="item">
+                <img src="/images/mountains1.jpg" alt="Flower" width="460" height="345">
+            </div>
 
-      <div class="item">
-        <img src="/images/batman-v-superman.png" alt="Flower" width="460" height="345">
-      </div>
-    </div>
+            <div class="item">
+                <img src="/images/batman-v-superman.png" alt="Flower" width="460" height="345">
+            </div>
+        </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
 
 <br><br>
+
+
 <div class="container padding0">
-  <div class="row">
-
-  <div class="col-md-10 col-sm-4">
-  <p id="eb">Events in bangalore</p>
- </div>
- <div class="col-md-2">
-  <select dir class="all events"><br>
-                                <option>all events</option>
-                                <option>RSVP</option>
-                                <option>Gustlist</option>
-                            </select>
-
-</div>
-</div>
+    <div class="row">
+        <div class="col-md-10 col-sm-4">
+            <p id="eb">Events in bangalore</p>
+        </div>
+        <div class="col-md-2">
+            <select dir class="all events"><br>
+                <option>all events</option>
+                <option>RSVP</option>
+                <option>Gustlist</option>
+            </select>
+        </div>
+    </div>
 <br><br>
- 
-<div class="row">
- 
-
-  <div class="col-md-4">
-     <div class="jumbotron">
-    <a href="{{url('/eventdisplay') }}">
-
-       <img src="/images/mountains1.jpg" width="294">
-    </a>
-    <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-        monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="RSPV"> RSPV</button>
-      </div>
-
-    </div>
-
-    </div>
 </div>
-<!-- <div> sdkjsdksn</div>
-<div>djdlsfsdl</div> -->
-<div class="col-md-4">
- <div class="jumbotron">
- <a href="{{url('/eventdisplay') }}">
-    <img src="/images/mountains1.jpg" width="294">
-  </a>
-    <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-        monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="RSPV"> RSPV</button>
-      </div>
+<div class="container padding0">
+    
+    <div class="row">
+    @foreach($events as $event)
+        <div class="col-md-4">
+            <div class="jumbotron">
+                <a href="{{'/eventdisplay/'.$event->id}}">
+                    <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="294">
+                </a>
+                <div class="text-left">
+                    <div class="eventname">
+                        {{ $event->event_name }}
+                    </div>
+                    <div class="eventvenue">
+                        monday<strong>{{$event->event_venue_id}}</strong> kochi
+                    </div>
+                    <div class="type">
+                        <button class="RSPV">{{ $event->event_type }}</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    @endforeach
     </div>
-</div>
-<div class="col-md-4">
-   <div class="jumbotron">
-
- <a href="{{url('/eventdisplay') }}">
-    <img src="/images/mountains1.jpg" width="294">
-  </a>
-  <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-       monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="RSPV"> RSPV</button>
-      </div>
-        </div>
-    </div>
-</div>
-
+    
 </div>
 <br>
 <!-- <div> sdkjsdksn</div>
 <div>djdlsfsdl</div> -->
 <div class="row">
 
-  <div class="col-md-4">
-     <div class="jumbotron">
-    <a href="{{url('/eventdisplay') }}">
-
-       <img src="/images/mountains1.jpg" width="294">
-    </a>
-    <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-        monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="RSPV"> RSPV</button>
-      </div>
-        </div>
-    </div>
-
-
-</div>
+  
 <!-- <div> sdkjsdksn</div>
 <div>djdlsfsdl</div> -->
-<div class="col-md-4">
-   <div class="jumbotron">
 
- <a href="{{url('/eventdisplay') }}">
-    <img src="/images/mountains1.jpg" width="294">
-  </a>
-  <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-       monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="RSPV"> RSPV</button>
-      </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-4">
-   <div class="jumbotron">
 
- <a href="{{url('/eventdisplay') }}">
-    <img src="/images/mountains1.jpg" width="294">
-  </a>
-  <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-        monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="RSPV"> RSPV</button>
-      </div>
-        </div>
-    </div>
-</div>
 </div>
 <br><br>
 

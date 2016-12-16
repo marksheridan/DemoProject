@@ -3,24 +3,9 @@
 
 @section('content')
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 
-<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
-	@if(count($errors)>0)
-		<div class="row">
-			<div class="col-md-6">
-				<ul>
-					@foreach($errors->all() as $error)
-						<li>{{$error}}</li>
-					@endforeach
-				</ul>
-			</div>
-		</div>
-	@endif
-<style>
+<style type="text/css">
 	h1{
 			color: #00008B;
 	}
@@ -44,10 +29,10 @@ position: relative;
 <body>
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+ -->
 
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
 <div class="table-responsive">
 	
@@ -91,7 +76,7 @@ position: relative;
 				 			</label>
 
 						<div class="col-md-6">
-							<input id="event_banner" type="file"  name="photo">
+							<input id="event_banner" type="file"  name="event_banner">
 					</div>
 				</div>
 			</div>
@@ -104,8 +89,9 @@ position: relative;
                              
 				 			</label>
 						<div class="col-md-8">
-							<select name="event_status" class="status_options"><br>
+							<select name="event_status" class="status_options">
 								<option>Event status</option>
+								<option>Open</option>
 								<option>Closed</option>
 								<option>Deleted</option>
 							</select>
@@ -123,39 +109,19 @@ position: relative;
 							
 							</label>
 						<div class="col-md-6">
-							<select name="event_type" class="type_options"><br>
+							<select name="event_type" class="type_options">
 								<option>Event type<option>
-								<option>RSVP</option>
-								<option>Guest</option>
+								<option>Guestlist<option>
+								<option>RSVP<option>
+								
 							</select>
 							
 					</div>
 				</div>
 				</div>
 				<br>
-                  <div class="row">
-					<div class="form-group">
-					
-							<label for="venue" class="col-md-4 control-label">
-								
-									Venue
-							
-							</label>
-						<div class="col-md-6">
-							<select name="venue" class="type_options"><br>
-								<option>venue</option>
-								<option>bangalore<option>
-								<option>hskdhk</option>
-								
-							</select>
-							
-					</div>
-				</div>
-				</div>
-                   <br>
 
-
-                   <div class="row">
+				<div class="row">
 					<div class="form-group">
 					
 							<label for="city" class="col-md-4 control-label">
@@ -164,10 +130,23 @@ position: relative;
 							
 							</label>
 						<div class="col-md-6">
-							<select name="city" class="type_options"><br>
-								<option>city</option>
-								<option>bangalore<option>
-								<option>hskdhk</option>
+							{{ Form::select('event_city_id', $cities, "0" , ["id"=>"event_city_id", "class"=>"event_city_id", 'placeholder' => 'select a city']) }}
+							
+					</div>
+				</div>
+				</div>
+				<br>
+                  <div class="row">
+					<div class="form-group">
+					
+							<label for="event_venue_id" class="col-md-4 control-label">
+								
+									Venue
+							
+							</label>
+						<div class="col-md-6">
+							<select name="event_venue_id" class="event_venue_id"><br>
+								<option>--Select a Venue--</option>
 								
 							</select>
 							
@@ -187,7 +166,7 @@ position: relative;
 								
 							</label>
 						<div class="col-md-6"> 
-							<input type="text" id="event_date" name ="event_date"class="form-control">
+							<input type="date" id="event_date" name ="event_date"class="form-control">
 						</td>
 					</div>
 				</div>
@@ -237,25 +216,9 @@ position: relative;
 					</div>
 				</div>
 				<br>
-                          
-                          <!-- <div class="row">
-                          					<div class="form-group">
-                          							
-                          							<label for="start_time" class="col-md-4 control-label">
-                          								
-                          									Event Close Time
-                          								
-                          							</label>
-                          						<div class="col-md-6">
-                          							<input id="start_time" type="time" class="form-control" name="start_time" placeholder="enter the start-time">
-                          						</div>
-                          					</div>
-                          				</div>
-                                              <br> -->
-
 					<div class="row">
 					<div class="form-group">
-							<label for="event_name" class="col-md-4 control-label">
+							<label for="event_description" class="col-md-4 control-label">
 								
 									Event Description
 								
@@ -270,7 +233,7 @@ position: relative;
 					<div class="row">
 					<div class="form-group">
 
-							<label for="event_name" class="col-md-4 control-label">
+							<label for="event_requirement" class="col-md-4 control-label">
 								
 									Event Requirements
 								
@@ -284,7 +247,7 @@ position: relative;
 
 					<div class="row">
 					<div class="form-group">
-							<label for="event_name" class="col-md-4 control-label">
+							<label for="video_link" class="col-md-4 control-label">
 								
 									Video Link
 								
@@ -298,7 +261,7 @@ position: relative;
                   
                   <div class="row">
 					<div class="form-group">
-							<label for="event_name" class="col-md-4 control-label">
+							<label for="event_guest_limit" class="col-md-4 control-label">
 								
 									Guest Limit
 								
@@ -323,8 +286,39 @@ position: relative;
 </div>
 	</div>
 </div>
-<script type="text/javascript" src="{{asset('jquery.min.js')}}"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </body>
+
+<script type="text/javascript">
+$(".event_city_id").change(function(){
+			//alert("Inside");
+        	$.ajax({
+    			method: 'GET', 
+    			url: '/venue-list/' + $(this).val(), 
+    			success: function(response){ 
+    				//alert("success");
+    				//$(".event_venue_id").empty()
+    		    	$.each(response, function(i, obj){
+    		    		console.log(obj)
+    		    		$(".event_venue_id").append("<option value="+obj.venue_id+">"+obj.venue_name+"</option>")
+    		    	})
+    			},
+    			error: function(jqXHR, textStatus, errorThrown) { 
+        			//alert("failure");
+        			console.log(JSON.stringify(jqXHR));
+        			console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+    			}
+			});
+
+			/*if($(".event_city_id").val()=="")
+         	{
+            	$("#event_venue_id").empty();
+            	/*$(".venue_options").append("<option value="">"--Select a venue--"</option>");
+         	}*/
+         
+    	});
+
+</script>
+
 @endsection
