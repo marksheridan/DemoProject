@@ -242,7 +242,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venuecard', 'venue_card') }}
                         </div>
                         <div class="col-md-8">
-                        {{ Form::select('venue_card', ['yes' => 'Yes','no' => 'No' ], null, ['placeholder' => 'Pick a card']) }}
+                        {{ Form::select('venue_card', ['yes' => 'Yes','no' => 'No' ], "yes", ['placeholder' => 'Pick a card']) }}
                         </div>
                     </div>
                 </div>
@@ -253,7 +253,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venueparking', 'venue_parking') }}
                        </div>
                        <div class="col-md-8">
-                        {{ Form::select('venue_parking', ['yes' => 'Yes','no' => 'No' ], null, ['placeholder' => 'Pick a parking']) }}
+                        {{ Form::select('venue_parking', ['yes' => 'Yes','no' => 'No' ], "yes", ['placeholder' => 'Pick a parking']) }}
                         </div>
                     </div>
                 </div>
@@ -265,7 +265,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venueseats', 'venue_seats') }}
                        </div>
                        <div class="col-md-8">
-                        {{ Form::select('venue_seats', ['yes' => 'Yes','no' => 'No' ], null, ['placeholder' => 'Pick seats']) }}
+                        {{ Form::select('venue_seats', ['yes' => 'Yes','no' => 'No' ], "yes", ['placeholder' => 'Pick seats']) }}
                         </div>
                     </div>
                 </div>
@@ -277,7 +277,7 @@ var LatTB = document.getElementById("latitude");
                         {{ Form::label('venuesmoking', 'venue_smoking') }}
                        </div>
                        <div class="col-md-8">
-                        {{ Form::select('venue_smoking', ['yes' => 'Yes','no' => 'No' ], null, ['placeholder' => 'Pick smoking']) }}
+                        {{ Form::select('venue_smoking', ['yes' => 'Yes','no' => 'No' ], "yes", ['placeholder' => 'Pick smoking']) }}
                       </div>
                   </div>
               </div>

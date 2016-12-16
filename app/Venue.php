@@ -13,7 +13,7 @@ class Venue extends Model
      * @var array
      */
     protected $fillable = [
-        'venue_name', 'venue_phone_no', 'venue_category','user_id', 
+        'venue_name', 'venue_phone_no', 'venue_category','user_id', 'created_by','updated_by',
         'latitude', 'longitude', 'venue_city', 'venue_cover_img', 'venue_status',
         'venue_card', 'venue_parking', 'venue_seats' ,'venue_smoking', 'venue_address',
 

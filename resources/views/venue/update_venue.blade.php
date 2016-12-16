@@ -37,7 +37,7 @@ li{
       return false;
     }
 
-    var PhoneTB = document.getElementById("venue_phone_no");
+    /*var PhoneTB = document.getElementById("venue_phone_no");
 
       var phonefilter = new RegExp("^[0-9]{10}$");
 
@@ -47,7 +47,7 @@ li{
           PhoneTB.focus();
           return false;
         }
-
+*/
         var CatTB = document.getElementById("venue_category");
     var catfilter= new RegExp("^[a-zA-Z\ ]+$","g");
     if(!catfilter.test(CatTB.value))
@@ -57,9 +57,9 @@ li{
     }
 
 
-var LatTB = document.getElementById("latitude");
+v/*ar LatTB = document.getElementById("latitude");
 
-      var latfilter = new RegExp("^[0-9]+$");
+      var latfilter = new RegExp("^[0-9]$");
 
       if(!latfilter.test(LatTB.value))
         {
@@ -72,14 +72,14 @@ var LatTB = document.getElementById("latitude");
 
         var LotTB = document.getElementById("longitude");
 
-      var lotfilter = new RegExp("^[0-9]+$");
+      var lotfilter = new RegExp("^[0-9]$");
 
       if(!lotfilter.test(LotTB.value))
         {
           alert("NUMBER PLEASE");
           LotTB.focus();
           return false;
-        }
+        }*/
 
 
           var photoTB = document.getElementById("venue_cover_img").value;
@@ -207,7 +207,7 @@ var LatTB = document.getElementById("latitude");
             </label>
              </div>
              <div class="col-md-3">
-            {{ Form::select('venue_city', $city, Input::old('city_name'), 
+            {{ Form::select('venue_city', $city,  $ven->venue_city , 
             ['class' =>'venue_city','id' =>'venue_city', 'placeholder' => 'Pick a city']) }}       
            </div>
        </div>
@@ -310,7 +310,7 @@ var LatTB = document.getElementById("latitude");
         </div>
         <div class="col-md-3">
            
-           {{ Form::textarea('venue_address')  }}
+           {{ Form::textarea('venue_address', $ven->venue_address, ['class' => 'venue_address','id' =>'venue_address']) }}
            </div>
        </div>
             <br>
