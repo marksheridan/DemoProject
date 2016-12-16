@@ -72,7 +72,7 @@ position: relative;
 							</label>
 					
 						<div class="col-md-6">
-							<input id="name" type="text" class="form-control" name="name" placeholder="Enter the event name">
+							<input id="event_name" type="text" class="form-control" name="event_name" placeholder="Enter the event name">
 					</div>
 				</div>
 			</div>
@@ -82,7 +82,7 @@ position: relative;
                          <div class="form-group">					
 
 
-				 			<label for="photo" class="col-md-4 control-label">
+				 			<label for="event_banner" class="col-md-4 control-label">
 
                                
 				 				Event Banner
@@ -91,14 +91,14 @@ position: relative;
 				 			</label>
 
 						<div class="col-md-6">
-							<input id="photo" type="file"  name="photo">
+							<input id="event_banner" type="file"  name="photo">
 					</div>
 				</div>
 			</div>
           <br>
                            <div class="row">
 				 			<div class="form-group">
-				 			<label for="venue" class="col-md-4 control-label">
+				 			<label for="event_status" class="col-md-4 control-label">
                              
 				 				Event status
                              
@@ -117,7 +117,7 @@ position: relative;
 				<div class="row">
 					<div class="form-group">
 					
-							<label for="start_time" class="col-md-4 control-label">
+							<label for="event_type" class="col-md-4 control-label">
 								
 									Event Type
 							
@@ -181,13 +181,13 @@ position: relative;
 					<div class="form-group">
 					
 
-							<label for="start_time" class="col-md-4 control-label">
+							<label for="event_date" class="col-md-4 control-label">
 								
 									Event date
 								
 							</label>
 						<div class="col-md-6"> 
-							<input type="text" id="datepicker" name ="datepicker"class="form-control">
+							<input type="text" id="event_date" name ="event_date"class="form-control">
 						</td>
 					</div>
 				</div>
@@ -203,7 +203,7 @@ position: relative;
 							</label>
 						
 						<div class="col-md-6">
-							<input id="start_time" type="time" class="form-control" name="start_time" placeholder="enter the start-time">
+							<input id="event_start_time" type="time" class="form-control" name="event_start_time" placeholder="enter the start-time">
 						</div>
 					</div>
 				</div>
@@ -211,13 +211,13 @@ position: relative;
 					 <div class="row">
 					<div class="form-group">
 							
-							<label for="start_time" class="col-md-4 control-label">
+							<label for="end_time" class="col-md-4 control-label">
 								
 									Event End Time
 								
 							</label>
 						<div class="col-md-6">
-							<input id="start_time" type="time" class="form-control" name="start_time" placeholder="enter the end-time">
+							<input id="event_end_time" type="time" class="form-control" name="event_end_time" placeholder="enter the end-time">
 						</div>
 					</div>
 				</div>
@@ -232,7 +232,7 @@ position: relative;
 								
 							</label>
 						<div class="col-md-6">
-							<input id="start_time" type="time" class="form-control" name="start_time" placeholder="enter the close-time">
+							<input id="event_closing_time" type="time" class="form-control" name="event_closing_time" placeholder="enter the close-time">
 						</div>
 					</div>
 				</div>
@@ -261,7 +261,7 @@ position: relative;
 								
 							</label>
 						<div class="col-md-6">
-							<input id="name" type="text" class="form-control" name="name" placeholder="Event description">
+							<input id="event_description" type="text" class="form-control" name="event_description" placeholder="Event description">
 						</div>
 					</div>
                  </div>
@@ -276,7 +276,7 @@ position: relative;
 								
 							</label>
 						<div class="col-md-6">
-							<input id="name" type="text" class="form-control" name="name" placeholder="Event Requirements">
+							<input id="event_requirement" type="text" class="form-control" name="event_requirement" placeholder="Event Requirements">
 						</div>
 					</div>
 				</div>
@@ -290,7 +290,7 @@ position: relative;
 								
 							</label>
 						<div class="col-md-6">
-							<input id="name" type="text" class="form-control" name="name" placeholder="video link">
+							<input id="video_link" type="text" class="form-control" name="video_link" placeholder="video link">
 						</div>
 					</div>
 				</div>
@@ -304,7 +304,7 @@ position: relative;
 								
 							</label>
 						<div class="col-md-6">
-							<input id="name" type="text" class="form-control" name="name" placeholder="Gust Limit">
+							<input id="event_guest_limit" type="text" class="form-control" name="event_guest_limit" placeholder="Gust Limit">
 						</div>
 					</div>
 				</div>
