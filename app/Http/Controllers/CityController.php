@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\City;
 use App\Venue;
+use App\User;
+use Auth;
 use App\Http\Requests;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
@@ -25,9 +27,10 @@ class CityController extends Controller
         
         ]);
         $input = $request->all();
-        $input['created_by'] = " 1 ";
+        $input[ 'created_by' ] = Auth::User()->id;
         City::create($input);
         $city=City::all();
+        //dd($city);
         return view('city.show_city',compact('city'));
     }
 
@@ -62,6 +65,11 @@ class CityController extends Controller
 
     public function update(Request $request,$id)
     {
+    $this->validate($request, [
+            'city_name' => 'required|unique:cities',
+        
+    ]);
+
     $input = $request->only(['city_name', 'city_status', 'city_tier']);
     $input['created_by']= " 2 ";
     City::where("city_id",$id)->update($input);

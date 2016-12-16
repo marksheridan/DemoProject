@@ -54,6 +54,8 @@ Route::post('/updatevenue/{num}','VenueController@update');
 
 Route::get('/deletevenue/{num}','VenueController@delete');
 
+
+
 Route::get('/addevent','HomeController@addevent');
 
 Route::get('/addvenue','HomeController@addvenue');

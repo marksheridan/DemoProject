@@ -11,10 +11,12 @@
             {{$error}}
         </li>
             @endforeach
+
+            
         </ul>
    </div>
  </div>
-@endif  
+@endif 
 
 
 <style>

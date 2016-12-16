@@ -15,7 +15,7 @@ class City extends Model
     public $table = 'cities';
     
     protected $fillable = [
-     'city_name', 'city_status', 'city_tier',
+     'city_name', 'city_status', 'city_tier','created_by',
     ];
 
     /**
@@ -27,9 +27,9 @@ class City extends Model
     
     ];
 
-    public function venue()
+    public function venues()
     {
-    return $this->hasMany('App\Venue', 'venue_city');
+    return $this->hasMany('App\Venue', 'venue_city', 'city_id');
     }
 
 
