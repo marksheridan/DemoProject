@@ -13,11 +13,18 @@ use App\Http\Requests;
 
 class EventController extends Controller
 {
-    public function create()
+    public function create($value)
     {
-    	//$events=Event::all();
-        $cities=City::where("city_status","=","active")->lists('city_name','city_id');
-    	return view('events.addevent',compact('cities'));
+        if($value=="guest")
+        {    
+            $cust="Guestlist";
+        }else{
+            $cust="RSVP";
+        }
+
+        //dd($cust);
+    	$cities=City::where("city_status","=","active")->lists('city_name','city_id');
+    	return view('events.addevent',compact('cities','cust'));
     }
 
     public function store(Request $request)
@@ -27,12 +34,12 @@ class EventController extends Controller
         'event_name' => 'required|unique:events',
         'event_banner'=>'required',
         'event_status' => 'required',
-        'event_type' => 'required',
+        //'event_type' => //'required',
         'event_date' => 'required',
         'event_start_time' => 'required',
         'event_end_time' => 'required',
         'event_description' => 'required',
-        'event_guest_limit' => 'required',
+        //'event_guest_limit' => 'required',
         
     ]);
 
@@ -58,14 +65,14 @@ class EventController extends Controller
             $input['event_banner'] = time().'.'. $file->getClientOriginalExtension();
 
             $img = Image::make($file->getRealPath());
-            $img->resize(1000, 500)->save($destinationPath.'/'.$input['event_banner']);
+            $img->resize(1000, 400)->save($destinationPath.'/'.$input['event_banner']);
             
-            
+              
             $file->move($filepath, $input['event_banner']);
-        }
+        }   
         //dd($input);
     	Event::create($input);
-    	return('Success');
+    	return view('/home');
     }
 
     public function update(Request $request,$id)

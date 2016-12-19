@@ -77,7 +77,9 @@ Route::get('/addtoguestlist/{num}','GuestController@create');
 
 Route::post('/storeguest/{num}','GuestController@store');
 
-Route::get('/addevent','EventController@create');
+Route::get('/addevent/{val}','EventController@create');
+
+//Route::get('/addevent/guest','EventController@create');
 
 Route::get('/addvenue','HomeController@addvenue');
 
@@ -102,3 +104,5 @@ Route::get('/guestlist','UserController@guest_list');
 Route::get('/userprofile','UserController@user_profile');
 
 Route::get('/artistprofile','UserController@artist_profile');
+
+Route::get('/eventdetails','UserController@event_details');

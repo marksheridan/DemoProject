@@ -70,7 +70,7 @@ select{
   font-family: 'Varela Round', sans-serif;
   border: 2px solid #48B4F2;
 }
-#eb{
+#eb{s
   color: #AF1414;
 }
 #pe{
@@ -125,7 +125,7 @@ select{
 <div class="container padding0">
     <div class="row">
         <div class="col-md-10 col-sm-4">
-            <p id="eb">Events in bangalore</p>
+            <p id="eb">Events in {{bangalore}}</p>
         </div>
         <div class="col-md-2">
             <select dir class="all events"><br>
@@ -374,4 +374,41 @@ select{
         </div>
     </div>
 </div> -->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+    $(".event_city_id").change(function(){
+      //alert("Inside");
+        $.ajax({
+            method: 'GET', 
+            url:            
+            /*/venue-list/' + $(this).val(), */
+            success: function(response){ 
+            //alert("success");
+                //$(".event_venue_id").empty()
+                $.each(response, function(i, obj){
+                    console.log(obj)
+                    $(".event_venue_id").append("<option value="+obj.venue_id+">"+obj.venue_name+"</option>")
+                })
+            },
+            error: function(jqXHR, textStatus, errorThrown) { 
+              //alert("failure");
+                console.log(JSON.stringify(jqXHR));
+                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            }
+        });
+
+      /*if($(".event_city_id").val()=="")
+          {
+              $("#event_venue_id").empty();
+              /*$(".venue_options").append("<option value="">"--Select a venue--"</option>");
+          }*/
+         
+    });
+
+</script>
+</script>
+
 @endsection

@@ -108,12 +108,13 @@ position: relative;
 							
 							</label>
 						<div class="col-md-6">
-							<select name="event_type" class="type_options">
+							<input type="text" name="event_type" id="event_type" for="event_type" value="{{$cust}}" readonly>
+							<!-- <select name="event_type" class="type_options">
 								<option>Event type<option>
 								<option>Guestlist<option>
 								<option>RSVP<option>
 								
-							</select>
+							</select> -->
 							
 					</div>
 				</div>
@@ -129,7 +130,7 @@ position: relative;
 							
 							</label>
 						<div class="col-md-6">
-							{{ Form::select('event_city_id', $cities, "0" , ["id"=>"event_city_id", "class"=>"event_city_id", 'placeholder' => 'select a city']) }}
+							{{ Form::select('event_city_id', $cities, "0" , ["id"=>"event_city_id", "class"=>"event_city_id", 'placeholder' => '--Select a city--']) }}
 							
 					</div>
 				</div>
@@ -200,10 +201,9 @@ position: relative;
 					</div>
 				</div>
 				<br>
-
-                      <div class="row">
+				@if($cust=="Guestlist")
+                <div class="row">
 					<div class="form-group">
-							
 							<label for="start_time" class="col-md-4 control-label">
 								
 									Event Close Time
@@ -215,7 +215,9 @@ position: relative;
 					</div>
 				</div>
 				<br>
-					<div class="row">
+				@endif
+				
+				<div class="row">
 					<div class="form-group">
 							<label for="event_description" class="col-md-4 control-label">
 								
@@ -257,7 +259,7 @@ position: relative;
 					</div>
 				</div>
 				<br>
-                  
+                @if($cust=="Guestlist") 
                   <div class="row">
 					<div class="form-group">
 							<label for="event_guest_limit" class="col-md-4 control-label">
@@ -270,7 +272,9 @@ position: relative;
 						</div>
 					</div>
 				</div>
-                        <br>
+                <br>
+                @endif
+
 					<div class="row">
 						<div class="form-group">
 							<div class="col-md-5">
