@@ -1,14 +1,19 @@
 @extends('layouts.user')
 
 @section('content')
+<style>
+#dev{
+	text-align: "center";
+}
+</style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <div>
-  	<img src="/images/mountains1.jpg" width="1300"height="400">
+  <div class="col-md-12 text-center">
+  	<img src="{{ url('images').'/'. $usr->user_img }}" width="400"height="400" id="dev" align="center">
   </div><br>
   <div class="container">
 	<div class="row">
@@ -53,7 +58,7 @@
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-md-5">
-						<label> Select sity</label>
+						<label> Select City</label>
 
 					</div>
 					<div class="col-md-5">
@@ -80,6 +85,31 @@
                     	<input type="password" name="password" id="password" palceholder="password">
                  	</div>
 					</div>
+					<div class="row">
+					<div class="col-md-5">
+						<label>choose picture</label>
+
+					</div>
+					<div class="col-md-5">
+                    	<input type="file" name="user_img" id="user_img" palceholder="image">
+
+                  <script type="text/javascript">
+                     function readURL(input) {
+                        if (input.files && input.files[0]) {
+                           var reader = new FileReader();
+                           reader.onload = function (e) {
+                              $('#dev').attr('src', e.target.result);
+                           }
+                           reader.readAsDataURL(input.files[0]);
+                        }
+                     }
+                     $("#user_img").change(function(){
+                        alert("CHANGED");
+                        readURL(this);
+                     });
+                  </script>
+                 	</div>
+					</div>
 				</div>	
 			</div>
 			<div class="row">
@@ -92,10 +122,11 @@
                         </a>
 
 					</div>
+					{{ Form::close() }}
 			
 					<div class="col-md-5">
                     	<a href="{{url('/artistprofile') }}">
-                    		 <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
+                    		 <button type="button" class="btn btn-primary" align="center" onclick="return validate()">
                             VIEW YOUR PROFILE</button>
                         </a>
                  	</div>
