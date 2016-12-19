@@ -105,13 +105,8 @@ Route::get('/guestlist','UserController@guest_list');
 
 Route::get('/userprofile','UserController@user_profile');
 
-<<<<<<< HEAD
-=======
 Route::post('/updateprofile/{num}','UserController@updateuser');
 
-
-
->>>>>>> 04a2eede777bd575f10f552104a75fae4f091c19
 Route::get('/artistprofile','UserController@artist_profile');
 
 Route::get('/eventdetails','UserController@event_details');

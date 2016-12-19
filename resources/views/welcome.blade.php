@@ -125,7 +125,7 @@ select{
 <div class="container padding0">
     <div class="row">
         <div class="col-md-10 col-sm-4">
-            <p id="eb">Events in {{bangalore}}</p>
+            <p id="eb">Events in Bangalore</p>
         </div>
         <div class="col-md-2">
             <select dir class="all events"><br>

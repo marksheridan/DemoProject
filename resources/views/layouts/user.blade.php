@@ -52,19 +52,19 @@
 
                			<a href="{{url('/usereventlist') }}">
 
-                  			 <img src="/images/house-logo-hi.png" width="50">
-                		 <a>
+                  			<img src="/images/house-logo-hi.png" width="50">
+                		<a>
                 		
 
-                		 <a href="{{url('/userprofile') }}">
+                		<a href="{{url('/userprofile') }}">
 
                    			<img src="/images/web-user.jpg" width="50">
-                		 <a>
+                		<a>
                  		
-                 		 <a href="{{url('/logout') }}">
+                 		<a href="{{url('/logout') }}">
 
                   			 <img src="/images/gnome_panel_force_quit.png" width="50">
-                         <a>
+                        <a>
            	
                    
   
