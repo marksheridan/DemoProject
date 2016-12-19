@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Guest;
+use App\Event;
 use Auth;
 use Carbon\Carbon;
 
@@ -30,9 +31,11 @@ class GuestController extends Controller
     public function store(Request $request ,$id)
     {
         //dd($request);
+        $evn = Event::where('id',$id)->first();
+        //dd($evn);
+
     $input= $request->except('_token');
-    $input['business_user_id']= Auth::User()->id;
-    $input['clubber_id']= "4";
+    $input['business_user_id']= $evn->user_id;
     $input['event_id'] = $id;
     $string = str_random(4);
     $input['guest_entry_code']= $string; 
