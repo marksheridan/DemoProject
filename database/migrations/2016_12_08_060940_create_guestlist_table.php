@@ -16,7 +16,7 @@ class CreateGuestlistTable extends Migration
             $table->increments('id');
             $table->integer('clubber_id')->nullable();
             $table->integer('event_id')->unsigned();
-            $table->unsignedInteger('business_user_id');
+            $table->unsignedInteger('business_user_id'); //id of the event creator 
             $table->string('guest_name', 50);
             $table->string('guest_phone_no', 10);
             $table->string('guest_email',255);
