@@ -392,4 +392,5 @@ return false;
         </div>
     </div>
 </div>
+</div>
 @endsection

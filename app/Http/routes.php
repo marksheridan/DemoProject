@@ -94,3 +94,9 @@ Route::post('/storeevent','EventController@store');
 Route::get('/search','HomeController@search');
 
 Route::get('user/artist_profile','UserController@showartist');
+
+Route::get('/usereventlist','UserController@user_eventlist');
+
+Route::get('/guestlist','UserController@guest_list');
+
+Route::get('/userprofile','UserController@user_profile');

@@ -57,7 +57,7 @@ position: relative;
                 </div>
                    <div class="col-md-3 col-xs-7 text-right">
 
-                    <a href="{{url('/home') }}">
+                    <a href="{{url('/search') }}">
 
                    <img src="/images/ic_action_search.png" width="32">
                    </a>

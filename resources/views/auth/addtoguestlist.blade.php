@@ -179,7 +179,7 @@ position: absolute;
 							
 							</label>
 						<div class="col-md-6">
-							<input id="no_of_couples" type="number" class="form-control" min="1" max="5" name="no_of_couples" placeholder="Eg:2">
+							<input id="no_of_couples" type="number" class="form-control" min="1" max="5" name="no_of_couples" placeholder="Eg:2"required>
 							
 					</div>
 				</div>

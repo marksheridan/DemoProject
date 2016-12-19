@@ -50,4 +50,21 @@ class UserController extends Controller
     {
 
     }
+     public function artist_profile()
+    {
+        return view('users.artist_profile');
+    }
+
+     public function user_eventlist()
+    {
+        return view('users.user_eventlist');
+    }
+     public function guest_list()
+    {
+        return view('users.guest_list');
+    }
+    public function user_profile()
+    {
+        return view('users.user_profile');
+    }
 }
