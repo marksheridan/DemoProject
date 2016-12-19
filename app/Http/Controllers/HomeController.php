@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\User;
 use App\Event;
+use App\City;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -55,8 +56,10 @@ class HomeController extends Controller
 
     public function root()
     {
+        $cities=City::where('city_status',"active")->lists('city_name','city_id');
         $events=Event::all();
         $flyer=Event::lists('id','event_banner');
-        return view('homepage',compact('events','flyer'));
+        //dd($cities);
+        return view('homepage',compact('events','flyer','cities'));
     }
 }

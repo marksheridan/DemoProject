@@ -154,7 +154,9 @@ select{
                         monday<strong>{{$event->event_venue_id}}</strong> kochi
                     </div>
                     <div class="type">
-                        <button class="RSPV">{{ $event->event_type }}</button>
+                        <a href="{{ url('/addtoguestlist/'.$event->id) }}">
+                            <button class="RSPV">{{ $event->event_type }}</button>
+                        </a>
                     </div>
                 </div>
             </div>

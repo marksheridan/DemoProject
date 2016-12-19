@@ -54,7 +54,7 @@
                    			<img src="/images/web-user.jpg" width="50">
                 		 <a>
                  		
-                 		 <a href="{{url('/home') }}">
+                 		 <a href="{{url('/logout') }}">
 
                   			 <img src="/images/gnome_panel_force_quit.png" width="50">
                          <a>

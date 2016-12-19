@@ -51,11 +51,14 @@ position: relative;
             <div class="row">
             <div class="col-md-3 col-xs-6">
 
-            <select dir class="selectpicker"><br>
+            <!-- <select dir class="selectpicker"><br>
                                 <option>bangalore</option>
                                 <option>goa</option>
                                 <option>mumbai</option>
-                            </select>
+                            </select> -->
+            {{ Form::select('event_city_id', $cities, "0" , ["id"=>"event_city_id", "class"=>"event_city_id"]) }}
+
+
              </div>
             
              <div class="col-md-6 hidden-xs text-center">
