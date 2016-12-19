@@ -179,14 +179,14 @@ select{
 <br><br>
 
 <div class="row">
-  <div class="col-md-12 text-center">
-    <a href="{{ url('/welcome') }}">
-                     <button type="submit" class="Button" align="center">
-                        Load More
-                     </button>
-                    </a>
-                  </div>
-                </div>
+    <div class="col-md-12 text-center">
+        <a href="{{ url('/welcome') }}">
+            <button type="submit" class="Button" align="center">
+                Load More
+            </button>
+        </a>
+    </div>
+</div>
 
 
 

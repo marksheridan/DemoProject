@@ -57,9 +57,22 @@ class HomeController extends Controller
     public function root()
     {
         $cities=City::where('city_status',"active")->lists('city_name','city_id');
-        $events=Event::all();
+        //$events=Event::all();
+        $events=Event::take(3)->skip(3)->get();
         $flyer=Event::lists('id','event_banner');
         //dd($cities);
         return view('homepage',compact('events','flyer','cities'));
     }
+
+    /*public function loadmore()
+    {
+        $cities=City::where('city_status',"active")->lists('city_name','city_id');
+        $events=Event::all();
+        $flyer=Event::lists('id','event_banner');
+        //dd($cities);
+        return view('homepage',compact('events','flyer','cities'));
+        $events=Event::take(3)->skip(3)->get();
+
+    }*/
+
 }

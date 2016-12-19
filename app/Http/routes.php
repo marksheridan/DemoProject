@@ -16,7 +16,7 @@
 });*/
 Route::get('/register','UserController@register');
 
-//Route::auth();
+Route::get('welcome','HomeController@root');
 
 
 
