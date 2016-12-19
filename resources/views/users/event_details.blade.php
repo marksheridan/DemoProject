@@ -109,7 +109,7 @@
             <div class="jumbotron" id="users">
                 <div class="row">   
                     <div class="col-md-8">
-                        <a href="{{url('/guestlist') }}">
+                        <a href="{{url('/editevent') }}">
                         <button type="submit" class="btn btn-primary" align="center">
                             EDIT EVENT </button>
                         </a>

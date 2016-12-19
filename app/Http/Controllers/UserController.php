@@ -100,8 +100,8 @@ class UserController extends Controller
     {
         return view('users.event_details');
     }
-    public function event_details()
+    public function edit_event()
     {
-        return view('users.event_details');
+        return view('users.edit_event');
     }
 }
