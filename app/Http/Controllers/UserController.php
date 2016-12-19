@@ -4,11 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\City;
+use Auth;
+use App\User;
 
 use App\Http\Requests;
 
 class UserController extends Controller
 {
+    public function user_profile()
+    {
+        $usr = Auth::User();
+        $city = City::where("city_status", "=","active")->lists('city_name','city_id');
+        //dd($usr);
+        return view('users.user_profile',compact('usr','city'));
+    }
+
+    public function updateuser(Request $request,$id)
+    {
+
+        //dd($request);
+        //dd($id);
+        $input=$request->all();
+        
+        if($input['password']=="")
+        {
+            $input =$request->except('_token','password');
+        }    
+        else
+        {
+            $input = $request->except('_token'); 
+        } 
+        //dd($input);  
+        User::where("id",$id)->update($input);
+        return redirect('/userprofile');
+    }
+
+
+
     public function show()
     {
     	$users=User::all();
@@ -63,10 +95,7 @@ class UserController extends Controller
     {
         return view('users.guest_list');
     }
-    public function user_profile()
-    {
-        return view('users.user_profile');
-    }
+    
     public function event_details()
     {
         return view('users.event_details');

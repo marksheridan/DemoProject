@@ -99,7 +99,13 @@ Route::get('/usereventlist','UserController@user_eventlist');
 
 Route::get('/guestlist','UserController@guest_list');
 
+//user profile part
+
 Route::get('/userprofile','UserController@user_profile');
+
+Route::post('/updateprofile/{num}','UserController@updateuser');
+
+
 
 Route::get('/artistprofile','UserController@artist_profile');
 
