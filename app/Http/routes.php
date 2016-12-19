@@ -100,3 +100,5 @@ Route::get('/usereventlist','UserController@user_eventlist');
 Route::get('/guestlist','UserController@guest_list');
 
 Route::get('/userprofile','UserController@user_profile');
+
+Route::get('/artistprofile','UserController@artist_profile');

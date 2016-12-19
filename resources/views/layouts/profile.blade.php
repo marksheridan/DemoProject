@@ -91,7 +91,7 @@ position: relative;
             <div class="row">
 
             <div class="col-md-3 col-xs-5">
-               <a href="{{url('/') }}">
+               <a href="{{url('/userprofile') }}">
 
                    <img src="/images/back.button.jpg" width="35">
                    <a>
@@ -108,14 +108,15 @@ position: relative;
 
 
                 </div>
-                   <div class="col-md-3 col-xs-7 text-right">
+                   <div class="col-md-2 col-xs-7 text-right">
 
                     <a href="{{url('/search') }}">
 
                    <img src="/images/ic_action_search.png" width="32">
                    </a>
 
-  
+                  </div>
+                  <div class="col-md-1">
                   
                        <li class="dropdown">
                         <a href="#" class="dropbtn">
@@ -129,6 +130,7 @@ position: relative;
                       
   
                     </div>     
+                  </div>
 
                     
 

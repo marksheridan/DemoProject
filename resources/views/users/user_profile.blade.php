@@ -78,6 +78,25 @@
 					</div>
 				</div>	
 			</div>
+			<div class="row">
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-md-5">
+						<a href="{{url('/userprofile') }}">
+							 <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
+                            UPDATE </button>
+                        </a>
+
+					</div>
+					<div class="col-md-5">
+                    	<a href="{{url('/artistprofile') }}">
+                    		 <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
+                            VIEW YOUR PROFILE</button>
+                        </a>
+                 	</div>
+					</div>
+				</div>	
+			</div>
 		</div>
 	</div>	
 </div>
