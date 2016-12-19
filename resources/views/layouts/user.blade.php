@@ -52,19 +52,19 @@
 
                			<a href="{{url('/usereventlist') }}">
 
-                  			<img src="/images/house-logo-hi.png" width="50">
-                		<a>
+                  			 <img src="/images/house-logo-hi.png" width="50">
+                		 <a>
                 		
 
-                		<a href="{{url('/userprofile') }}">
+                		 <a href="{{url('/userprofile') }}">
 
                    			<img src="/images/web-user.jpg" width="50">
-                		<a>
+                		 <a>
                  		
-                 		<a href="{{url('/logout') }}">
+                 		 <a href="{{url('/logout') }}">
 
                   			 <img src="/images/gnome_panel_force_quit.png" width="50">
-                        <a>
+                         <a>
            	
                    
   
@@ -101,65 +101,40 @@
    </div>
 
 
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-                   <div class="modal fade" id="myModal" role="dialog">
-                      <div class="modal-dialog">
-
-    
-      <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h4 class="modal-title">ADD AN EVENT</h4>
-
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="{{url('/addevent/rsvp') }}">
-
-                          </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="{{url('/') }}">
-
-                                           <img src="/images/ic_pin.png" width="50"><br>
-                                           RSVP
-                                         </a>
-                                    </div> 
-                                    <div class="col-md-4">
-
-                                        <a href="{{url('/addevent/guest') }}">
-                                            <img src="/images/Guestlist_CirclePurple_300dpi.png" width="50"><br>
-                                               GUESTLIST 
-                                        </a>                          
-                                    </div> 
-                                    <div class="col-md-4">
-                                        <a href="{{url('/') }}">
-                                            <img src="/images/Internet-Data-Network-Ticket-Home-Furnishings-Furniture-3186173011.png" width="50"><br>
-                                             TICKETS
-                                        </a>                                   
-                                    </div> 
-                                </div> 
-                            </div>
-                           
-                        </div>
-      
-                    </div>
-                </div>
-
-                                        <a href="{{url('/') }}">
-                                           <img src="/images/Guestlist_CirclePurple_300dpi.png" width="50"><br>
-                                           GUESTLIST 
-                                         </a>                          
-                                   </div> 
-                                     <div class="col-md-4">
-                                        <a href="{{url('/') }}">
-                                           <img src="/images/Internet-Data-Network-Ticket-Home-Furnishings-Furniture-3186173011.png" width="50"><br>
-                                         TICKETS
-                                         </a>                                   
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ADD AN EVENT</h4>
+            </div>
+            
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="{{url('/addevent/rsvp') }}">
+                            <img src="/images/ic_pin.png" width="50"><br>
+                            RSVP
+                        </a>
+                    </div> 
+                    <div class="col-md-4">
+                        <a href="{{url('/addevent/guest') }}">
+                            <img src="/images/Guestlist_CirclePurple_300dpi.png" width="50"><br>
+                        GUESTLIST 
+                        </a>                          
+                    </div> 
+                    <div class="col-md-4">
+                        <a href="{{url('/') }}">
+                            <img src="/images/Internet-Data-Network-Ticket-Home-Furnishings-Furniture-3186173011.png" width="50"><br>
+                            TICKETS
+                        </a>                                   
+                    </div> 
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+                                                                           
                                     </div> 
                                  </div> 
                             </div>
