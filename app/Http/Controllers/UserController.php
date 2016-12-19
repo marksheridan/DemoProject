@@ -24,6 +24,15 @@ class UserController extends Controller
 
         //dd($request);
         //dd($id);
+        $filepath=public_path('/images/');
+        $file=$request->user_img;
+        if($request->hasfile('user_img'))
+        { 
+            $name = time(). '-' .$file->getClientOriginalName();
+            $input['user_img'] = $name;
+            $file->move($filepath, $input['user_img ']);
+        }
+
         $input=$request->all();
         
         if($input['password']=="")
