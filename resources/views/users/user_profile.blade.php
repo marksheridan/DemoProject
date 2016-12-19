@@ -18,14 +18,16 @@
 				<textarea> text </textarea>
 			</div>
 		</div>	
+		{{Form::open(['url' => ['updateprofile/'.$usr->id], 'method' => 'post']) }}
 		<div Class="col-md-4">
 			<div class="jumbotron">
+
 				<div class="row">
 					<div class="col-md-5">
 						<label> contact person</label>
 					</div>
 					<div class="col-md-5">
-						<input type="text" name="user_name" id="user_name" palceholder="name">
+						<input type="text" name="user_name" id="user_name" palceholder="name" value="{{ $usr->user_name }}">
                  	</div>
 		 		</div><br><br>
 		 		<div class="row">
@@ -33,7 +35,7 @@
 						<label>Email</label>
 					</div>
 					<div class="col-md-5">	
-						<input type="text" name="user_name" id="user_name" palceholder="name">
+						<input type="text" name="user_email" id="user_email" palceholder="" value="{{ $usr->user_email}}" >
                 	</div>
 		 		</div><br><br><br>
 		 		<div class="row">
@@ -41,7 +43,7 @@
 						<label> Phone Number</label>
 					</div>
 			     	<div class="col-md-5">
-						<input type="text" name="user_name" id="user_name" palceholder="name">
+						<input type="text" name="user_phone_no" id="user_phone_no" palceholder="" value="{{ $usr->user_phone_no}}">
                  	</div>
 		 		</div>
 		</div>
@@ -55,12 +57,14 @@
 
 					</div>
 					<div class="col-md-5">
-                    	<select name="city" class="city"id="city">
+                    	<!-- <select name="city" class="city"id="city">
 								<option>Bangalore</option>
 								<option>Thiruvanabthapuram</option>
 								<option>Kozhikode</option>
 								<option>Kochi</option>
-							</select>
+							</select> -->
+							{{ Form::select('user_city', $city, $usr->user_city , 
+							["id"=>"user_city", "class"=>"user_city"]) }}
 					</div>
 				</div>	
 			</div>
@@ -73,7 +77,7 @@
 
 					</div>
 					<div class="col-md-5">
-                    	<input type="password" name="update_password" id="update_password" palceholder="password">
+                    	<input type="password" name="password" id="password" palceholder="password">
                  	</div>
 					</div>
 				</div>	
@@ -82,12 +86,13 @@
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-md-5">
-						<a href="{{url('/userprofile') }}">
-							 <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
+						<!-- <a href="{{ url('/updateprofile/'.$usr->id) }}">
+ -->							 <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
                             UPDATE </button>
                         </a>
 
 					</div>
+			
 					<div class="col-md-5">
                     	<a href="{{url('/artistprofile') }}">
                     		 <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
