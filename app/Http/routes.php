@@ -16,16 +16,33 @@
 });*/
 Route::get('/register','UserController@register');
 
-Route::auth();
+//Route::auth();
 
-Route::get('/', 'HomeController@index');
+
+
+Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
+Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
+
+// Registration Routes...
+Route::get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@showRegistrationForm']);
+Route::post('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@register']);
+
+// Password Reset Routes...
+Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
+Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
+Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+
+
+//Home Page
+Route::get('/home', 'HomeController@index');
+Route::get('/','HomeController@root');
+
 
 Route::get('/admin/main','AdminController@mainpage');
-//Route::auth();
 
 // city part
 
-//Route::get('/home', 'HomeController@index');
 
 
 Route::get('/createcity','CityController@create');
@@ -60,25 +77,20 @@ Route::get('/addtoguestlist/{num}','GuestController@create');
 
 Route::post('/storeguest/{num}','GuestController@store');
 
-
-
-
-
-
 Route::get('/addevent','EventController@create');
 
 Route::get('/addvenue','HomeController@addvenue');
 
 Route::get('/eventdisplay/{value}','EventController@show');
 
-Route::get('/artist','UserController@artist');
+Route::get('/artist','UserController@showartist');
 
-Route::get('/promoters','UserController@promoters');
-
-
+Route::get('/promoters','UserController@showpromoters');
 
 Route::get('/venue-list/{value}', 'EventController@getVenues');
 
 Route::post('/storeevent','EventController@store');
 
 Route::get('/search','HomeController@search');
+
+Route::get('user/artist_profile','UserController@showartist');

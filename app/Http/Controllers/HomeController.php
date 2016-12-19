@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\User;
 use App\Event;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,13 +17,13 @@ class HomeController extends Controller
      */
     public function addevent()
     {
-    return view('events.addevent');
+        return view('events.addevent');
     }
-    public function addvenue()
+        public function addvenue()
     {
-    return view('venues.addvenue');
+        return view('venues.addvenue');
     }
-    public function eventdisplay()
+        public function eventdisplay()
     {
         return view('auth.eventdisplay');
     }
@@ -38,12 +39,24 @@ class HomeController extends Controller
 
     public function index()
     { 
-        //return "Hello";
-        $users=User::all();
+        //$users=User::all();
         $events=Event::all();
-
+        $users=User::all();
+        /*if(Auth::guest==false)
+        {
+            $user=User::where('user_id',Auth::User()->id)->first();
+            dd($user);
+        }*/
+        //dd(Auth::User()->user_name);
         $flyer=Event::lists('id','event_banner');
 
-        return view('homepage',compact('users','events','flyer'));
+        return view('home',compact('users','events','flyer'));
+    }
+
+    public function root()
+    {
+        $events=Event::all();
+        $flyer=Event::lists('id','event_banner');
+        return view('homepage',compact('events','flyer'));
     }
 }

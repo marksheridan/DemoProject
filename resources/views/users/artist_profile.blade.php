@@ -14,7 +14,7 @@
  <div class="container">
  	<div class="row">
  		<div class="col-md-12" style: align="center">
- 			 <img src="/images/mountains1.jpg" width="900">
+ 			 <img src="{{ url('images/' ) }}" width="900">
         </div>
    			<br><br>
 
@@ -34,11 +34,11 @@
                     <div class="form-group">
                         <div class="col-md-4">
                         <label>
-                        	contact person
+                        	Contact Person
                         </label>
                         </div>
                         <div class="col-md-8">
-                      <input id="contact_name" type="text" class="form-control" name="venue_name" placeholder="Name"required>
+                      <input id="user_name" type="text" class="form-control" name="user_name" value=""required>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                         </label>
                         </div>
                         <div class="col-md-8">
-                         <input id="email" type="email" class="form-control" name="phone_no" placeholder="Eg:9999999999"required>
+                         <input id="user_phone_no" type="text" class="form-control" name="user_phone_no" value="" required>
 
                    </div>
                </div>
@@ -65,7 +65,7 @@
                         </label>
                         </div>
                         <div class="col-md-8">
-                        <input id="venue_category" type="email" class="form-control" name="venue_category" placeholder="Venue Category Name"required>
+                        <input id="user_email" type="email" class="form-control" name="user_email" value=""required>
                   </div>
               </div>
           </div>
@@ -76,7 +76,7 @@
                         <div class="form-group">
 
                            <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
-                            Add</button>
+                            UPDATE</button>
                        
 
 
