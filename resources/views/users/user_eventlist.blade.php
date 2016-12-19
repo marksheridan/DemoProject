@@ -92,7 +92,9 @@
                     	 <tr>
                              <div class="col-md-1">
                                 <td>
+                                  <a href="{{url('/eventdetails') }}">
                                    thaikkudam bridge 
+                                  </a>
                                 </td>
                             </div>
                             <div class="col-md-3">
@@ -136,7 +138,9 @@
                     	 <tr>
                              <div class="col-md-1">
                                 <td>
+                                  <a href="{{url('/userprofile') }}">
                                    aviyal band 
+                                 </a>
                                 </td>
                             </div>
                             <div class="col-md-3">

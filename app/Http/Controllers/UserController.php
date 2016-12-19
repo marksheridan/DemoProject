@@ -67,4 +67,8 @@ class UserController extends Controller
     {
         return view('users.user_profile');
     }
+    public function event_details()
+    {
+        return view('users.event_details');
+    }
 }

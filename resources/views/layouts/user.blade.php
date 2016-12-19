@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
-
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -23,6 +25,9 @@
           background-color: #A8B8F3;
 
         }
+        #modal-content{
+          background-color: #261798;
+        }
        
     </style>
      <body id="secondapp-layout">
@@ -37,10 +42,12 @@
                         
                 </div>
                     <div class="col-md-3">
-               			<a href="{{url('/home') }}">
+               			<a data-toggle="modal" data-target="#myModal">
 
                        		 <img src="/images/64579-add-button.png" width="50">
                     	<a>
+
+
 
 
                			<a href="{{url('/usereventlist') }}">
@@ -59,7 +66,8 @@
                   			 <img src="/images/gnome_panel_force_quit.png" width="50">
                          <a>
            	
-                   </div>
+                   
+  
     
 
      
@@ -90,7 +98,44 @@
           </div>
         </footer>
 
-   
+   </div>
+
+                   <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog">
+    
+      <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">ADD AN EVENT</h4>
+                          </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a href="{{url('/') }}">
+                                           <img src="/images/ic_pin.png" width="50"><br>
+                                           RSVP
+                                         </a>
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <a href="{{url('/') }}">
+                                           <img src="/images/Guestlist_CirclePurple_300dpi.png" width="50"><br>
+                                           GUESTLIST 
+                                         </a>                          
+                                   </div> 
+                                     <div class="col-md-4">
+                                        <a href="{{url('/') }}">
+                                           <img src="/images/Internet-Data-Network-Ticket-Home-Furnishings-Furniture-3186173011.png" width="50"><br>
+                                         TICKETS
+                                         </a>                                   
+                                    </div> 
+                                 </div> 
+                            </div>
+                           
+                          </div>
+      
+                      </div>
+                    </div>
     
     
     </body>
