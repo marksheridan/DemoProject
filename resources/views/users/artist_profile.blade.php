@@ -8,21 +8,53 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+ <style>
+ img{
+ 	border-radius: 15px;
+ }
+ </style>
+
+
  
-
-
- <div class="container">
- 	<div class="row">
- 		<div class="col-md-12" style: align="center">
- 			 <img src="{{ url('images/avengers_age_of_ultron_2015_movie.wide_.jpg' ) }}" width="900">
-        </div>
+ 	<div class="row text-center">
+ 		
+ 			 <img src="{{ url('images/avengers_age_of_ultron_2015_movie.wide_.jpg' ) }}" width="1250"height="400">
+        
    			<br><br>
 
    			
               
 
     </div>
- </div>       
+ <br><br>
+ <div class="container padding0">
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron">
+                <a href="{{'/'}}">
+                 <img src="{{ url('images/avengers_age_of_ultron_2015_movie.wide_.jpg' ) }}" width="294" height="100">
+           
+                </a>
+                <div class="text-left">
+                    <div class="eventname">
+                        abcd
+                    </div>
+                    <div class="eventvenue">
+                        dss
+                    </div>
+                    <div class="type">
+                        <a href="{{ url('/') }}">
+                            <button class="RSPV">add</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</div>      
 
 
 

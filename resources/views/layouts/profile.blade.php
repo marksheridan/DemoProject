@@ -5,6 +5,8 @@
     <style>
         body {
             font-family: 'Lato';
+            overflow-y: scroll;
+            overflow-x: hidden;
         }
 
 

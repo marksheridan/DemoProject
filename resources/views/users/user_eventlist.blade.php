@@ -13,11 +13,15 @@
 		background-color: #404EDD;
 	}
 	#users{
-		background-color: #6FACC3;
+		background-color:  #0D0D1A;
 	}
 	#cover{
 		background-color: #6FACC3;
 	}
+  #table{
+    color:#09579D; 
+  }
+
 
 
 </style>
@@ -70,7 +74,7 @@
  		<div class="col-md-8">
         	<div class="jumbotron"id="users">
         		<h4><strong>UPCOMING EVENTS</strong> </h4>
-				  <table class="table">
+				  <table class="table"id="table">
                   	<thead>
                      	<tr>
                         	<div class="col-md-5">
@@ -116,7 +120,7 @@
                     </tbody>
                    </table> 
                  <h4><strong>PAST EVENTS</strong> </h4>
-				  <table class="table">
+				  <table class="table"id="table">
                   	<thead>
                      	<tr>
                         	<div class="col-md-5">

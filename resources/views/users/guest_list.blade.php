@@ -13,7 +13,7 @@
 		background-color: #404EDD;
 	}
 	#users{
-		background-color: #6FACC3;
+		background-color:  #0D0D1A;
 	}
 	#cover{
 		background-color: #6FACC3;

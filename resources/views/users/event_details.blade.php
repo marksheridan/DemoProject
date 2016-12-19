@@ -13,18 +13,24 @@
 		background-color: #404EDD;
 	}
 	#users{
-		background-color: #6FACC3;
+		background-color:  #0D0D1A;
 	}
 	#cover{
 		background-color: #6FACC3;
 	}
     #guser{
-        background-color: #A02335;
+        background-color: #D5CECF;
         height: 17px;
     }
     #btn-primary{
         width: 1000px
     }
+     #table{
+    color:#09579D; 
+  }
+
+
+    
           
        
  </style>
@@ -159,7 +165,7 @@
                       </div>      
                     
                    
-				  <table class="table">
+				  <table class="table"id="table">
                   	<thead>
                      	<tr>
                         	
