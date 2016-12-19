@@ -85,10 +85,21 @@ th,td{
                             </div>
                             <div class="col-md-2">
                                 <td>
-                                    <a href="{{ url('deletecity/'. $cc->city_id) }}">
+                                   
 
-                                     <img src="/images/logo_1_2.png" width="20px">
-                                    </a>
+                                     <img src="/images/logo_1_2.png" width="20px"onclick="ConfirmDelete()">
+                                    
+
+                                    <script type="text/javascript">
+                              function ConfirmDelete()
+                              {
+                                 var ans=confirm("Are you sure you want to delete?");
+                                 if(ans==true)
+                                 {
+                                       window.location.href="{{ url('/deletecity/'. $cc->city_id) }}";
+                                 }
+                              }
+                              </script>
                                 </td>
                             </div>
                                 @endforeach

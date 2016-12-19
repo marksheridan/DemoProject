@@ -6,6 +6,80 @@
 	text-align: "center";
 }
 </style>
+
+<script type="text/javascript">
+  function validate()
+  {
+    var NameTB = document.getElementById("user_name");
+    var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!namefilter.test(NameTB.value))
+    {
+      alert("EVENT NAME IS NOT VALID");
+      return false;
+    }
+
+     var UEmailTB = document.getElementById("user_email");
+
+      var emailfilter = new RegExp("^[a-zA-Z]+[a-zA-Z0-9\_\.]+[@]{1}[a-zA-Z]+[\.]{1}[a-zA-Z]+$");
+
+      if(!emailfilter.test(UEmailTB.value))
+        {
+          alert("Invalid email ID.");
+          return false;
+           UEmailTB.focus();
+        }
+
+         var PhoneTB = document.getElementById("user_phone_no");
+
+      var phonefilter = new RegExp("^[0-9]{10}$");
+
+      if(!phonefilter.test(PhoneTB.value))
+        {
+          alert("Phone number must have 10 digit");
+          PhoneTB.focus();
+          return false;
+        }
+        var e = document.getElementById("user_city");
+var strUser = e.options[e.selectedIndex].value;
+
+var strUser1 = e.options[e.selectedIndex].text;
+if(strUser==0)
+{
+alert("CITY STATUS PLEASE");
+return false;
+}
+
+ var photoTB = document.getElementById("user_img").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(photoTB == '')
+        {
+          alert("Select a file.");
+          return false;
+        }
+
+        else
+        {
+          var extension = photoTB.substring(photoTB.lastIndexOf('.') +1).toLowerCase();
+          if(extension == "jpg" || extension == "png" || extension == "gif" || extension == "jpeg")
+
+          {
+           /* alert("file format is not valid");
+            return false;*/
+          }
+
+          else
+          {
+            alert("Invalid format");
+            document.getElementById("user_img").value = '';
+            return false;
+          }
+
+        }
+
+
+
+ }
+ </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,7 +94,19 @@
 		<div class="col-md-4">
 			<div class="jumbotron">
 				<p> clubbers</p>
-				<textarea> text </textarea>
+				<textarea id="user_add"> text </textarea>
+				<script type="text/javascript">
+				  var addTB = document.getElementById("user_add").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(addTB == '')
+        {
+          alert("address required ");
+          return false;
+        }
+
+       
+
+				</script>
 			</div>
 		</div>	
 		{{Form::open(['url' => ['updateprofile/'.$usr->id], 'method' => 'post']) }}
@@ -40,7 +126,7 @@
 						<label>Email</label>
 					</div>
 					<div class="col-md-5">	
-						<input type="text" name="user_email" id="user_email" palceholder="" value="{{ $usr->user_email}}" >
+						<input type="text" name="user_email" id="user_email" palceholder="email" value="{{ $usr->user_email}}" >
                 	</div>
 		 		</div><br><br><br>
 		 		<div class="row">
@@ -82,7 +168,7 @@
 
 					</div>
 					<div class="col-md-5">
-                    	<input type="password" name="password" id="password" palceholder="password">
+                    	<input type="password" name="password" id="password"pattern=".{5,10}" palceholder="password"required>
                  	</div>
 					</div>
 					<div class="row">

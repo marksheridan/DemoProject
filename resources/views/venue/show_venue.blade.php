@@ -19,7 +19,7 @@ td{
         <div class="col-md-10 col-md-offset-1">
             
                 <div class="panel-heading text-center">
-                   <h4><strong>  SHOW CITY</strong> </h4>
+                   <h4><strong>  SHOW VENUE</strong> </h4>
                 <div class="panel-body">
                         
 
@@ -94,10 +94,20 @@ td{
                             </div>
                             <div class= "col-md-1">
                                 <td>
-                                    <a href="{{ url('deletevenue/'. $vv->venue_id) }}">
-                                         <img src="/images/logo_1_2.png" width="20px">
+                                    
+                                         <img src="/images/logo_1_2.png" width="20px"onclick="ConfirmDelete()">
+                                         <script type="text/javascript">
+                              function ConfirmDelete()
+                              {
+                                 var ans=confirm("Are you sure you want to delete?");
+                                 if(ans==true)
+                                 {
+                                       window.location.href="{{ url('/deletevenue/'. $vv->venue_id) }}";
+                                 }
+                              }
+                           </script>
 
-                                    </a>
+                                    
                                 </td>
                             </div>
                             </tr>
