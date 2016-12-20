@@ -29,6 +29,9 @@
      #table{
     color:#09579D; 
   }
+  #show{
+    color: #044982;
+  }
   img{
     border-radius: 70px;
   }
@@ -118,24 +121,32 @@
         <div class="col-md-4">
             <div class="jumbotron" id="users">
                 <div class="row">   
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <a href="{{url('/editevent') }}">
                         <button type="submit" class="btn btn-primary" align="center">
                             EDIT EVENT </button>
                         </a>
                     </div>
-                </div><br>
-                <div class="row">    
-                        
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <a href="{{url('/usereventlist') }}">
                             <button type="submit" class="btn btn-primary" align="center" width="5px">
                             USER PREVIEW </button>
                         
-                    </a>
+                     </a>
                     </div>
-
-                </div><br><br>
+                </div><br>
+               <!--  <div class="row">    
+                                   
+                               <div class="col-md-6">
+                                   <a href="{{url('/usereventlist') }}">
+                                       <button type="submit" class="btn btn-primary" align="center" width="5px">
+                                       USER PREVIEW </button>
+                                   
+                               </a>
+                               </div>
+                           
+                           </div><br><br>
+                            --> 
             </div>
         </div>        
      
@@ -150,7 +161,7 @@
     <div class="col-md-12">
         	<div class="jumbotron"id="users">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3"id="show">
                         show
                         <select name="show_entries" class="status_options"id="show_entries">
                                 <option>1</option>

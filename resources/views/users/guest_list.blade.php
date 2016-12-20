@@ -19,7 +19,7 @@
 		background-color: #6FACC3;
 	}
     #guser{
-        background-color: #A02335;
+        background-color: #F5EEEF;
         height: 17px;
     }
 
