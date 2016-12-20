@@ -7,6 +7,7 @@ use App\User;
 use App\Event;
 use App\City;
 use Auth;
+use Input;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,11 +21,11 @@ class HomeController extends Controller
     {
         return view('events.addevent');
     }
-        public function addvenue()
+    public function addvenue()
     {
         return view('venues.addvenue');
     }
-        public function eventdisplay()
+    public function eventdisplay()
     {
         return view('auth.eventdisplay');
     }
@@ -57,22 +58,41 @@ class HomeController extends Controller
     public function root()
     {
         $cities=City::where('city_status',"active")->lists('city_name','city_id');
-        $events=Event::all();
-        //$events=Event::take(3)->skip(3)->get();
+        //$events=Event::all();
+        $events=Event::take(3)->get();
         $flyer=Event::lists('id','event_banner');
-        //dd($cities);
+        //dd($flyer);
         return view('homepage',compact('events','flyer','cities'));
     }
 
-    /*public function loadmore()
+    public function getmore($val)
     {
-        $cities=City::where('city_status',"active")->lists('city_name','city_id');
-        $events=Event::all();
-        $flyer=Event::lists('id','event_banner');
-        //dd($cities);
-        return view('homepage',compact('events','flyer','cities'));
-        $events=Event::take(3)->skip(3)->get();
+        $skipval=Input::get('skip');
+        $events=Event::where('event_city_id',$val)->take(3)->skip($skipval)->get();
+        
+        return($events);
+    }
+    public function getevents($val)
+    {
+        $skipnum=Input::get('skip');
+        $events=Event::where('event_city_id',$val)->take(3)->get();
+        return($events);
+    }
 
-    }*/
+    public function getallevents()
+    {
+        $skipval=Input::get('skip');
+        $events=Event::take(3)->skip($skipval)->get();
+        return($events);
+    }
+
+    public function getmoreall()
+    {
+        $skipval=Input::get('skip');
+        $events=Event::take(3)->skip($skipval)->get();
+        
+        return($events);
+    }
+
 
 }

@@ -21,7 +21,9 @@ Route::get('welcome','HomeController@root');
 
 
 Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+
 Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
+
 Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
 
 // Registration Routes...
@@ -36,14 +38,12 @@ Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\Pa
 
 //Home Page
 Route::get('/home', 'HomeController@index');
-Route::get('/','HomeController@root');
 
+Route::get('/','HomeController@root');
 
 Route::get('/admin/main','AdminController@mainpage');
 
 // city part
-
-
 
 Route::get('/createcity','CityController@create');
 
@@ -79,7 +79,6 @@ Route::post('/storeguest/{num}','GuestController@store');
 
 Route::get('/addevent/{val}','EventController@create');
 
-//Route::get('/addevent/guest','EventController@create');
 
 Route::get('/addvenue','HomeController@addvenue');
 
@@ -112,3 +111,15 @@ Route::get('/artistprofile','UserController@artist_profile');
 Route::get('/eventdetails','UserController@event_details');
  
 Route::get('/editevent','UserController@edit_event');
+
+//Load More
+
+Route::get('/get-more/{val}','HomeController@getmore');
+
+Route::get('/get-more/','HomeController@getmoreall');
+
+//Get Events According to City
+
+Route::get('/get-events-city/{val}','HomeController@getevents');
+
+Route::get('/get-events-city/','HomeController@getallevents');

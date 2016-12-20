@@ -51,33 +51,22 @@ position: relative;
             <div class="row">
             <div class="col-md-3 col-xs-6">
 
-            <!-- <select dir class="selectpicker"><br>
-                                <option>bangalore</option>
-                                <option>goa</option>
-                                <option>mumbai</option>
-                            </select> -->
-            {{ Form::select('event_city_id', $cities, "0" , ["id"=>"event_city_id", "class"=>"event_city_id"]) }}
-
-
-             </div>
             
-             <div class="col-md-6 hidden-xs text-center">
+            {{ Form::select('event_city_id', $cities, "0" , ["id"=>"event_city_id", "class"=>"event_city_id", 'placeholder'=>"All Cities"]) }}
+
+
+            </div>
             
-
-                   <img src="/images/1014d3e2908092bb2deb3c54dc16ae42.jpg" width="44">
-                 
-                    
-                <p id="clul">!clubbers</p>
-
-                   </div>
-                   
-                   <div class="col-md-3 col-xs-7 text-right">
-
-                    <a href="{{url('/search') }}">
-
-                   <img src="/images/ic_action_search.png" width="32">
-                   </a>
-                  
+            <div class="col-md-6 hidden-xs text-center">
+                <a href="{{url('/') }}">
+                    <img src="/images/1014d3e2908092bb2deb3c54dc16ae42.jpg" width="44">
+                </a>
+            </div>
+            
+            <div class="col-md-3 col-xs-7 text-right">
+                <a href="{{url('/search') }}">
+                    <img src="/images/ic_action_search.png" width="32">
+                </a>
                 @if(Auth::guest())
                     <a href="{{url('/login') }}">
      
@@ -86,7 +75,6 @@ position: relative;
                         </button>
                     </a>
                 @else
-                    
                     <a href="{{url('/logout') }}">
      
                         <button type="submit" class="Button" align="center">
@@ -94,7 +82,7 @@ position: relative;
                         </button>
                     </a>
                 @endif
-                </div>
+            </div>
                    <!--  <div class="modal fade" id="myModal" role="dialog">
                        <div class="modal-dialog">
                        

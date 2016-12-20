@@ -90,6 +90,7 @@ select{
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
         </ol>
 
     <!-- Wrapper for slides -->
@@ -125,13 +126,13 @@ select{
 <div class="container padding0">
     <div class="row">
         <div class="col-md-10 col-sm-4">
-            <p id="eb">Events in Bangalore</p>
+            <p id="eb" class="cityname">All Events</p>
         </div>
         <div class="col-md-2">
-            <select dir class="all events"><br>
-                <option>all events</option>
-                <option>RSVP</option>
-                <option>Gustlist</option>
+            <select dir class="all events" id="type"><br>
+                <option value="0">All Events</option>
+                <option value="RSVP">RSVP</option>
+                <option value="Guestlist">Guestlist</option>
             </select>
         </div>
     </div>
@@ -139,7 +140,7 @@ select{
 </div>
 <div class="container padding0">
     
-    <div class="row">
+    <div class="row" id="displayitem">
     @foreach($events as $event)
         <div class="col-md-4">
             <div class="jumbotron">
@@ -180,11 +181,9 @@ select{
 
 <div class="row">
     <div class="col-md-12 text-center">
-        <a href="{{ url('/welcome') }}">
-            <button type="submit" class="Button" align="center">
-                Load More
-            </button>
-        </a>
+        <button type="submit" class="Button" id="loadmore" align="center">
+            Load More
+        </button>
     </div>
 </div>
 
@@ -212,15 +211,13 @@ select{
 <br><br>
 
 <div class="row">
-
-  <div class="col-md-4">
-     <div class="jumbotron"> 
-    <a href="{{url('/eventdisplay') }}">
-
-       <img src="/images/mountains1.jpg" width="294">
-    </a>
-      <div class="text-left">
-      <div class="eventname">
+    <div class="col-md-4">
+        <div class="jumbotron"> 
+            <a href="{{url('/eventdisplay') }}">
+                <img src="/images/mountains1.jpg" width="294">
+            </a>
+            <div class="text-left">
+                <div class="eventname">
         SUICIDE SQUAD PRESENTS JOCKER LIVE
       </div>
         <div class="eventvenue">
@@ -360,37 +357,45 @@ select{
 
 
 </body>
-<!-- </html>
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
 
-                <div class="panel-body">
-                    Your Application's Landing Page.
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
 <script type="text/javascript">
-    $(".event_city_id").change(function(){
-      //alert("Inside");
+
+    
+    
+    $("#event_city_id").change(function(){
+        alert("Change events according to city"+ $(this).val());
+        $("#eb").html($("#event_city_id option:selected").text());
         $.ajax({
             method: 'GET', 
-            url:            
-            /*/venue-list/' + $(this).val(), */
+            url:'/get-events-city/'+ $(this).val(),
+
             success: function(response){ 
-            //alert("success");
-                //$(".event_venue_id").empty()
+                alert("success");
+                skipval=3;
+                $("#displayitem").empty()
                 $.each(response, function(i, obj){
                     console.log(obj)
-                    $(".event_venue_id").append("<option value="+obj.venue_id+">"+obj.venue_name+"</option>")
+                    var imageurl="{{ asset('eventimages/') }}";
+                    var url =imageurl+"/"+obj.event_banner;
+                    $html="<div class=\"col-md-4\">";
+                    $html+="<div class=\"jumbotron\">";
+                    $html+="<a href=\"eventdisplay/"+obj.id+"\">";
+                    $html+="<img src=\""+url+"\" width=\"294\" height=\"100\">";
+                    $html+="</a>               <div class=\"text-left\">"
+                    $html+="<div class=\"eventname\">"
+                    $html+=obj.event_name
+                    $html+="</div>                  <div class=\"eventvenue\">"
+                    $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
+                    $html+="</div>                   <div class=\"type\">"
+                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
+                    $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
+                    $html+="</a></div></div></div></div>"
+                    $("#displayitem").append($html)
+                    
                 })
             },
             error: function(jqXHR, textStatus, errorThrown) { 
@@ -408,7 +413,62 @@ select{
          
     });
 
-</script>
+    var skipval=3;
+
+
+    $("#loadmore").click(function(){
+        console.log(skipval);
+        $.ajax({
+            method: 'GET',
+            url:'/get-more/'+$("#event_city_id").val(),
+            data:{
+                'skip': skipval,
+            },
+            success: function(response){
+                $.each(response,function(i,obj){
+                    console.log("success")
+                    var imageurl="{{ asset('eventimages/') }}";
+                    var url =imageurl+"/"+obj.event_banner;
+                    $html="<div class=\"col-md-4\">";
+                    $html+="<div class=\"jumbotron\">";
+                    $html+="<a href=\"eventdisplay/"+obj.id+"\">";
+                    $html+="<img src=\""+url+"\" width=\"294\" height=\"100\">";
+                    $html+="</a>               <div class=\"text-left\">"
+                    $html+="<div class=\"eventname\">"
+                    $html+=obj.event_name
+                    $html+="</div>                  <div class=\"eventvenue\">"
+                    $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
+                    $html+="</div>                   <div class=\"type\">"
+                    $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
+                    $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
+                    $html+="</a></div></div></div></div>"
+                    $("#displayitem").append($html)
+                })
+                skipval+=3;
+                //console.log(skipval);
+            },
+            error: function(jqXHR, textStatus, errorThrown) { 
+              //alert("failure");
+                console.log("Load More Does not work");
+                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            }
+        });
+    })
+
 </script>
 
 @endsection
+
+
+            
+                
+                    
+                
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                        
