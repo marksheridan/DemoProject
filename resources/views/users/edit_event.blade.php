@@ -25,18 +25,145 @@
     #btn-primary{
         width: 1000px
     }
-    #date{
+    #event_year{
         width:50px;
     }
     #time{
         width:50px;
     }
-    #glimit{
+    #cevent_min{
+        width:50px;
+    }
+    #cevent_hour{
+        width:50px;
+    }
+     #eevent_hour{
+        width:50px;
+    }
+    #eevent_min{
+        width:50px;
+    }
+    #event_glimit{
         width:100px;
     }
           
        
  </style>
+
+ <script type="text/javascript">
+  function validate()
+  {
+    var ENameTB = document.getElementById("event_name");
+    var enamefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!enamefilter.test(ENameTB.value))
+    {
+      alert("EVENT NAME IS NOT VALID");
+      return false;
+    }
+ var DayTB = document.getElementById("event_day").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(DayTB == '')
+        {
+          alert("day field is empty.");
+          return false;
+        }
+
+         var MonthTB = document.getElementById("event_month").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(MonthTB == '')
+        {
+          alert("month field is empty.");
+          return false;
+        }
+
+
+     var YearTB = document.getElementById("event_year");
+
+      var yearfilter = new RegExp("^[0-9]{4}$");
+
+      if(!yearfilter.test(YearTB.value))
+        {
+          alert("ivalid year");
+          YearTB.focus();
+          return false;
+        }
+
+
+         var EhourTB = document.getElementById("sevent_hour").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(EhourTB == '')
+        {
+          alert("hour field is empty.");
+          return false;
+        }
+
+          var EminTB = document.getElementById("sevent_min").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(EminTB == '')
+        {
+          alert("minute field is empty.");
+          return false;
+        }
+
+         var ChourTB = document.getElementById("eevent_hour").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(ChourTB == '')
+        {
+          alert("hour field is empty.");
+          return false;
+        }
+
+         var CminTB = document.getElementById("eevent_min").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(CminTB == '')
+        {
+          alert("minute field is empty.");
+          return false;
+        }
+
+
+         var ChourTB = document.getElementById("cevent_hour").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(ChourTB == '')
+        {
+          alert("hour field is empty.");
+          return false;
+        }
+
+         var CminTB = document.getElementById("cevent_min").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(CminTB == '')
+        {
+          alert("minute field is empty.");
+          return false;
+        }
+         var GlimitTB = document.getElementById("event_glimit").value;
+         /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
+      if(GlimitTB == '')
+        {
+          alert("gustlimit field is empty.");
+          return false;
+        }
+
+
+         var EANameTB = document.getElementById("artist_name");
+    var eanamefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!eanamefilter.test(EANameTB.value))
+    {
+      alert("ARTIST NAME IS NOT VALID");
+      return false;
+    }
+
+     var EPNameTB = document.getElementById("promoter_name");
+    var epnamefilter= new RegExp("^[a-zA-Z\ ]+$","g");
+    if(!epnamefilter.test(EPNameTB.value))
+    {
+      alert("PROMOTER NAME IS NOT VALID");
+      return false;
+    }
+
+}
+</script>
 
 
 <!-- <div class="container">
@@ -47,6 +174,7 @@
  			 <img src="/images/thaikkudam-bridge.jpg" width="1300"height="400">
         	</div><br>
 <div class="container">
+   <form method="post">
     <div class="col-md-4">
             <div class="jumbotron" id="users">
                 <div class="row">   
@@ -55,7 +183,7 @@
                     </div>
                         
                     <div class="col-md-5">
-                        <input type="text"placeholder="EG thaikkudam bridge">  
+                        <input type="text"placeholder="EG thaikkudam bridge" id="event_name">  
                     </div>
 
                 </div><br><br>
@@ -64,13 +192,13 @@
                         <label>Date</label>
                     </div>
                     <div class="col-md-3">
-                       <input type="text"placeholder="EG 17" id="date">
+                       <input type="number"placeholder="EG 17"max="31"min="1" id="event_day"required>
                     </div> 
                     <div class="col-md-3">
-                       <input type="text"placeholder="EG 07"id="date">
+                       <input type="number"placeholder="EG 07"max="12"min="1"id="event_month"required>
                     </div> 
-                    <div class="col-md-3">
-                       <input type="text"placeholder="EG 2017"id="date">
+                    <div class="col-md-1">
+                       <input type="text"placeholder="EG 2017"id="event_year"width="30">
                     </div>   
                     
                 </div><br>
@@ -79,10 +207,10 @@
                         <label>Start Time</label>
                     </div>
                     <div class="col-md-3">
-                       <input type="text"placeholder="EG 05" id="time">
+                       <input type="number"placeholder="EG 05" id="sevent_hour"min="1"max="12"required>
                     </div> 
                     <div class="col-md-3">
-                       <input type="text"placeholder="EG 07"id="time">
+                       <input type="number"placeholder="EG 07"id="sevent_min" min="1" max="59"required>
                     </div> 
                     <div class="col-md-3">
                        <select name="time" class="ampm"id="time">
@@ -98,10 +226,10 @@
                         <label>End Time</label>
                     </div>
                     <div class="col-md-3">
-                       <input type="text"placeholder="EG 05" id="time">
+                       <input type="text"placeholder="EG 05"id="eevent_hour" min="1" max="12"required >
                     </div> 
                     <div class="col-md-3">
-                       <input type="text"placeholder="EG 07"id="time">
+                       <input type="text"placeholder="EG 07"id="eevent_min" min="1" max="59"required>
                     </div> 
                     <div class="col-md-3">
                        <select name="time" class="ampm"id="time">
@@ -117,10 +245,10 @@
                         <label>Guestlist close Time</label>
                     </div>
                     <div class="col-md-3">
-                       <input type="text"placeholder="EG 05" id="time">
+                       <input type="text"placeholder="EG 05"id="cevent_hour" min="1" max="12"required>
                     </div> 
                     <div class="col-md-3">
-                       <input type="text"placeholder="EG 07"id="time">
+                       <input type="text"placeholder="EG 07"id="cevent_min" min="1" max="59"required>
                     </div> 
                     <div class="col-md-3">
                        <select name="time" class="ampm"id="time">
@@ -153,7 +281,7 @@
                     </div>
                         
                     <div class="col-md-6">
-                         <input type="text"placeholder="EG 05"id="glimit">
+                         <input type="number"placeholder="EG 05"id="event_glimit"min="1" max="5"required>
                     </div>
 
                 </div><br><br>
@@ -173,7 +301,7 @@
                         <label>SUPPORTING ARTIST</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text"placeholder="artist"id="artist">
+                        <input type="text"placeholder="artist"id="artist_name">
                     </div>     
                 </div>
                 <div class="row">
@@ -181,7 +309,7 @@
                         <label>SUPPORTING PROMOTERS</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text"placeholder="promoter"id="artist">
+                        <input type="text"placeholder="promoter"id="promoter_name">
                     </div>     
                 </div>  
             </div>     
@@ -229,6 +357,7 @@
                     </div>    
                 </div>    
             </div>
+            </form>
         </div>        
      
 
