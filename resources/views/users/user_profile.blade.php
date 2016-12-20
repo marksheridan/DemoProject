@@ -109,7 +109,7 @@ return false;
 				</script>
 			</div>
 		</div>	
-		{{Form::open(['url' => ['updateprofile/'.$usr->id], 'method' => 'post']) }}
+		{{Form::open(['url' => ['updateprofile/'.$usr->id], 'method' => 'post', 'files' => true]) }}
 		<div Class="col-md-4">
 			<div class="jumbotron">
 
@@ -168,7 +168,7 @@ return false;
 
 					</div>
 					<div class="col-md-5">
-                    	<input type="password" name="password" id="password"pattern=".{5,10}" palceholder="password">
+                    	<input type="text" name="password" id="password" pattern=".{5,10}" value="">
                  	</div>
 					</div>
 					<div class="row">
@@ -211,7 +211,7 @@ return false;
 					{{ Form::close() }}
 			
 					<div class="col-md-5">
-                    	<a href="{{url('/artistprofile') }}">
+                    	<a href="{{url('/artistprofile/'.$usr->id) }}">
                     		 <button type="button" class="btn btn-primary" align="center" onclick="return validate()">
                             VIEW YOUR PROFILE</button>
                         </a>

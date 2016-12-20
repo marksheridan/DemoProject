@@ -9,53 +9,48 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
  <style>
- img{
- 	border-radius: 15px;
- }
+    img{
+ 	  border-radius: 15px;
+       }
  </style>
 
 
  
- 	<div class="row text-center">
+    <div class="row text-center">
  		
- 			 <img src="{{ url('images/avengers_age_of_ultron_2015_movie.wide_.jpg' ) }}" width="1250"height="400">
-        
-   			<br><br>
-
-   			
-              
-
+ 			<img src="{{ url('images').'/'. $usr->user_img }}" width="1250"height="400">
+            <br><br>              
     </div>
+            <br><br>
+ <h4>Events By {{ $usr->user_name }}</h4>
  <br><br>
- <div class="container padding0">
-    
+
+<div class="container padding0">
     <div class="row">
+      @foreach($evn as $vv)
         <div class="col-md-4">
             <div class="jumbotron">
-                <a href="{{'/'}}">
-                 <img src="{{ url('images/avengers_age_of_ultron_2015_movie.wide_.jpg' ) }}" width="294" height="100">
-           
+                <a href="{{'/eventdisplay/'.$vv->id}}">
+                 <img src="{{ url('eventimages').'/'. $vv->event_banner }}" width="294" height="100">
                 </a>
                 <div class="text-left">
                     <div class="eventname">
-                        abcd
+                        Event Name:{{ $vv->event_name }}
                     </div>
                     <div class="eventvenue">
-                        dss
+                       Event Venue:{{ $vv->event_venue_id }}
                     </div>
                     <div class="type">
-                        <a href="{{ url('/') }}">
-                            <button class="RSPV">add</button>
+                        <a href="{{ url('/addtoguestlist/'.$vv->id) }}">
+                            <button>{{ $vv->event_type }}</button>
                         </a>
                     </div>
                 </div>
             </div>
             </div>
+            @endforeach
         </div>
+        
     </div>
-    
-</div>      
-
-
-
+          
 @endsection

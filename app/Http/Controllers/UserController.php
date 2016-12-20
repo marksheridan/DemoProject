@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\City;
+use App\Event;
 use Auth;
 use App\User;
+use App\Http\Controllers;
+
+
 
 use App\Http\Requests;
 
@@ -22,30 +26,36 @@ class UserController extends Controller
     public function updateuser(Request $request,$id)
     {
 
-        //dd($request);
-        //dd($id);
-        $filepath=public_path('/images/');
-        $file=$request->user_img;
-        if($request->hasfile('user_img'))
-        { 
-            $name = time(). '-' .$file->getClientOriginalName();
-            $input['user_img'] = $name;
-            $file->move($filepath, $input['user_img ']);
-        }
-
-        $input=$request->all();
-        
-        if($input['password']=="")
+        if($request->password=="")
         {
-            $input =$request->except('_token','password');
+            $input =$request->except('_token','password','user_img');
         }    
         else
         {
-            $input = $request->except('_token'); 
+            $input = $request->except('_token','user_img'); 
         } 
-        //dd($input);  
+        $destinationPath = public_path('images');
+        $file1 = $request->user_img;
+        if($request->hasFile('user_img'))
+        { 
+           
+            $input['user_img'] = time().'.'. $file1->getClientOriginalExtension();  
+            $file1->move($destinationPath, $input['user_img']);
+        }   
+       // dd($input);  
         User::where("id",$id)->update($input);
         return redirect('/userprofile');
+    }
+
+     public function artist_profile($id)
+    {
+        //dd($id);
+
+        $usr=User::where('id',$id)->first();
+        $evn = Event::where('user_id',$id)->get();
+        //dd($evn);
+
+        return view('users.artist_profile',compact('usr','evn'));
     }
 
 
@@ -91,10 +101,7 @@ class UserController extends Controller
     {
 
     }
-     public function artist_profile()
-    {
-        return view('users.artist_profile');
-    }
+    
 
      public function user_eventlist()
     {

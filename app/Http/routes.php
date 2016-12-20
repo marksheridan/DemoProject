@@ -107,7 +107,7 @@ Route::get('/userprofile','UserController@user_profile');
 
 Route::post('/updateprofile/{num}','UserController@updateuser');
 
-Route::get('/artistprofile','UserController@artist_profile');
+Route::get('/artistprofile/{num}','UserController@artist_profile');
 
 Route::get('/eventdetails','UserController@event_details');
  
