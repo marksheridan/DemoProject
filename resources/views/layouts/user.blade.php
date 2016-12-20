@@ -26,7 +26,7 @@
 
         }
         #modal-content{
-          background-color: #261798;
+          background-color: #484755;
         }
        
     </style>
