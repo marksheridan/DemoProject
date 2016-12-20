@@ -158,7 +158,7 @@ outline:none
 
 
              <div class="col-md-1">
-                   <a href="{{url('/home') }}">
+                   <a href="{{url('/showcity') }}">
                         <p>CONTROL PANEL</p>
                     </a>
 

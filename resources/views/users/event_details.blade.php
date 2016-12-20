@@ -14,6 +14,7 @@
 	}
 	#users{
 		background-color:  #0D0D1A;
+        border-radius: 10px;
 	}
 	#cover{
 		background-color: #6FACC3;
@@ -27,6 +28,9 @@
     }
      #table{
     color:#09579D; 
+  }
+  img{
+    border-radius: 70px;
   }
 
 

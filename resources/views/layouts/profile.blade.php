@@ -93,7 +93,7 @@ position: relative;
             <div class="row">
 
             <div class="col-md-3 col-xs-5">
-               <a href="{{url('/userprofile') }}">
+               <a href="{{url('/usereventlist') }}">
 
                    <img src="/images/back.button.jpg" width="35">
                    <a>
