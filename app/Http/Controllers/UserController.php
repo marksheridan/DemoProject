@@ -111,10 +111,7 @@ class UserController extends Controller
     {
 
     }
-    
-
-     
-     public function guest_list()
+    public function guest_list()
     {
         return view('users.guest_list');
     }
@@ -126,5 +123,11 @@ class UserController extends Controller
     public function edit_event()
     {
         return view('users.edit_event');
+    }
+
+    public function userevent($id)
+    {
+        $event=Event::where('id',$id)->first();
+        return view('users.user_eventdisplay',compact('event'));
     }
 }

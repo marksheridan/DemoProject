@@ -41,9 +41,9 @@ class HomeController extends Controller
 
     public function index()
     { 
-        $events=Event::where('user_id',Auth::User()->id)->get();
+        $event=Event::where('user_id',Auth::User()->id)->get();
         $users=User::all();
-        return view('home',compact('users','events'));
+        return view('home',compact('users','event'));
     }
 
     public function root()

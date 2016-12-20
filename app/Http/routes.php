@@ -112,6 +112,8 @@ Route::get('/eventdetails','UserController@event_details');
  
 Route::get('/editevent','UserController@edit_event');
 
+Route::get('/user/eventdisplay/{num}','UserController@userevent');
+
 //Load More
 
 Route::get('/get-more/{val}','HomeController@getmore');
