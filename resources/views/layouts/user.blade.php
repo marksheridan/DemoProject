@@ -18,7 +18,7 @@
 
         }
         #navuser{
-          background-color: #A8B8F3;
+          background-color: #5B5B6A;
 
         }
         #footer{
