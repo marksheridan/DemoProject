@@ -97,7 +97,8 @@
                     	 <tr>
                              <div class="col-md-1">
                                 <td>
-                                  <a href="{{url('/eventdetails') }}">
+                                  <a href="{{ url('/eventdetails/'.$ww->id) }}">
+
                                    {{ $ww->event_name }}
                                   </a>
                                 </td>
