@@ -30,7 +30,7 @@
       @foreach($evn as $vv)
         <div class="col-md-4">
             <div class="jumbotron">
-                <a href="{{'/eventdisplay/'.$vv->id}}">
+                <a href="{{'/user_eventdisplay/'.$vv->id}}">
                  <img src="{{ url('eventimages').'/'. $vv->event_banner }}" width="294" height="100">
                 </a>
                 <div class="text-left">
