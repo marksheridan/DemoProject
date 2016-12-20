@@ -168,7 +168,7 @@ return false;
 
 					</div>
 					<div class="col-md-5">
-                    	<input type="password" name="password" id="password"pattern=".{5,10}" palceholder="password"required>
+                    	<input type="password" name="password" id="password"pattern=".{5,10}" palceholder="password">
                  	</div>
 					</div>
 					<div class="row">
