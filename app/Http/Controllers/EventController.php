@@ -72,7 +72,7 @@ class EventController extends Controller
         }   
         //dd($input);
     	Event::create($input);
-    	return view('/home');
+    	return redirect('/usereventlist');
     }
 
     public function update(Request $request,$id)

@@ -96,21 +96,6 @@ class UserController extends Controller
     	return("Deleted");
     }
 
-    public function register()
-    {
-        $cities=City::lists('city_name','city_id');
-        dd($cities);
-    }
-
-    public function showartist()
-    {
-         
-    }
-
-    public function showvenue()
-    {
-
-    }
     public function guest_list()
     {
         return view('users.guest_list');
