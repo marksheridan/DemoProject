@@ -65,8 +65,27 @@ class UserController extends Controller
     {
         $usr = Auth::User();
         $event=Event::where('user_id',$usr->id)->get();
+        //dd($event);
        return view('users.user_eventlist',compact('event'));
         //return view('users.user_eventlist');
+    }
+
+
+    public function event_details($id)
+    {
+        //dd($id);
+        $event=Event::where('id',$id)->first();
+        $gus=Guest::where('event_id',$id)->get();
+        //dd($gus);
+        return view('users.event_details',compact('event','gus'));
+    }
+
+
+    public function guest_list()
+    {
+        $gus=Guest::all();
+
+        return view('users.guest_list',compact('gus'));
     }
 
 
@@ -96,14 +115,10 @@ class UserController extends Controller
     	return("Deleted");
     }
 
+
     public function guest_list()
     {
         return view('users.guest_list');
-    }
-    
-    public function event_details()
-    {
-        return view('users.event_details');
     }
     public function edit_event()
     {

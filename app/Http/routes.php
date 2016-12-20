@@ -93,11 +93,10 @@ Route::post('/storeevent','EventController@store');
 
 Route::get('/search','HomeController@search');
 
-Route::get('user/artist_profile','UserController@showartist');
 
-Route::get('/usereventlist','UserController@user_eventlist');
 
-Route::get('/guestlist','UserController@guest_list');
+
+
 
 //user profile part
 
@@ -107,11 +106,18 @@ Route::post('/updateprofile/{num}','UserController@updateuser');
 
 Route::get('/artistprofile/{num}','UserController@artist_profile');
 
-Route::get('/eventdetails','UserController@event_details');
+Route::get('user/artist_profile','UserController@showartist');
+
+Route::get('/usereventlist','UserController@user_eventlist');
+
+Route::get('/eventdetails/{num}','UserController@event_details');
  
 Route::get('/editevent','UserController@edit_event');
 
 Route::get('/user/eventdisplay/{num}','UserController@userevent');
+
+Route::get('/guestlist','UserController@guest_list');
+
 
 //Load More
 

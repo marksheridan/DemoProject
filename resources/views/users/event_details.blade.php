@@ -48,29 +48,31 @@
         <div class="col-md-12" style: align="center">
             <div class="jumbotron" id="cover"> -->
             <div>
- 			 <img src="/images/thaikkudam-bridge.jpg" width="1300"height="400">
+ 			 <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="1300"height="400">
         	</div><br>
 <div class="container">
     <div class="col-md-4">
             <div class="jumbotron" id="users">
                 <div class="row">   
                     <div class="col-md-8">
-                       <h5> THAIKKUDAM BRIDGE</h5>
-                            INFOPARK
+                        Event Name:
+                        <h5>{{ $event->event_name }}</h5>
+                         Event Venue:   
+                        <h5>{{ $event->event_venue_id }}</h5> 
                     </div>
                         
-                    <div class="col-md-3">
-                        <h5> Monday <br>12/12/12/</h5>
+                    <div class="col-md-4">
+                        Event Date:
+                        <h5>{{ $event->event_date }}
+                          <!-- <br>12/12/12/</h5> -->
                     </div>
 
                 </div><br><br>
                 <div class="row">
-                    <div class="col-md-10">
-                         When you wish to run the Vagrant commands, 
-                            just open up a command line in your Homestearol over where 
-                            the VM itself is created 
-                            unless you start editing and customising the scripts.
-                            
+                    <div class="col-md-3">
+                      Event Description:
+                      <br>
+                      {{ $event->event_description }}      
                     </div>
                     
                 </div>  
@@ -81,23 +83,21 @@
             <div class="jumbotron" id="users">
                 <div class="row">   
                     <div class="col-md-8">
-                       <h5> GUESTLIST CLOSES AT 7:00PM</h5>
-                            
+                      @if( $event->event_type == "Guestlist" )
+                      
+                       <h5> GUESTLIST CLOSES AT {{ $event->event_closing_time }}</h5>  
+                         
+                       @endif      
                     </div>
-                        
-                   
-
-                </div><br><br>
-                <div class="row">
+                  </div>
+                  <br><br>
+                  <div class="row">
                     <div class="col-md-10">
-                     just open up a command line in your Homestead 
-                    folder and run them from there
-                    You have no control over where the VM itself is created 
-                    
-                            
+                      Event Requirement
+                      <br>
+                     {{ $event->event_requirement }}     
                     </div>
-                    
-                </div>  
+                  </div>  
             </div>
             <div class="jumbotron"id="users">
                 <div class="row">
@@ -206,25 +206,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($gus as $gg)
                     	 <tr>
                              <div class="col-md-3">
                                 <td>
-                                   john
+                                   {{ $gg->guest_name }}
                                 </td>
                             </div>
                             <div class="col-md-3">
                                 <td>
-                                    9090909090
+                                    {{ $gg->guest_phone_no }}
                                 </td>
                             </div>
                             <div class="col-md-2">
                                 <td>
-                                    990
+                                    {{ $gg->guest_entry_code }}
                                 </td>
                             </div>
                             <div class="col-md-2">
                                 <td>
-                                    5
+                                    {{ $gg->no_of_couples }}
                                 </td>
                             </div>
                             <div class="col-md-2">
@@ -234,6 +235,7 @@
                             </div>
                             
                           </tr>  
+                          @endforeach
                     </tbody>
                    </table> 
                  
