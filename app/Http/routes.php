@@ -126,6 +126,8 @@ Route::get('/get-more/{val}','HomeController@getmore');
 
 Route::get('/get-more/','HomeController@getmoreall');
 
+Route::get('/get-popular/','HomeController@getpopular');
+
 //Get Events According to City
 
 Route::get('/get-events-city/{val}','HomeController@getevents');

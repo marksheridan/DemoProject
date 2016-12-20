@@ -21,6 +21,12 @@
   #table{
     color:#09579D; 
   }
+  img{
+    border-radius: 20px;
+  }
+  strong{
+    color: #F2EBEB;
+  }
 
 
 
@@ -28,7 +34,7 @@
 
 
 <div class="container">
-	<div class="row">
+	<div class="row" id="">
 		<div class="col-md-12" style: align="center">
 			<div class="jumbotron" id="cover">
  			 <img src="/images/mountains1.jpg" width="900">
@@ -71,7 +77,7 @@
         	</div>  
 
  		</div>
- 		<div class="col-md-8">
+ 		<div class="col-md-7">
         	<div class="jumbotron"id="users">
         		<h4><strong>UPCOMING EVENTS</strong> </h4>
 				  <table class="table"id="table">
