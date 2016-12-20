@@ -197,7 +197,7 @@ select{
   <div class="row">
 
   <div class="col-md-10 col-sm-4">
- <p id="pe"> most popular events</p>
+ <p id="pe"> Most Popular Events</p>
  </div>
  <div class="col-md-2">
   <select dir class="all events"><br>
@@ -211,145 +211,40 @@ select{
 <br><br>
 
 <div class="row">
-    <div class="col-md-4">
-        <div class="jumbotron"> 
-            <a href="{{url('/eventdisplay') }}">
-                <img src="/images/mountains1.jpg" width="294">
-            </a>
-            <div class="text-left">
-                <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-       monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="BUY"> BUY</button>
-      </div>
+    @foreach($popular as $e)
+        <div class="col-md-4">
+            <div class="jumbotron">
+                <a href="{{'/eventdisplay/'.$e->id}}">
+                    <img src="{{ url('eventimages').'/'. $e->event_banner}}" width="294" height="100">
+                </a>
+                <div class="text-left">
+                    <div class="eventname">
+                        {{ $e->event_name }}
+                    </div>
+                    <div class="eventvenue">
+                        monday<strong>{{$e->event_venue_id}}</strong> kochi
+                    </div>
+                    <div class="type">
+                        <a href="{{ url('/addtoguestlist/'.$e->id) }}">
+                            <button class="RSPV">{{ $e->event_type }}</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-
-</div>
-<!-- <div> sdkjsdksn</div>
-<div>djdlsfsdl</div> -->
-<div class="col-md-4">
-   <div class="jumbotron">
-
- <a href="{{url('/eventdisplay') }}">
-    <img src="/images/mountains1.jpg" width="294">
-  </a>
-  <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-       monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="BUY"> BUY</button>
-      </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-4">
-   <div class="jumbotron">
-
- <a href="{{url('/eventdisplay') }}">
-    <img src="/images/mountains1.jpg" width="294">
-  </a>
-  <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-       monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="BUY"> BUY</button>
-      </div>
-        </div>
-    </div>
-</div>
-
-</div>
-<br>
-<!-- <div> sdkjsdksn</div>
-<div>djdlsfsdl</div> -->
-<div class="row">
-
-  <div class="col-md-4">
-     <div class="jumbotron">
-    <a href="{{url('/eventdisplay') }}">
-
-       <img src="/images/mountains1.jpg" width="294">
-    </a>
-    <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-        monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="BUY"> BUY</button>
-      </div>
-        </div>
-    </div>
-
-
-</div>
-<!-- <div> sdkjsdksn</div>
-<div>djdlsfsdl</div> -->
-<div class="col-md-4">
-   <div class="jumbotron">
-
- <a href="{{url('/eventdisplay') }}">
-    <img src="/images/mountains1.jpg" width="294">
-  </a>
-  <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-       monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="BUY"> BUY</button>
-      </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-4">
-   <div class="jumbotron">
- <a href="{{url('/eventdisplay') }}">
-    <img src="/images/mountains1.jpg" width="294">
-  </a>
-  <div class="text-left">
-      <div class="eventname">
-        SUICIDE SQUAD PRESENTS JOCKER LIVE
-      </div>
-        <div class="eventvenue">
-        monday<strong> Paradise bar</strong> kochi
-      </div>
-      <div class="type">
-        <button class="BUY"> BUY</button>
-      </div>
-</div>
-    </div>
-</div>
+    @endforeach
 </div>
 <br><br>
 
 <div class="row">
-  <div class="col-md-12 text-center">
-    <a href="{{ url('/login') }}">
-                     <button type="submit" class="Button" align="center">
+    <div class="col-md-12 text-center">
+        <a href="{{ url('/login') }}">
+            <button type="submit" class="Button" align="center">
                         Load More
-                     </button>
-                    </a>
-                  </div>
-                </div>
+            </button>
+        </a>
+    </div>
+</div>
 
 
 

@@ -19,7 +19,7 @@ Route::get('/register','UserController@register');
 Route::get('welcome','HomeController@root');
 
 
-
+//Login Routes...
 Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
 
 Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);

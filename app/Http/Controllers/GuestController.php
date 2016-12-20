@@ -31,21 +31,18 @@ class GuestController extends Controller
     public function store(Request $request ,$id)
     {
         //dd($request);
+
         $evn = Event::where('id',$id)->first();
         //dd($evn);
-
-    $input= $request->except('_token');
-    $input['business_user_id']= $evn->user_id;
-    $input['event_id'] = $id;
-    $string = str_random(4);
-    $input['guest_entry_code']= $string; 
-
-
-    //dd($input);
-    
-    $gu = Guest::create($input);
-    //dd($gu); 
-    return redirect('/');
+        $input= $request->except('_token');
+        $input['business_user_id']= $evn->user_id;
+        $input['event_id'] = $id;
+        $string = str_random(4);
+        $input['guest_entry_code']= $string; 
+        $tgl=$evn['event_total_guest']+$request->no_of_couples;
+        Event::where('id',$id)->update(array('event_total_guest'=>$tgl));
+        Guest::create($input);
+        return redirect('/');
     
     }
 }

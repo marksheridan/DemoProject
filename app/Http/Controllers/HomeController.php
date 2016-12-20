@@ -41,18 +41,9 @@ class HomeController extends Controller
 
     public function index()
     { 
-        //$users=User::all();
-        $events=Event::all();
+        $events=Event::where('user_id',Auth::User()->id)->get();
         $users=User::all();
-        /*if(Auth::guest==false)
-        {
-            $user=User::where('user_id',Auth::User()->id)->first();
-            dd($user);
-        }*/
-        //dd(Auth::User()->user_name);
-        $flyer=Event::lists('id','event_banner');
-
-        return view('home',compact('users','events','flyer'));
+        return view('home',compact('users','events'));
     }
 
     public function root()
@@ -60,9 +51,9 @@ class HomeController extends Controller
         $cities=City::where('city_status',"active")->lists('city_name','city_id');
         //$events=Event::all();
         $events=Event::take(3)->get();
+        $popular=Event::orderBy('event_total_guest','desc')->get();
         $flyer=Event::lists('id','event_banner');
-        //dd($flyer);
-        return view('homepage',compact('events','flyer','cities'));
+        return view('homepage',compact('events','flyer','cities','popular'));
     }
 
     public function getmore($val)
