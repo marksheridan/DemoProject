@@ -51,7 +51,7 @@ class HomeController extends Controller
         $cities=City::where('city_status',"active")->lists('city_name','city_id');
         //$events=Event::all();
         $events=Event::take(3)->get();
-        $popular=Event::orderBy('event_total_guest','desc')->get();
+        $popular=Event::orderBy('event_total_guest','desc')->take(3)->get();
         $flyer=Event::lists('id','event_banner');
         return view('homepage',compact('events','flyer','cities','popular'));
     }
@@ -83,6 +83,14 @@ class HomeController extends Controller
         $events=Event::take(3)->skip($skipval)->get();
         
         return($events);
+    }
+
+    public function getpopular()
+    {
+        $skipnum=Input::get('skip');
+        $popular=Event::orderBy('event_total_guest','desc')->take(3)->skip($skipnum)->get();
+        //dd($popular); 
+        return($popular);
     }
 
 
