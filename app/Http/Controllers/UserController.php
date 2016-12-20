@@ -7,6 +7,7 @@ use App\City;
 use App\Event;
 use Auth;
 use App\User;
+use App\Guest;
 use App\Http\Controllers;
 
 
@@ -47,7 +48,7 @@ class UserController extends Controller
         return redirect('/userprofile');
     }
 
-     public function artist_profile($id)
+    public function artist_profile($id)
     {
         //dd($id);
 
@@ -58,6 +59,15 @@ class UserController extends Controller
         return view('users.artist_profile',compact('usr','evn'));
     }
 
+    
+    public function user_eventlist()
+
+    {
+        $usr = Auth::User();
+        $event=Event::where('user_id',$usr->id)->get();
+       return view('users.user_eventlist',compact('event'));
+        //return view('users.user_eventlist');
+    }
 
 
     public function show()
@@ -103,10 +113,7 @@ class UserController extends Controller
     }
     
 
-     public function user_eventlist()
-    {
-        return view('users.user_eventlist');
-    }
+     
      public function guest_list()
     {
         return view('users.guest_list');

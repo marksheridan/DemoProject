@@ -93,30 +93,32 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($event as $ww)
                     	 <tr>
                              <div class="col-md-1">
                                 <td>
                                   <a href="{{url('/eventdetails') }}">
-                                   thaikkudam bridge 
+                                   {{ $ww->event_name }}
                                   </a>
                                 </td>
                             </div>
                             <div class="col-md-3">
                                 <td>
-                                    12-12-12
+                                    {{ $ww->event_date }}
                                 </td>
                             </div>
                             <div class="col-md-2">
                                 <td>
-                                    no guest
+                                    {{ $ww->event_total_guest }}
                                 </td>
                             </div>
                             <div class="col-md-1">
                                 <td>
-                                    band
+                                    {{ $ww->event_type }}
                                 </td>
                             </div>
                           </tr>  
+                          @endforeach
                     </tbody>
                    </table> 
                  <h4><strong>PAST EVENTS</strong> </h4>
