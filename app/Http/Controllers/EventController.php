@@ -34,18 +34,15 @@ class EventController extends Controller
         'event_name' => 'required|unique:events',
         'event_banner'=>'required',
         'event_status' => 'required',
-        //'event_type' => //'required',
         'event_date' => 'required',
         'event_start_time' => 'required',
         'event_end_time' => 'required',
         'event_description' => 'required',
-        //'event_guest_limit' => 'required',
         
     ]);
 
 
     	$input=$request->except('_token','event_banner');
-        //dd(Auth::User()->id);
 
         
         /*$timestamp = date("m/d/Y", strtotime($request->event_date));
@@ -70,7 +67,6 @@ class EventController extends Controller
               
             $file->move($filepath, $input['event_banner']);
         }   
-        //dd($input);
     	Event::create($input);
     	return redirect('/usereventlist');
     }

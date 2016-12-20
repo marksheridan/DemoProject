@@ -116,10 +116,7 @@ class UserController extends Controller
     }
 
 
-    public function guest_list()
-    {
-        return view('users.guest_list');
-    }
+    
     public function edit_event()
     {
         return view('users.edit_event');
