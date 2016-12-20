@@ -22,6 +22,9 @@
         background-color: #F5EEEF;
         height: 17px;
     }
+    strong{
+        color: #FFFFFF;
+    }
 
 
 </style>

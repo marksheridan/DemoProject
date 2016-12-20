@@ -5,6 +5,14 @@
 #dev{
 	text-align: "center";
 }
+img{
+    border-radius: 30px;
+    text-align: center;
+  }
+  #users{
+    background-color:  #0D0D1A;
+  }
+
 </style>
 
 <script type="text/javascript">
@@ -86,13 +94,13 @@ return false;
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <div class="col-md-12 text-center">
-  	<img src="{{ url('images').'/'. $usr->user_img }}" width="400"height="400" id="dev" align="center">
+  <div class="text-center">
+  	<img src="{{ url('images').'/'. $usr->user_img }}"width="1260"height="400" id="dev" align="center">
   </div><br>
   <div class="container">
 	<div class="row">
 		<div class="col-md-4">
-			<div class="jumbotron">
+			<div class="jumbotron"id="users">
 				<p> clubbers</p>
 				<textarea id="user_add"> text </textarea>
 				<script type="text/javascript">
@@ -111,7 +119,7 @@ return false;
 		</div>	
 		{{Form::open(['url' => ['updateprofile/'.$usr->id], 'method' => 'post', 'files' => true]) }}
 		<div Class="col-md-4">
-			<div class="jumbotron">
+			<div class="jumbotron"id="users">
 
 				<div class="row">
 					<div class="col-md-5">
@@ -141,7 +149,7 @@ return false;
 	</div>
 	<div class="col-md-4">
 		<div class="row">
-			<div class="jumbotron">
+			<div class="jumbotron"id="users">
 				<div class="row">
 					<div class="col-md-5">
 						<label> Select City</label>
@@ -161,7 +169,7 @@ return false;
 			</div>
 		</div>
 		<div class="row">
-			<div class="jumbotron">
+			<div class="jumbotron"id="users">
 				<div class="row">
 					<div class="col-md-5">
 						<label> Update password</label>
@@ -199,7 +207,7 @@ return false;
 				</div>	
 			</div>
 			<div class="row">
-			<div class="jumbotron">
+			<div class="jumbotron"id="users">
 				<div class="row">
 					<div class="col-md-5">
 						<!-- <a href="{{ url('/updateprofile/'.$usr->id) }}">
