@@ -29,25 +29,23 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-         //dd($request);
+
+        //
         $this->validate($request, [
-        'event_name' => 'required|unique:events',
+        'event_name' => 'required',
         'event_banner'=>'required',
-        'event_status' => 'required',
+        //'event_status' => 'required',
         'event_date' => 'required',
         'event_start_time' => 'required',
         'event_end_time' => 'required',
         'event_description' => 'required',
+        ]);
         
-    ]);
-
-
-    	$input=$request->except('_token','event_banner');
+    	$input=$request->except('_token','event_banner','event_date');
 
         
-        /*$timestamp = date("m/d/Y", strtotime($request->event_date));
-        $input['event_date']=$timestamp;*/
-
+        $timestamp = $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_start_time));
+        $input['event_date']=$timestamp;
         
         $input['created_by']=Auth::User()->id;
         $input['user_id']=Auth::User()->id;
@@ -68,6 +66,7 @@ class EventController extends Controller
             $file->move($filepath, $input['event_banner']);
         }   
     	Event::create($input);
+
     	return redirect('/usereventlist');
     }
 

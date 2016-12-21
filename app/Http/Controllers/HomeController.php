@@ -17,10 +17,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function addevent()
-    {
-        return view('events.addevent');
-    }
     public function addvenue()
     {
         return view('venues.addvenue');

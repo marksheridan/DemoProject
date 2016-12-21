@@ -89,7 +89,7 @@ Route::get('/promoters','UserController@showpromoters');
 
 Route::get('/venue-list/{value}', 'EventController@getVenues');
 
-Route::post('/storeevent','EventController@store');
+Route::post('/eventstore','EventController@store');
 
 Route::get('/search','HomeController@search');
 
