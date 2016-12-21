@@ -38,8 +38,9 @@
 }
 #container{
   border-radius: 25px;
-    background: #BEC8CE;
+    background: #243569;
     padding: 20px; 
+    color: #FFFFFF;
 
 }
 

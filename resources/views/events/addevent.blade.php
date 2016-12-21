@@ -90,6 +90,21 @@ if(strUser==0)
 alert("Please select a venue");
 return false;
 }
+var est = document.getElementById("event_start_time").value;
+var eet = document.getElementById("event_end_time").value;
+var ect = document.getElementById("event_closing_time").value;
+
+if ( est > eet )
+    {
+        alert("Start Time shoul be earlier than end time");
+    }
+
+ if ( ect < est || ect > eet )
+    {
+        alert("Close time should be inbetween start and end time");
+    }
+
+
 
 var ENameTB = document.getElementById("event_description");
 		var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
@@ -150,7 +165,7 @@ $("#event_date").datepicker({
 			</div>
 			
             	<div class="jumbotron">
-					<form method="post" action="{{ url('/storeevent') }}" enctype="multipart/form-data">
+					<form method="post" action="{{ url('/eventstore') }}" enctype="multipart/form-data">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 							<div class="row">
 								<div class="form-group">
