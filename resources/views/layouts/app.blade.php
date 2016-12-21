@@ -30,6 +30,13 @@
   select {
 position: relative;
 }
+#event_city_id{
+  -webkit-appearance:none;
+  background-color:#FEF5F5;
+  border: none;
+  color: #100101;
+  width: 90px;
+}
 .form-control{
   text-align: center;
 }
@@ -50,10 +57,13 @@ position: relative;
            
             <div class="row">
             <div class="col-md-3 col-xs-6">
+              
 
+     
             
-            {{ Form::select('event_city_id', $cities, "0" , ["id"=>"event_city_id", "class"=>"event_city_id", 'placeholder'=>"All Cities"]) }}
+        <h5><strong>    {{ Form::select('event_city_id', $cities, "0" , ["id"=>"event_city_id", "class"=>"event_city_id", 'placeholder'=>"ALL CITIES"]) }}
 
+         </h5></strong>
 
             </div>
             

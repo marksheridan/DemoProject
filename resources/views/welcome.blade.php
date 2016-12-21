@@ -58,6 +58,7 @@ Button{
 }
 select{
   color:#0C99D1;
+  
 }
 .text-left{
   text-align: left;
