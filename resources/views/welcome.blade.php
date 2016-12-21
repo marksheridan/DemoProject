@@ -336,7 +336,7 @@ select{
                     $html+="</div>                  <div class=\"eventvenue\">"
                     $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
                     $html+="</div>                  <div class=\"type\">"
-                    $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
+                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
                     $html+="</a></div></div></div></div>"
                     $("#displaypopular").append($html)
@@ -374,7 +374,7 @@ select{
                     $html+="</div>                  <div class=\"eventvenue\">"
                     $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
                     $html+="</div>                   <div class=\"type\">"
-                    $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
+                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
                     $html+="</a></div></div></div></div>"
                     $("#displayitem").append($html)
