@@ -29,10 +29,18 @@
   border: 2px solid #48B4F2;
 } */
 #events{
-  background-color: #EBFBFD;
+  background-color: #FFFFFF;
+  /* border-radius: 25px;
+     background: #73AD21;
+     padding: 20px; 
+     width: 370px;
+     height: 250px; */ 
 }
-#eve{
-  border-radius: 12px;
+#container{
+  border-radius: 25px;
+    background: #BEC8CE;
+    padding: 20px; 
+
 }
 
 Button{
@@ -132,7 +140,7 @@ select{
 
 <div class="container padding0">
     <div class="row">
-        <div class="col-md-10 col-sm-4">
+        <div class="col-md-10 col-sm-4 col-xs-10">
             <p id="eb" class="cityname">All Events</p>
         </div>
         <div class="col-md-2">
@@ -146,34 +154,41 @@ select{
 <br><br>
 </div>
 <div class="container padding0">
+
+  <div class="col-md-12 col-sm-4 col-xs-12 text-center" id="container">
     
     <div class="row" id="displayitem">
     @foreach($events as $event)
-        <div class="col-md-4"id="eve">
-            <div class="jumbotron"id="events">
-
+        
+ 
+        <div class="col-md-4 col-sm-2 col-xs-10">
+         
+            
+                
                 <a href="{{'/eventdisplay/'.$event->id}}">
                     <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="294" height="100">
                 </a>
                 <div class="text-left">
-                    <div class="eventname">
+                    <div class="eventname text-center">
                         {{ $event->event_name }}
                     </div>
-                    <div class="eventvenue">
+                    <div class="eventvenue text-center">
                         monday<strong>{{$event->event_venue_id}}</strong> kochi
                     </div>
-                    <div class="type">
+                    <div class="type text-center">
                         <a href="{{ url('/addtoguestlist/'.$event->id) }}">
                             <button class="RSPV">{{ $event->event_type }}</button>
                         </a>
                     </div>
                 </div>
-                <div class='col-md-1'></div>
-            </div>
+                
+          
         </div>
-    @endforeach
-    </div>
     
+    @endforeach
+    <br><br>
+    </div>
+    </div>
 </div>
 <br>
 <!-- <div> sdkjsdksn</div>
@@ -219,30 +234,35 @@ select{
 </div>
 <br><br>
 
+  <div class="col-md-12 text-center" id="container">
 <div class="row" id="displaypopular">
     @foreach($popular as $e)
         <div class="col-md-4">
-            <div class="jumbotron">
+            
                 <a href="{{'/eventdisplay/'.$e->id}}">
                     <img src="{{ url('eventimages').'/'. $e->event_banner}}" width="294" height="100">
                 </a>
-                <div class="text-left">
-                    <div class="eventname">
+                <div class="text-left text-center">
+                    <div class="eventname text-center">
                         {{ $e->event_name }}
                     </div>
-                    <div class="eventvenue">
+                    <div class="eventvenue text text-center">
                         monday<strong>{{$e->event_venue_id}}</strong> kochi
                     </div>
-                    <div class="type">
+                    <div class="type text-center">
                         <a href="{{ url('/addtoguestlist/'.$e->id) }}">
                             <button class="RSPV">{{ $e->event_type }}</button>
                         </a>
                     </div>
                 </div>
-            </div>
+            
         </div>
+
     @endforeach
 </div>
+</div>
+<div class="row">
+    </div>
 <br><br>
 
 <div class="row">
@@ -282,18 +302,18 @@ select{
                     var imageurl="{{ asset('eventimages/') }}";
                     var url =imageurl+"/"+obj.event_banner;
                     $html="<div class=\"col-md-4\">";
-                    $html+="<div class=\"jumbotron\">";
+                  
                     $html+="<a href=\"eventdisplay/"+obj.id+"\">";
                     $html+="<img src=\""+url+"\" width=\"294\" height=\"100\">";
                     $html+="</a>               <div class=\"text-left\">"
-                    $html+="<div class=\"eventname\">"
+                    $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
-                    $html+="</div>                  <div class=\"eventvenue\">"
+                    $html+="</div>                  <div class=\"eventvenue text-center\">"
                     $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
-                    $html+="</div>                   <div class=\"type\">"
+                    $html+="</div>                   <div class=\"type text-center\">"
                     $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
-                    $html+="</a></div></div></div></div>"
+                    $html+="</a></div></div></div>"
                     $("#displayitem").append($html)
                 })
             },
@@ -327,18 +347,18 @@ select{
                     var imageurl="{{ asset('eventimages/') }}";
                     var url =imageurl+"/"+obj.event_banner;
                     $html="<div class=\"col-md-4\">";
-                    $html+="<div class=\"jumbotron\">";
+                    
                     $html+="<a href=\"eventdisplay/"+obj.id+"\">";
                     $html+="<img src=\""+url+"\" width=\"294\" height=\"100\">";
                     $html+="</a>               <div class=\"text-left\">"
-                    $html+="<div class=\"eventname\">"
+                    $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
-                    $html+="</div>                  <div class=\"eventvenue\">"
+                    $html+="</div>                  <div class=\"eventvenue text-center\">"
                     $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
-                    $html+="</div>                  <div class=\"type\">"
-                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
+                    $html+="</div>                  <div class=\"type text-center\">"
+                    $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
-                    $html+="</a></div></div></div></div>"
+                    $html+="</a></div></div></div>"
                     $("#displaypopular").append($html)
                 })
                 skipnum+=3;
@@ -365,18 +385,17 @@ select{
                     var imageurl="{{ asset('eventimages/') }}";
                     var url =imageurl+"/"+obj.event_banner;
                     $html="<div class=\"col-md-4\">";
-                    $html+="<div class=\"jumbotron\">";
                     $html+="<a href=\"eventdisplay/"+obj.id+"\">";
                     $html+="<img src=\""+url+"\" width=\"294\" height=\"100\">";
                     $html+="</a>               <div class=\"text-left\">"
-                    $html+="<div class=\"eventname\">"
+                    $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
-                    $html+="</div>                  <div class=\"eventvenue\">"
+                    $html+="</div>                  <div class=\"eventvenue text-center\">"
                     $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
-                    $html+="</div>                   <div class=\"type\">"
-                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
+                    $html+="</div>                   <div class=\"type text-center\">"
+                    $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
-                    $html+="</a></div></div></div></div>"
+                    $html+="</a></div></div></div>"
                     $("#displayitem").append($html)
                 })
                 skipval+=3;

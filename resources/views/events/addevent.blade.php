@@ -115,7 +115,7 @@ var ENameTB = document.getElementById("event_description");
 
 <script>
 $(document).ready(function() {
-$("#datepicker").datepicker({
+$("#event_date").datepicker({
 
 
 	minDate:+1
@@ -273,7 +273,7 @@ $("#datepicker").datepicker({
 									</label>
 								<div class="col-md-6">
 								 
-									<input type="text" id="datepicker" name ="datepicker"class="form-control">
+									<input type="text" id="event_date" name ="event_date" class="form-control">
 								
 								</div>
 								</div>
@@ -375,7 +375,7 @@ $("#datepicker").datepicker({
 								
 									</label>
 								<div class="col-md-6">
-									<input id="event_guest_limit" type="number" class="form-control" name="event_guest_limit" placeholder="Gust Limit"min="1"max="5"required>
+									<input id="event_guest_limit" type="number" class="form-control" name="event_guest_limit" placeholder="Gust Limit"min="1"max="500"required>
 								</div>
 								</div>
 							</div>
