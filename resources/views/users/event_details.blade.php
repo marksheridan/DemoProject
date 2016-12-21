@@ -35,6 +35,9 @@
   img{
     border-radius: 70px;
   }
+  strong{
+    color: #FFFFFF;
+  }
 
 
     
@@ -54,51 +57,70 @@
     <div class="col-md-4">
             <div class="jumbotron" id="users">
                 <div class="row">   
-                    <div class="col-md-8">
-                        Event Name:
+                    <div class="col-md-5">
+                      <h5><strong>  Name:</strong></h5>
+                     </div>
+                     <div class="col-md-4"> 
                         <h5>{{ $event->event_name }}</h5>
-                         Event Venue:   
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-5">
+                         <h5><strong>  Venue:</strong></h5> 
+                         </div>
+                         <div class="col-md-4">  
                         <h5>{{ $event->event_venue_id }}</h5> 
                     </div>
-                        
-                    <div class="col-md-4">
-                        Event Date:
-                        <h5>{{ $event->event_date }}
+                  </div>
+                  <div class="row">   
+                    <div class="col-md-5">
+                        <h5><strong>  Date:</strong></h5>
+                    </div>
+                    <div class="col-md-5">
+                        <h5>{{ $event->event_date }}</h5>
                           <!-- <br>12/12/12/</h5> -->
                     </div>
+                    </div>
 
-                </div><br><br>
+                
                 <div class="row">
-                    <div class="col-md-3">
-                      Event Description:
-                      <br>
+                    <div class="col-md-5">
+                     <h5><strong>  Description:</strong></h5>
+                    </div>
+                    <div class="col-md-4">
                       {{ $event->event_description }}      
                     </div>
-                    
+                  </div>                    
                 </div>  
-            </div>  
+           
 
         </div>
          <div class="col-md-4">
             <div class="jumbotron" id="users">
                 <div class="row">   
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                       @if( $event->event_type == "Guestlist" )
                       
-                       <h5> GUESTLIST CLOSES AT {{ $event->event_closing_time }}</h5>  
-                         
+                       <h5><strong> Guestlist closes at </strong></h5>
+                      </div>
+                      <div class="col-md-5">
+                       {{ $event->event_closing_time }}  
+                         </div>
                        @endif      
                     </div>
-                  </div>
-                  <br><br>
+                  
+                  
                   <div class="row">
-                    <div class="col-md-10">
-                      Event Requirement
-                      <br>
-                     {{ $event->event_requirement }}     
+                    <div class="col-md-6">
+                        <h5><strong> Requirements </strong></h5>
+                    </div>
+                     <div class="col-md-5"> 
+                     {{ $event->event_requirement }} 
+                     </div>    
                     </div>
                   </div>  
-            </div>
+                </div>
+                <div class="col-md-4">
             <div class="jumbotron"id="users">
                 <div class="row">
                     <h5>POST TO SOCIAL MEDIA</h5>

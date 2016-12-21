@@ -54,23 +54,23 @@
            			</div>
            			    
            			<div class="col-md-6">
-           				<a href="{{url('/usereventlist') }}">
+           				<!-- <a href="{{url('/usereventlist') }}"> -->
 						<img src="/images/Guestlist_CirclePurple_300dpi.png" width="50">
-					</a>
+					<!-- </a> -->
            			</div>
 
            		</div><br><br>
            		<div class="row">
            			<div class="col-md-6">
-           				<a href="{{url('/usereventlist') }}">
+           				<!-- <a href="{{url('/usereventlist') }}"> -->
           				<img src="/images/Internet-Data-Network-Ticket-Home-Furnishings-Furniture-3186173011.png" width="50">
-           			    </a>
+           			   <!--  </a> -->
            			</div>
            				
            			<div class="col-md-6">
-           				<a href="{{url('/usereventlist') }}">
+           			<!--   <a href="{{url('/usereventlist') }}"> -->
 						<img src="/images/Guestlist_CirclePurple_300dpi.png" width="50">
-					</a>
+				<!--   </a> -->
            			</div>
 					
            		</div>	

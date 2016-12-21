@@ -35,6 +35,14 @@ body {
 	h1{
 			color: #00008B;
 	}
+	 #modal-content{
+          background-color: #484755;
+        }
+        #modalheader{
+         background-color:  #9A0202;
+         color: #1C3454;
+        }
+
 	
 	select {
 position: absolute;
@@ -191,13 +199,34 @@ position: absolute;
 						<div class="form-group">
 							<div class="col-md-4">
 							</div>
-							<button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
+							<button type="button" class="btn btn-primary" align="center" data-toggle="modal" data-target="#myModal" onclick="return validate()">
 							Add</button>
 					
 			</div>
 		</form>
 	</div>
 </div>
+<footer>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"id="modalheader">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><strong>!Clubbers</strong></h4>
+            </div>
+            
+            <div class="modal-body"id="modalbody">
+                <div class="row">
+                    
+                   <h4><strong>THANK YOU :) For Booking an Event Using Our Site</strong></h4>
+                   
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
 	
 
 
