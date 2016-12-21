@@ -608,7 +608,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                     </div>
                         
                     <div class="col-md-6">
-                         <input type="number"placeholder="EG 05"id="event_glimit"min="1" max="5"required>
+                         <input type="number"placeholder="EG 05"id="event_glimit"min="1" max="500"required>
                     </div>
 
                 </div><br><br>
