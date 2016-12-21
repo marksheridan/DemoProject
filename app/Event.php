@@ -15,4 +15,10 @@ class Event extends Model
          'event_total_guest','event_guest_limit', 'created_by', 
          'created_at', 'updated_at'
     ];
+
+
+    public function guests()
+    {
+    return $this->hasMany('App\Guest', 'business_user_id', 'id');
+    }
 }

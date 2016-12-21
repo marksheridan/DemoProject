@@ -144,7 +144,7 @@
             <div class="jumbotron" id="users">
                 <div class="row">   
                     <div class="col-md-6">
-                        <a href="{{url('/editevent') }}">
+                        <a href="{{ url('/editevent/'.$event->id) }}">
                         <button type="submit" class="btn btn-primary" align="center">
                             EDIT EVENT </button>
                         </a>
