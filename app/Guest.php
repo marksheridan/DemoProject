@@ -30,5 +30,6 @@ class Guest extends Model
     
     ];
 
+
     
 }

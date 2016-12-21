@@ -12,6 +12,7 @@ use App\Http\Controllers;
 
 
 
+
 use App\Http\Requests;
 
 class UserController extends Controller
@@ -43,7 +44,7 @@ class UserController extends Controller
             $input['user_img'] = time().'.'. $file1->getClientOriginalExtension();  
             $file1->move($destinationPath, $input['user_img']);
         }   
-       // dd($input);  
+        // dd($input);  
         User::where("id",$id)->update($input);
         return redirect('/userprofile');
     }
@@ -55,7 +56,6 @@ class UserController extends Controller
         $usr=User::where('id',$id)->first();
         $evn = Event::where('user_id',$id)->get();
         //dd($evn);
-
         return view('users.artist_profile',compact('usr','evn'));
     }
 
@@ -83,13 +83,41 @@ class UserController extends Controller
 
     public function guest_list()
     {
-        $gus=Guest::all();
+        $user=User::select('user_name')->where('id',Auth::User()->id)->first();
+        $gus=Guest::where('business_user_id',Auth::User()->id)->get();
+/*
+        $user = User::where('id',Auth::User()->id)->with('guests')->first();
+        $count = $user->guests()->count();
+        //dd($count);*/
 
-        return view('users.guest_list',compact('gus'));
+       /* $event=Event::where('',Auth::User->with('guests')->first();*/
+
+
+        return view('users.guest_list',compact('gus','user'));
+    }
+
+    public function edit_event($id)
+    {
+        $city=City::where("city_status","=","active")->lists('city_name','city_id');
+        $event=Event::where('id',$id)->first();
+        return view('users.edit_event',compact('event','city'));
     }
 
 
-    public function show()
+    public function getVenues($city){
+        $venues = Venue::where('venue_city', $city)->get();
+        //dd($venues);
+        return $venues;
+        
+    }
+
+    public function userevent($id)
+    {
+        $event=Event::where('id',$id)->first();
+        return view('users.user_eventdisplay',compact('event'));
+    }
+
+    /*public function show()
     {
     	$users=User::all();
     	return($users);
@@ -113,18 +141,7 @@ class UserController extends Controller
     {
     	User::where('id',$id)->delete();
     	return("Deleted");
-    }
-
+    }*/   
 
     
-    public function edit_event()
-    {
-        return view('users.edit_event');
-    }
-
-    public function userevent($id)
-    {
-        $event=Event::where('id',$id)->first();
-        return view('users.user_eventdisplay',compact('event'));
-    }
 }

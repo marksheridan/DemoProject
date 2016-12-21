@@ -47,19 +47,20 @@
         	<div class="jumbotron"id="users">
                 <div class="row">
                     <div class="col-md-3">
-                        show
+
+                        User Name
+                        <!-- show
                         <select name="show_entries" class="status_options"id="show_entries">
                                 <option>1</option>
                                 <option>10</option>
                                 <option>50</option>
                                 <option>100</option>
                             </select>
-                            entries
-
+                            entries -->
                       </div>
                       <div class="col-md-5" id="guser">      
                             
-                                Users
+                               {{ $user->user_name}}
                               
                       </div>
                       </div>      
@@ -67,9 +68,9 @@
                     <div class="col-md-3">
         		          <h4><strong>FREE EVENTS</strong> </h4>
                     </div>
-                   <div class="col-md-3">
+                   <!-- <div class="col-md-3">
                          <h4><strong>PAID EVENTS</strong> </h4>
-                    </div>
+                    </div> -->
 				  <table class="table">
                   	<thead>
                      	<tr>
@@ -91,38 +92,49 @@
                             <div class="col-md-1">
                                 <th>Events</th>
                             </div>
-                            <div class="col-md-1">
+                            <!-- <div class="col-md-1">
                                 <th>Tickets</th>
                             </div>
                             <div class="col-md-1">
                                 <th>Events</th>
-                            </div>
+                            </div> -->
                         	
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($gus as $gg)
                     	 <tr>
                              <div class="col-md-1">
                                 <td>
-                                   11
+                                   {{ $gg->id }}
                                 </td>
                             </div>
                             <div class="col-md-2">
                                 <td>
-                                    aneesh
+                                    {{ $gg->guest_name }}
                                 </td>
                             </div>
                             <div class="col-md-2">
                                 <td>
-                                    9902608247
+                                    {{ $gg->guest_phone_no }}
                                 </td>
                             </div>
                             <div class="col-md-3">
                                 <td>
-                                    aneesh754@gmail.com
+                                    {{ $gg->guest_email }}
                                 </td>
                             </div>
                             <div class="col-md-1">
+                                <td>
+                                    {{ $gg->no_of_couples }}
+                                </td>
+                            </div>
+                            <div class="col-md-1">
+                                <td>
+                                    
+                                </td>
+                            </div>
+                            <!-- div class="col-md-1">
                                 <td>
                                     1
                                 </td>
@@ -131,34 +143,15 @@
                                 <td>
                                     2
                                 </td>
-                            </div>
-                            <div class="col-md-1">
-                                <td>
-                                    1
-                                </td>
-                            </div>
-                            <div class="col-md-1">
-                                <td>
-                                    2
-                                </td>
-                            </div>
+                            </div> -->
                           </tr>  
+                          @endforeach
                     </tbody>
                    </table> 
                  
         	</div>
  		</div>
 	</div>
-
-	
-
-
-
 </div>
-
-
-
-
-
 
 @endsection

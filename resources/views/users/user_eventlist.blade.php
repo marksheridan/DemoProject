@@ -48,13 +48,13 @@
         	<div class="jumbotron" id="users">
            		<div class="row">	
            			<div class="col-md-6">
-           				<a href="{{url('/guestlist') }}">
+           				<a href="{{ url('/guestlist') }}">
           				<img src="/images/web-user.jpg" width="50">
           			    </a>
            			</div>
            			    
            			<div class="col-md-6">
-           				<a href="{{url('/usereventlist') }}">
+           				<a href="{{ url('/usereventlist') }}">
 						<img src="/images/Guestlist_CirclePurple_300dpi.png" width="50">
 					</a>
            			</div>
@@ -128,7 +128,7 @@
                           @endforeach
                     </tbody>
                    </table> 
-                 <h4><strong>PAST EVENTS</strong> </h4>
+                <!--  <h4><strong>PAST EVENTS</strong> </h4>
 				  <table class="table"id="table">
                   	<thead>
                      	<tr>
@@ -173,7 +173,7 @@
                             </div>
                           </tr>  
                     </tbody>
-                   </table> 		
+                   </table> 		 -->
         	</div>
  		</div>
 	</div>

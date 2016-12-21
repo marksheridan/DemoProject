@@ -112,11 +112,13 @@ Route::get('/usereventlist','UserController@user_eventlist');
 
 Route::get('/eventdetails/{num}','UserController@event_details');
  
-Route::get('/editevent','UserController@edit_event');
+Route::get('/editevent/{num}','UserController@edit_event');
 
 Route::get('/user/eventdisplay/{num}','UserController@userevent');
 
 Route::get('/guestlist','UserController@guest_list');
+
+Route::get('/venue-l/{value}', 'UserController@getVenues');
 
 
 //Load More
