@@ -102,7 +102,7 @@ return false;
 		<div class="col-md-4">
 			<div class="jumbotron"id="users">
 				<p> clubbers</p>
-				<textarea id="user_add"> text </textarea>
+				<textarea id="user_add"> </textarea>
 				<script type="text/javascript">
 				  var addTB = document.getElementById("user_add").value;
          /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/

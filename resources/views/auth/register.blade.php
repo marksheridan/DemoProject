@@ -76,18 +76,13 @@
                             <label for="city" class="col-md-4 control-label">City</label>
 
                             <div class="col-md-6">
-                               <select id="user_city" class="form-control" name="user_city" placeholder="--select a city--" >
-                                    <option value="0">Select a city</option>
-                                    <option value="1">Bangalore</option>
-                                    <option value="2">Shillong</option>
-                                    <option value="3">Mumbai</option>
-                                </select>
+                               {{ Form::select('user_city', $cities, "0" , ["id"=>"user_city", "class"=>"user_city", 'placeholder'=>"--Select a City--"]) }}
 
-                                @if ($errors->has('user_phone_no'))
+                                <!-- @if ($errors->has('user_phone_no'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('user_phone_no') }}</strong>
                                     </span>
-                                @endif
+                                @endif -->
                             </div>
                         </div>
 
