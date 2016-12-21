@@ -61,15 +61,7 @@ position: relative;
 			}
 		}
 
-		var e = document.getElementById("event_status");
-var strUser = e.options[e.selectedIndex].value;
-
-var strUser1 = e.options[e.selectedIndex].text;
-if(strUser==0)
-{
-alert("Please select a status");
-return false;
-}
+		
 
 	var e = document.getElementById("event_city_id");
 var strUser = e.options[e.selectedIndex].value;
@@ -97,11 +89,13 @@ var ect = document.getElementById("event_closing_time").value;
 if ( est > eet )
     {
         alert("Start Time shoul be earlier than end time");
+        return false;
     }
 
  if ( ect < est || ect > eet )
     {
         alert("Close time should be inbetween start and end time");
+        return false;
     }
 
 
@@ -201,24 +195,7 @@ $("#event_date").datepicker({
 								</div>
 							</div>
           					<br>
-                           <div class="row">
-				 				<div class="form-group">
-				 					<label for="event_status" class="col-md-4 control-label">
-                             
-				 					Event status
-                             
-				 					</label>
-								<div class="col-md-8">
-									<select name="event_status"id="event_status"class="status_options">
-										<option value="0">Event status</option>
-										<option>Open</option>
-										<option>Closed</option>
-										<option>Deleted</option>
-									</select>
-								</div>
-								</div>
-							</div>
-								<br>
+                          
 				  
 							<div class="row">
 								<div class="form-group">

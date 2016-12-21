@@ -55,7 +55,7 @@
            			    
            			<div class="col-md-6">
            				<!-- <a href="{{url('/usereventlist') }}"> -->
-           				<a href="{{ url('/usereventlist') }}">
+           				<!-- <a href="{{ url('/usereventlist') }}"> -->
 
 						<img src="/images/Guestlist_CirclePurple_300dpi.png" width="50">
 					<!-- </a> -->
