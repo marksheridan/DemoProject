@@ -227,7 +227,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                     </div>
                         
                     <div class="col-md-5">
-                        <input type="text" placeholder="EG thaikkudam bridge" id="event_name">  
+                        <input type="text" value="{{$event->event_name}}" id="event_name" name="event_name">  
                     </div>
 
                 </div><br><br>
@@ -586,10 +586,10 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                     </div> <br><br><br>
                     <div class="row">
                         <div class="col-md-8">
-                            <textarea maxlength="500"col="70"rows="5">When you wish to run the Vagrant commands, 
+                            <!-- <textarea maxlength="500" col="70" rows="5"> When you wish to run the Vagrant commands, 
                                 just open up a command line in your Homestearol
                              over where the VM itself is created unless you s
-                             tart editing and customising the scripts. </textarea>
+                             tart editing and customising the scripts. </textarea> -->
                         </div>   
                     </div>  
                     
@@ -600,7 +600,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
         </div>
          <div class="col-md-4">
             
-            <div class="jumbotron"id="users">
+            <div class="jumbotron" id="users">
                 <div class="row">
                    
                      <div class="col-md-6">
@@ -608,27 +608,28 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                     </div>
                         
                     <div class="col-md-6">
-                         <input type="number"placeholder="EG 05"id="event_glimit"min="1" max="500"required>
+                         <input type="number" value="{{$event->event_guest_limit}}"  id="event_glimit" min="1" max="500" required>
                     </div>
 
                 </div><br><br>
                 <div class="row">
-                    <textarea maxlength="500"col="60"rows="5">When you wish to run the Vagrant commands, 
+                    <!-- <textarea maxlength="500" col="60" rows="5">
+                    When you wish to run the Vagrant commands, 
                                 just open up a command line in your Homestearol
                              over where the VM itself is created unless you s
                              tart editing and customising the scripts. 
-                    </textarea>
+                    </textarea> -->
 
 
                 </div>    
             </div> 
-            <div class="jumbotron"id="users">
+            <div class="jumbotron" id="users">
                 <div class="row">
                     <div class="col-md-5">
                         <label>SUPPORTING ARTIST</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text"placeholder="artist"id="artist_name">
+                        <input type="text" placeholder="Artist" id="artist_name">
                     </div>     
                 </div>
                 <div class="row">
@@ -636,7 +637,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                         <label>SUPPORTING PROMOTERS</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text"placeholder="promoter"id="promoter_name">
+                        <input type="text" placeholder="promoter" id="promoter_name">
                     </div>     
                 </div>  
             </div>     
@@ -649,28 +650,27 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                         <label> Select city</label>
                     </div>
                     <div class="col-md-5">
-                        <select name="time" class="city">
-                                <option>Bangalore</option>
-                                <option>Kochi</option>
-                                 <option>Mumbai</option>
-                                
-                        </select>
+                        {{ Form::select('event_city_id', $cities, $event->event_city_id , ["id"=>"event_city_id", "class"=>"event_city_id", 'placeholder' => '--Select a city--']) }}
                     </div>    
                 </div><br>
                 <div class="row">    
-                        
-                   <div class="col-md-5">
+                    <div class="col-md-5">
                         <label> Select venue</label>
                     </div>
                     <div class="col-md-5">
-                        <select name="time" class="venue">
-                                <option>paradaise</option>
-                                <option>citybar</option>
-                                 <option>baar</option>
-                                
+                        <select name="event_venue_id" class="event_venue_id" id="event_venue_id">
+                            <option>--Select a Venue--</option>
                         </select>
                     </div>    
+                </div>
+                <div class="row">    
+                    <div class="col-md-5">
+                        <label> Select venue</label>
                     </div>
+                    <div class="col-md-5">
+                        <input type="file" name="event_banner" id="event_banner">
+                    </div>    
+                </div>
 
                 </div><br><br>
                 <div class="jumbotrone"id="users">
@@ -686,19 +686,59 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
             </div>
             </form>
         </div>        
-     
-
-
-
     </div>            
-
-	
-
-	
-
-
-
 </div>
+<script type="text/javascript">
+if($(".event_city_id").val()!=0)
+{
+   $.ajax({
+            method: 'GET', 
+            url: '/venue-list/' + $(".event_city_id").val(), 
+            success: function(response){ 
+               $(".venue_options").empty()
+               $.each(response, function(i, obj){
+                  console.log(obj)
+                  $(".event_venue_id").append("<option value="+obj.venue_id+">"+obj.venue_name+"</option>")
+               })
+            },
+            error: function(jqXHR, textStatus, errorThrown) { 
+               console.log(JSON.stringify(jqXHR));
+               console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            }
+         });
+         if($(".event_city_id").val()=="")
+         {
+            $(".venue_options").empty()
+            //$(".venue_options").append("<option value="">"--Select a venue--"</option>")
+         }
+}
+      $(".event_city_id").change(function(){
+         $.ajax({
+            method: 'GET', 
+            url: '/venue-list/' + $(this).val(), 
+            success: function(response){ 
+               $(".venue_options").empty()
+               $.each(response, function(i, obj){
+                  console.log(obj)
+                  $(".event_venue_id").append("<option value="+obj.venue_id+">"+obj.venue_name+"</option>")
+               })
+            },
+            error: function(jqXHR, textStatus, errorThrown) { 
+               console.log(JSON.stringify(jqXHR));
+               console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            }
+         });
+
+         if($(".event_city_id").val()=="")
+         {
+            $(".event_city_id").empty()
+            //$(".venue_options").append("<option value="">"--Select a venue--"</option>")
+         }
+      });
+
+
+
+</script>
 
 
 

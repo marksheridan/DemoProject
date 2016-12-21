@@ -111,15 +111,21 @@ select{
 
     <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="/images/sweden.jpg" alt="Chania" width="460" height="345">
-            </div>
-            @foreach($events as $event)
-            <div class="item">
+            
+            @foreach($events as $key=>$event)
+            @if($key == 0)
+              <div class="item active">
                 <a href="{{'/eventdisplay/'.$event->id}}">
                     <img src="{{ url('flyer').'/'. $event->event_banner}}" alt="Chania" width="300" height="155">
                 </a>
-            </div>
+              </div>
+            @else
+              <div class="item">
+                  <a href="{{'/eventdisplay/'.$event->id}}">
+                      <img src="{{ url('flyer').'/'. $event->event_banner}}" alt="Chania" width="300" height="155">
+                  </a>
+              </div>
+            @endif
             @endforeach
             
         </div>
@@ -333,8 +339,8 @@ select{
          
     });
 
-    var skipval=3;
-    var skipnum=3;
+    var skipval=6;
+    var skipnum=6;
 
     $("#morepopular").click(function(){
         $.ajax({

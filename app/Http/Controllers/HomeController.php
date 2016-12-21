@@ -50,7 +50,7 @@ class HomeController extends Controller
             ->join('cities', 'events.event_city_id', '=', 'cities.city_id')
             ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
             ->select('events.*','cities.city_name', 'venues.venue_name')
-            ->take(3)
+            ->take(6)
             ->get();
 
 
@@ -65,7 +65,7 @@ class HomeController extends Controller
             ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
             ->select('events.*','cities.city_name', 'venues.venue_name')
             ->orderBy('event_total_guest','desc')
-            ->take(3)
+            ->take(6)
             ->get();
 
 

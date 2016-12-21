@@ -99,9 +99,9 @@ class UserController extends Controller
 
     public function edit_event($id)
     {
-        $city=City::where("city_status","=","active")->lists('city_name','city_id');
+        $cities=City::where("city_status","=","active")->lists('city_name','city_id');
         $event=Event::where('id',$id)->first();
-        return view('users.edit_event',compact('event','city'));
+        return view('users.edit_event',compact('event','cities'));
     }
 
 

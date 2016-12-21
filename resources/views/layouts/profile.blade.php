@@ -93,23 +93,16 @@ position: relative;
             <div class="row">
 
             <div class="col-md-3 col-xs-5">
-               <a href="{{url('/usereventlist') }}">
-
+                <a href="{{url('/usereventlist') }}">
                    <img src="/images/back.button.jpg" width="35">
-                   <a>
-
-            
-             </div>
-             <div class="col-md-6 text-center">
-                <a href="{{url('/welcome') }}">
-
+                <a>
+            </div>
+            <div class="col-md-6 text-center">
+                <a href="{{url('/usereventlist') }}">
                    <img src="/images/1014d3e2908092bb2deb3c54dc16ae42.jpg" width="44">
                 </a>
                   
                     <br>
-                    <p>!clubbers</p>
-
-
                 </div>
                 <div class="col-md-1"></div>
                    <div class="col-md-2 col-xs-7 text-right">

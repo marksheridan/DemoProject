@@ -90,37 +90,36 @@
                     <div class="col-md-4">
                       {{ $event->event_description }}      
                     </div>
-                  </div>                    
-                </div>  
-           
-
+                </div>                    
+            </div>  
         </div>
          <div class="col-md-4">
             <div class="jumbotron" id="users">
+                @if( $event->event_type == "Guestlist" )
                 <div class="row">   
-                    <div class="col-md-6">
-                      @if( $event->event_type == "Guestlist" )
-                      
-                       <h5><strong> Guestlist closes at </strong></h5>
-                      </div>
-                      <div class="col-md-5">
-                       {{ $event->event_closing_time }}  
-                         </div>
-                       @endif      
-                    </div>
+                    
+                        <div class="col-md-6">
+                            
+                            <h5><strong> Guestlist closes at </strong></h5>
+                        </div>
+                        <div class="col-md-5">
+                            {{ $event->event_closing_time }}  
+                        </div>
+                          
+                </div>
+                @endif
                   
-                  
-                  <div class="row">
+                <div class="row">
                     <div class="col-md-6">
                         <h5><strong> Requirements </strong></h5>
                     </div>
-                     <div class="col-md-5"> 
-                     {{ $event->event_requirement }} 
+                    <div class="col-md-5"> 
+                        {{ $event->event_requirement }} 
                      </div>    
-                    </div>
-                  </div>  
                 </div>
-                <div class="col-md-4">
+            </div>  
+        </div>
+        <div class="col-md-4">
             <div class="jumbotron"id="users">
                 <div class="row">
                     <h5>POST TO SOCIAL MEDIA</h5>
