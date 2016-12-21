@@ -86,7 +86,9 @@ class EventController extends Controller
     public function show($id)
     {
         $event=Event::where('id',$id)->first();
-        return view('auth.eventdisplay',compact('event'));
+        $venuename=Venue::where('venue_id',$event->event_venue_id)->select('venue_name')->first();
+        $cityname=City::where('city_id',$event->event_city_id)->select('city_name')->first();
+        return view('auth.eventdisplay',compact('event','cityname','venuename'));
     }
 
 

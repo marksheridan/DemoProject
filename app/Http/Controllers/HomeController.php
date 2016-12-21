@@ -7,6 +7,7 @@ use App\User;
 use App\Event;
 use App\City;
 use Auth;
+use DB;
 use Input;
 use Illuminate\Http\Request;
 
@@ -45,9 +46,29 @@ class HomeController extends Controller
     public function root()
     {
         $cities=City::where('city_status',"active")->lists('city_name','city_id');
-        //$events=Event::all();
-        $events=Event::take(3)->get();
-        $popular=Event::orderBy('event_total_guest','desc')->take(3)->get();
+        $events = DB::table('events')
+            ->join('cities', 'events.event_city_id', '=', 'cities.city_id')
+            ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
+            ->select('events.*','cities.city_name', 'venues.venue_name')
+            ->take(3)
+            ->get();
+
+
+
+
+        //dd($events);
+
+        //$popular=Event::orderBy('event_total_guest','desc')->take(3)->get();
+
+        $popular=DB::table('events')
+            ->join('cities', 'events.event_city_id', '=', 'cities.city_id')
+            ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
+            ->select('events.*','cities.city_name', 'venues.venue_name')
+            ->orderBy('event_total_guest','desc')
+            ->take(3)
+            ->get();
+
+
         $flyer=Event::lists('id','event_banner');
         return view('homepage',compact('events','flyer','cities','popular'));
     }
@@ -55,14 +76,33 @@ class HomeController extends Controller
     public function getmore($val)
     {
         $skipval=Input::get('skip');
-        $events=Event::where('event_city_id',$val)->take(3)->skip($skipval)->get();
         
+        $events = DB::table('events')
+            ->where('event_city_id',$val)
+            ->join('cities', 'events.event_city_id', '=', 'cities.city_id')
+            ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
+            ->select('events.*','cities.city_name', 'venues.venue_name')
+            ->take(3)
+            ->skip($skipval)
+            ->get();
+        //$events=Event::where('event_city_id',$val)->take(3)->skip($skipval)->get();
+        //dd($events);
         return($events);
     }
     public function getevents($val)
     {
         $skipnum=Input::get('skip');
-        $events=Event::where('event_city_id',$val)->take(3)->get();
+        
+        $events = DB::table('events')
+            ->where('event_city_id',$val)
+            ->join('cities', 'events.event_city_id', '=', 'cities.city_id')
+            ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
+            ->select('events.*','cities.city_name', 'venues.venue_name')
+            ->take(3)
+            ->skip($skipnum)
+            ->get();
+
+        //$events=Event::where('event_city_id',$val)->take(3)->get();
         return($events);
     }
 
@@ -76,7 +116,16 @@ class HomeController extends Controller
     public function getmoreall()
     {
         $skipval=Input::get('skip');
-        $events=Event::take(3)->skip($skipval)->get();
+
+        $events = DB::table('events')
+            ->join('cities', 'events.event_city_id', '=', 'cities.city_id')
+            ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
+            ->select('events.*','cities.city_name', 'venues.venue_name')
+            ->take(3)
+            ->skip($skipval)
+            ->get();
+
+        //$events=Event::take(3)->skip($skipval)->get();
         
         return($events);
     }
@@ -84,7 +133,17 @@ class HomeController extends Controller
     public function getpopular()
     {
         $skipnum=Input::get('skip');
-        $popular=Event::orderBy('event_total_guest','desc')->take(3)->skip($skipnum)->get();
+        
+        $popular=DB::table('events')
+            ->join('cities', 'events.event_city_id', '=', 'cities.city_id')
+            ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
+            ->select('events.*','cities.city_name', 'venues.venue_name')
+            ->orderBy('event_total_guest','desc')
+            ->take(3)
+            ->skip($skipnum)
+            ->get();
+
+        //$popular=Event::orderBy('event_total_guest','desc')->take(3)->skip($skipnum)->get();
         //dd($popular); 
         return($popular);
     }

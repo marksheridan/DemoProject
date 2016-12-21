@@ -174,7 +174,7 @@ select{
                         {{ $event->event_name }}
                     </div>
                     <div class="eventvenue text-center">
-                        monday<strong>{{$event->event_venue_id}}</strong> kochi
+                        <strong>{{$event->venue_name}}, {{$event->venue_name}} </strong> {{$event->event_date}}
                     </div>
                     <div class="type text-center">
                         <a href="{{ url('/addtoguestlist/'.$event->id) }}">
@@ -248,7 +248,7 @@ select{
                         {{ $e->event_name }}
                     </div>
                     <div class="eventvenue text text-center">
-                        monday<strong>{{$e->event_venue_id}}</strong> kochi
+                        <strong>{{$e->venue_name}}, {{$e->city_name}}</strong> {{$e->event_date}}
                     </div>
                     <div class="type text-center">
                         <a href="{{ url('/addtoguestlist/'.$e->id) }}">
@@ -310,7 +310,7 @@ select{
                     $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
-                    $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
+                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
                     $html+="</div>                   <div class=\"type text-center\">"
                     $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
@@ -355,7 +355,7 @@ select{
                     $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
-                    $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
+                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
                     $html+="</div>                  <div class=\"type text-center\">"
                     $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
@@ -392,7 +392,7 @@ select{
                     $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
-                    $html+="monday<strong>"+obj.event_venue+"</strong> kochi"
+                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
                     $html+="</div>                   <div class=\"type text-center\">"
                     $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
