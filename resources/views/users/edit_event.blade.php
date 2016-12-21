@@ -215,7 +215,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
         <div class="col-md-12" style: align="center">
             <div class="jumbotron" id="cover"> -->
             <div>
- 			 <img src="/images/thaikkudam-bridge.jpg" width="1300"height="400">
+ 			 <img src="{{url('eventimages').'/'.$event->event_banner}}" width="1300"height="400">
         	</div><br>
 <div class="container">
    <form method="post">
@@ -227,7 +227,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                     </div>
                         
                     <div class="col-md-5">
-                        <input type="text"placeholder="EG thaikkudam bridge" id="event_name">  
+                        <input type="text" placeholder="EG thaikkudam bridge" id="event_name">  
                     </div>
 
                 </div><br><br>
@@ -654,7 +654,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                                 <option>Kochi</option>
                                  <option>Mumbai</option>
                                 
-                            </select>
+                        </select>
                     </div>    
                 </div><br>
                 <div class="row">    
@@ -668,7 +668,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                                 <option>citybar</option>
                                  <option>baar</option>
                                 
-                            </select>
+                        </select>
                     </div>    
                     </div>
 

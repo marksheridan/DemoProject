@@ -69,7 +69,7 @@
                          <h5><strong>  Venue:</strong></h5> 
                          </div>
                          <div class="col-md-4">  
-                        <h5>{{ $event->event_venue_id }}</h5> 
+                        <h5>{{ $venuename->venue_name }}, {{ $cityname->city_name }}</h5> 
                     </div>
                   </div>
                   <div class="row">   

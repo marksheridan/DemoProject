@@ -113,7 +113,7 @@ select{
 			 <td>
 			     <div class="col-md-6">
 				    <p id="hid">{{$event->event_name}}</p>
-				    <p id="date"><strong>{{ $event->event_venue_id }}</strong></p>
+                    <p id="date"><strong>{{ $venuename->venue_name }}, {{ $cityname->city_name }}</strong></p>
           <a href="{{ url('/addtoguestlist/'.$event->id) }}">
             <button type="button" class="Guest"> 
               {{$event->event_type}}
@@ -128,14 +128,9 @@ select{
         <td width="500px">
 
         <div class="col-md-6">
-          <h4>About</h4>
-          <p style="width:750px" id="para">
-          Louisa May Alcott was an American novelist and poet best known as
-           the author of the novel Little Women and its sequels Little Men and
-            Jo's Louisa May Alcott was an American novelist and poet best known
-             as the author of the novel Little Women and its sequels Little Men 
-             and Jo's Louisa May Alcott was an American novelist and poet best known
-              as the author of the novel Little Women and its sequels Little Men and Jo's 
+            <h4>About</h4>
+            <p style="width:750px" id="para">
+                {{ $event->event_description }} 
           </p>
         </div>
 
@@ -148,7 +143,7 @@ select{
 
     <div class="col-md-6">
           <h4>Video</h4>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/uisBaTkQAEs" frameborder="0" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="{{$event->video_link}}" frameborder="0" allowfullscreen></iframe>
         </div>
 
 </td>
@@ -157,39 +152,29 @@ select{
 
 
 <tr>
-  <td width="500px">
-    <div class="col-md-6">1
-         <h4> Artist</h4>
-         <a href="{{url('/artist') }}">
-
-       <img src="/images/mountains1.jpg" width="100"><br>
-       DQ
-
-    </a>
-  </div>
-</td>
+    <td width="500px">
+        <div class="col-md-6">1
+            <h4> Artist</h4>
+            <img src="/images/mountains1.jpg" width="100"><br>
+            DQ
+        </div>
+    </td>
 </tr>
 
 <tr>
-  <td width="500px">
-    <div class="col-md-6"style="url(file:///var/www/html/clubbers/DemoProject/public/images/mountains1.jpg)">
-
-<h4>Promoters</h4>
-  
-   <a href="{{url('/promoters') }}">
-
-       <img src="/images/batman-v-superman.png" width="100"><br>
-        Aneesh
-
-  </a>
-</div>
-</td>
+    <td width="500px">
+        <div class="col-md-6" style="url(file:///var/www/html/clubbers/DemoProject/public/images/mountains1.jpg)">
+            <h4>Promoters</h4>
+            <img src="/images/batman-v-superman.png" width="100"><br>
+                Aneesh
+        </div>
+    </td>
 </tr>
 
 
  <tr>
    <td width="500px">
-    <div class="col-md-6"style="url(file:///var/www/html/clubbers/DemoProject/public/images/mountains1.jpg)">
+    <div class="col-md-6" style="url(file:///var/www/html/clubbers/DemoProject/public/images/mountains1.jpg)">
      <h4>Venues</h4>
       <img src="/images/location.jpg" width="560px">
         </div>

@@ -8,6 +8,7 @@ use App\Event;
 use Auth;
 use App\User;
 use App\Guest;
+use App\Venue;
 use App\Http\Controllers;
 
 
@@ -65,19 +66,18 @@ class UserController extends Controller
     {
         $usr = Auth::User();
         $event=Event::where('user_id',$usr->id)->get();
-        //dd($event);
-       return view('users.user_eventlist',compact('event'));
-        //return view('users.user_eventlist');
+        return view('users.user_eventlist',compact('event'));
     }
 
 
     public function event_details($id)
     {
-        //dd($id);
         $event=Event::where('id',$id)->first();
         $gus=Guest::where('event_id',$id)->get();
-        //dd($gus);
-        return view('users.event_details',compact('event','gus'));
+        $venuename=Venue::where('venue_id',$event->event_venue_id)->select('venue_name')->first();
+        $cityname=City::where('city_id',$event->event_city_id)->select('city_name')->first();
+
+        return view('users.event_details',compact('event','gus','venuename','cityname'));
     }
 
 
@@ -85,7 +85,8 @@ class UserController extends Controller
     {
         $user=User::select('user_name')->where('id',Auth::User()->id)->first();
         $gus=Guest::where('business_user_id',Auth::User()->id)->get();
-/*
+        
+        /*
         $user = User::where('id',Auth::User()->id)->with('guests')->first();
         $count = $user->guests()->count();
         //dd($count);*/
@@ -114,7 +115,10 @@ class UserController extends Controller
     public function userevent($id)
     {
         $event=Event::where('id',$id)->first();
-        return view('users.user_eventdisplay',compact('event'));
+        $venuename=Venue::where('venue_id',$event->event_venue_id)->select('venue_name')->first();
+        $cityname=City::where('city_id',$event->event_city_id)->select('city_name')->first();
+
+        return view('users.user_eventdisplay',compact('event','venuename','cityname'));
     }
 
     /*public function show()
