@@ -128,7 +128,7 @@
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="{{url('/usereventlist') }}">
+                        <a href="{{url('/user/eventdisplay/'. $event->id) }}">
                             <button type="submit" class="btn btn-primary" align="center" width="5px">
                             USER PREVIEW </button>
                         
