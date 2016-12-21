@@ -150,8 +150,33 @@ alert("INVALID CLOSE TIME");
 return false;
 }
 
+var starteventele = document.getElementById("sevent_hour");
+var strStartEventUser = starteventele.options[starteventele.selectedIndex].value;
 
+var endeventele = document.getElementById("eevent_hour");
+var strEndEventUser = endeventele.options[endeventele.selectedIndex].value;
 
+var closeeventele = document.getElementById("cevent_hour");
+var strCloseEventUser = closeeventele.options[closeeventele.selectedIndex].value;
+
+var starttimeele = document.getElementById("stime");
+var strStartTime = starttimeele.options[starttimeele.selectedIndex].value;
+
+var endtimeele = document.getElementById("etime");
+var strEndTime = endtimeele.options[endtimeele.selectedIndex].value;
+
+var closetimeele = document.getElementById("ctime");
+var strCloseTime = closetimeele.options[closetimeele.selectedIndex].value;
+
+if ( strStartEventUser > strEndEventUser && strStartTime == strEndTime)
+    {
+        alert("Start Time shoul be earlier than end time");
+    }
+
+if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUser && strEndTime == strCloseTime )
+    {
+        alert("Close time should be inbetween start and end time");
+    }
 
 
 
@@ -456,7 +481,7 @@ return false;
                             </select>
                     </div> 
                     <div class="col-md-3">
-                       <select name="time" class="ampm"id="time">
+                       <select name="etime" class="ampm"id="etime">
                                 <option>am</option>
                                 <option>pm</option>
                                 
@@ -553,7 +578,7 @@ return false;
                             </select>
                     </div> 
                     <div class="col-md-3">
-                       <select name="time" class="ampm"id="time">
+                       <select name="ctime" class="ampm"id="ctime">
                                 <option>am</option>
                                 <option>pm</option>
                                 

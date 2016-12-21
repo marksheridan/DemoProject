@@ -17,6 +17,7 @@
   }
   img {
     border-radius: 17px;
+    text-align: center;
 }
 .jumbotron{
   border-radius: 20px;
@@ -27,6 +28,12 @@
   border-radius: 10px;
   border: 2px solid #48B4F2;
 } */
+#events{
+  background-color: #EBFBFD;
+}
+#eve{
+  border-radius: 12px;
+}
 
 Button{
   border-radius:16px;
@@ -142,8 +149,9 @@ select{
     
     <div class="row" id="displayitem">
     @foreach($events as $event)
-        <div class="col-md-4">
-            <div class="jumbotron">
+        <div class="col-md-4"id="eve">
+            <div class="jumbotron"id="events">
+
                 <a href="{{'/eventdisplay/'.$event->id}}">
                     <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="294" height="100">
                 </a>
@@ -160,6 +168,7 @@ select{
                         </a>
                     </div>
                 </div>
+                <div class='col-md-1'></div>
             </div>
         </div>
     @endforeach

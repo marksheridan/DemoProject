@@ -113,6 +113,23 @@ var ENameTB = document.getElementById("event_description");
 		}
 </script>
 
+<script>
+$(document).ready(function() {
+$("#datepicker").datepicker({
+
+
+	minDate:+1
+	//maxDate:+60
+/*numberOfMonths: 3,*/
+//showButtonPanel: true
+
+});
+});
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
  
@@ -256,7 +273,7 @@ var ENameTB = document.getElementById("event_description");
 									</label>
 								<div class="col-md-6">
 								 
-									<input type="date" id="event_date" name ="event_date"class="form-control">
+									<input type="text" id="datepicker" name ="datepicker"class="form-control">
 								
 								</div>
 								</div>
