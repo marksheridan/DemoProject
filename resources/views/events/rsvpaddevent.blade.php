@@ -84,6 +84,16 @@ return false;
 }
 
 
+var est = document.getElementById("event_start_time").value;
+var eet = document.getElementById("event_end_time").value;
+
+
+if ( est > eet )
+    {
+        alert("Start Time shoul be earlier than end time");
+        return false;
+    }
+
 
 
 var ENameTB = document.getElementById("event_description");
@@ -103,15 +113,7 @@ var ENameTB = document.getElementById("event_description");
 		}
 
 
-		var est = document.getElementById("event_start_time").value;
-var eet = document.getElementById("event_end_time").value;
-var ect = document.getElementById("event_closing_time").value;
-
-if ( est > eet )
-    {
-        alert("Start Time shoul be earlier than end time");
-        return false;
-    }
+		
 
  
 

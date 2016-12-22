@@ -38,7 +38,7 @@
 
         }
         #navuser{
-          background-color: #5B5B6A;
+          background-color: #E4E4E4;
 
         }
         #footer{
@@ -69,7 +69,7 @@
                     <div class="col-md-3">
                			<a data-toggle="modal" data-target="#myModal">
 
-                       		 <img src="/images/64579-add-button.png" width="50">
+                       		 <img src="/images/64579-add-button.png" width="44">
                     	<a>
 
 
@@ -77,18 +77,18 @@
 
                			<a href="{{url('/usereventlist') }}">
 
-                  			 <img src="/images/house-logo-hi.png" width="50">
+                  			 <img src="/images/house-logo-hi (1).png" width="44">
                 		 <a>
                 		
 
                 		 <a href="{{url('/userprofile') }}">
 
-                   			<img src="/images/web-user.jpg" width="50">
+                   			<img src="/images/customer.png" width="50">
                 		 <a>
                  		
                  		 <a href="{{url('/logout') }}">
 
-                  			 <img src="/images/gnome_panel_force_quit.png" width="50">
+                  			 <img src="/images/100-UI_app_icons_100_smart_stroke_circle_solid.ai-512.png" width="44">
                          <a>
            	
                    
