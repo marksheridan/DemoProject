@@ -16,16 +16,15 @@ class EventController extends Controller
 {
     public function create($value)
     {
+        $cities=City::where("city_status","=","active")->lists('city_name','city_id');
         if($value=="guest")
         {    
             $cust="Guestlist";
+            return view('events.addevent',compact('cities','cust'));
         }else{
             $cust="RSVP";
+            return view('events.rsvp',compact('cities','cust'));
         }
-
-        //dd($cust);
-    	$cities=City::where("city_status","=","active")->lists('city_name','city_id');
-    	return view('events.addevent',compact('cities','cust'));
     }
 
     public function store(Request $request)
@@ -47,7 +46,7 @@ class EventController extends Controller
         
         $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_start_time));
         $input['event_date']=$timestamp;
-        $input['event_close_time']=$timestamp;
+        $input['event_start_time']=$timestamp;
         
         $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_close_time));
         $input['event_close_time']=$timestamp;
@@ -55,8 +54,6 @@ class EventController extends Controller
         $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_end_time));
         $input['event_end_time']=$timestamp;
 
-        
-        
 
         $input['created_by']=Auth::User()->id;
         $input['user_id']=Auth::User()->id;
