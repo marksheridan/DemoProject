@@ -123,14 +123,22 @@ Route::get('/venue-l/{value}', 'UserController@getVenues');
 
 //Load More
 
-Route::get('/get-more/{val}','HomeController@getmore');
+Route::get('/get-more/{type}','HomeController@getmore');
 
-Route::get('/get-more/','HomeController@getmoreall');
+Route::get('/get-more/{type}/{val}','HomeController@getmoreall');
 
-Route::get('/get-popular/','HomeController@getpopular');
+Route::get('/get-popular/{type}','HomeController@getpopular');
+
+Route::get('/get-popular-type/{type}','HomeController@getpopulartype');
 
 //Get Events According to City
 
-Route::get('/get-events-city/{val}','HomeController@getevents');
+//Route::get('/get-events-city/{val}','HomeController@getevents');
 
-Route::get('/get-events-city/','HomeController@getallevents');
+//Route::get('/get-events-city/','HomeController@getallevents');
+
+//Get events According to type and cities
+
+Route::get('get-events-city/{type}/{val}','HomeController@getallevents');
+
+Route::get('/get-events-city/{type}','HomeController@getevents');

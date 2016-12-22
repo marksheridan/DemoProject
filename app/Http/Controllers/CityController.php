@@ -38,11 +38,6 @@ class CityController extends Controller
 
     public function delete($id)
     {
-        if(Venue::where('venue_city',$id)->first())
-        {
-            return("not possible its been used in venue ");
-        }
-
        	City::where('city_id',$id)->delete();
         $city=City::all();
         return view('city.show_city',compact('city'));

@@ -152,8 +152,8 @@ select{
             <p id="eb" class="cityname">All Events</p>
         </div>
         <div class="col-md-2">
-            <select dir class="all events" id="type"><br>
-                <option value="0">All Events</option>
+            <select dir class="all events" id="etype"><br>
+                <option value="none">All Events</option>
                 <option value="RSVP">RSVP</option>
                 <option value="Guestlist">Guestlist</option>
             </select>
@@ -232,10 +232,10 @@ select{
  <p id="pe"> Most Popular Events</p>
  </div>
  <div class="col-md-2">
-  <select dir class="all events"><br>
-                                <option>all events</option>
-                                <option>RSVP</option>
-                                <option>Gustlist</option>
+  <select dir class="all events" id="mptype"><br>
+                                <option value="none">All Events</option>
+                                <option value="RSVP">RSVP</option>
+                                <option value="Guestlist">Guestlist</option>
                             </select>
 
 </div>
@@ -294,16 +294,91 @@ select{
 
 <script type="text/javascript">
 
-    
+$("#mptype").change(function(){
+    console.log("MPType")
+    $.ajax({
+        method:'GET',
+        url:'/get-popular-type/'+ $(this).val(),
+
+        success: function(response){
+            console.log("success MPType")
+            $("#displaypopular").empty()
+            $.each(response, function(i,obj){
+                console.log(obj)
+                var imageurl="{{ asset('eventimages/') }}";
+                    var url =imageurl+"/"+obj.event_banner;
+                    $html="<div class=\"col-md-4\">";
+                  
+                    $html+="<a href=\"eventdisplay/"+obj.id+"\">";
+                    $html+="<img src=\""+url+"\" width=\"294\" height=\"100\">";
+                    $html+="</a>               <div class=\"text-left\">"
+                    $html+="<div class=\"eventname text-center\">"
+                    $html+=obj.event_name
+                    $html+="</div>                  <div class=\"eventvenue text-center\">"
+                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
+                    $html+="</div>                   <div class=\"type text-center\">"
+                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
+                    $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
+                    $html+="</a></div></div></div>"
+                    $("#displaypopular").append($html)
+            })
+        },
+        error: function(jqXHR, textStatus, errorThrown) { 
+            //alert("failure");
+            console.log("Not your day my boy");
+            console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+        }
+    });    
+})
+
+
+
+    $("#etype").change(function(){
+        console.log("In ajax")
+        $.ajax({
+            method:'GET',
+            url:'/get-events-city/'+ $(this).val()+"/"+ $("#event_city_id").val(),
+
+            success: function(response){
+                console.log("success")
+                $("#displayitem").empty()
+                $.each(response,function(i,obj){
+                    console.log(obj)
+                    var imageurl="{{ asset('eventimages/') }}";
+                    var url =imageurl+"/"+obj.event_banner;
+                    $html="<div class=\"col-md-4\">";
+                  
+                    $html+="<a href=\"eventdisplay/"+obj.id+"\">";
+                    $html+="<img src=\""+url+"\" width=\"294\" height=\"100\">";
+                    $html+="</a>               <div class=\"text-left\">"
+                    $html+="<div class=\"eventname text-center\">"
+                    $html+=obj.event_name
+                    $html+="</div>                  <div class=\"eventvenue text-center\">"
+                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
+                    $html+="</div>                   <div class=\"type text-center\">"
+                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
+                    $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
+                    $html+="</a></div></div></div>"
+                    $("#displayitem").append($html)
+
+                })
+            },
+            error: function(jqXHR, textStatus, errorThrown) { 
+              //alert("failure");
+                console.log("Not your day my boy");
+                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            }
+        });
+    })
     
     $("#event_city_id").change(function(){
         $("#eb").html($("#event_city_id option:selected").text());
         $.ajax({
             method: 'GET', 
-            url:'/get-events-city/'+ $(this).val(),
+            url:'/get-events-city/'+  $("#etype").val()+"/"+ $(this).val(),
 
             success: function(response){ 
-                skipval=3;
+                skipval=6;
                 $("#displayitem").empty()
                 $.each(response, function(i, obj){
                     console.log(obj)
@@ -346,7 +421,7 @@ select{
     $("#morepopular").click(function(){
         $.ajax({
             method:'GET',
-            url:'/get-popular/',
+            url:'/get-popular/'+$("#mptype").val(),
             data:{
                 'skip':skipnum,
             },
@@ -364,7 +439,7 @@ select{
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
                     $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
                     $html+="</div>                  <div class=\"type text-center\">"
-                    $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
+                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
                     $html+="</a></div></div></div>"
                     $("#displaypopular").append($html)
@@ -383,7 +458,7 @@ select{
         console.log(skipval);
         $.ajax({
             method: 'GET',
-            url:'/get-more/'+$("#event_city_id").val(),
+            url:'/get-more/'+ $("#etype").val() +"/"+$("#event_city_id").val(),
             data:{
                 'skip': skipval,
             },
@@ -401,7 +476,7 @@ select{
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
                     $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
                     $html+="</div>                   <div class=\"type text-center\">"
-                    $html+="<a href=\"'/addtoguestlist/'"+obj.id+"\">"
+                    $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
                     $html+="</a></div></div></div>"
                     $("#displayitem").append($html)

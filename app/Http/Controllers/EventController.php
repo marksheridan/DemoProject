@@ -8,6 +8,7 @@ use App\City;
 use App\Venue;
 use File;
 use Auth;
+use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 use App\Http\Requests;
 
@@ -41,12 +42,22 @@ class EventController extends Controller
         'event_description' => 'required',
         ]);
         
-    	$input=$request->except('_token','event_banner','event_date');
+    	$input=$request->except('_token','event_banner','event_date','event_start_time','event_end_time','event_close_time');
 
         
-        $timestamp = $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_start_time));
+        $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_start_time));
         $input['event_date']=$timestamp;
+        $input['event_close_time']=$timestamp;
         
+        $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_close_time));
+        $input['event_close_time']=$timestamp;
+
+        $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_end_time));
+        $input['event_end_time']=$timestamp;
+
+        
+        
+
         $input['created_by']=Auth::User()->id;
         $input['user_id']=Auth::User()->id;
 

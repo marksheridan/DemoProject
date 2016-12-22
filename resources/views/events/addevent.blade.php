@@ -305,7 +305,7 @@ $("#event_date").datepicker({
 								<div class="form-group">
 									<label for="start_time" class="col-md-4 control-label">
 								
-									Event Close Time
+									Guestlist Close Time
 								
 									</label>
 								<div class="col-md-6">

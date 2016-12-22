@@ -189,13 +189,13 @@
                                 <option>10</option>
                                 <option>50</option>
                                 <option>100</option>
-                            </select>
-                            entries
+                        </select>
+                    
 
                       </div>
                       <div class="col-md-5" id="guser">      
                             
-                                GUSTLIST PREVIEW
+                                GUESTLIST PREVIEW
                               
                       </div>
                       </div>      

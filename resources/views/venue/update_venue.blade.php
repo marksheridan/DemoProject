@@ -226,7 +226,7 @@ return false;
             </label>
           </div>
           <div class="col-md-3">
-            <input id="venue_phone_no" type="text"  name="venue_phone_no" value=" {{ $ven->venue_phone_no }} ">
+            <input id="venue_phone_no" type="text"  name="venue_phone_no" value="{{ $ven->venue_phone_no }}">
          </div>
      </div>
              <br>

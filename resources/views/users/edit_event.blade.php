@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+ -->
 
 <style>
 	jumbotron{
@@ -689,28 +689,38 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
     </div>            
 </div>
 <script type="text/javascript">
+
+var svenue={{$event->event_venue_id}}
 if($(".event_city_id").val()!=0)
 {
-   $.ajax({
-            method: 'GET', 
-            url: '/venue-list/' + $(".event_city_id").val(), 
-            success: function(response){ 
-               $(".venue_options").empty()
-               $.each(response, function(i, obj){
-                  console.log(obj)
-                  $(".event_venue_id").append("<option value="+obj.venue_id+">"+obj.venue_name+"</option>")
-               })
-            },
-            error: function(jqXHR, textStatus, errorThrown) { 
-               console.log(JSON.stringify(jqXHR));
-               console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-            }
-         });
-         if($(".event_city_id").val()=="")
-         {
-            $(".venue_options").empty()
-            //$(".venue_options").append("<option value="">"--Select a venue--"</option>")
-         }
+    $.ajax({
+        method: 'GET', 
+        url: '/venue-list/' + $(".event_city_id").val(), 
+        
+        success: function(response){ 
+            $(".event_venue_id").empty()
+            $.each(response, function(i, obj){
+                console.log(obj)
+                if(svenue==obj.venue_id)
+                {
+                    $(".event_venue_id").append("<option value="+obj.venue_id+" selected>"+obj.venue_name+"</option>")                    
+                }
+                else
+                {
+                  $(".event_venue_id").append("<option value="+obj.venue_id+">"+obj.venue_name+"</option>")  
+                }
+            })
+        },
+        error: function(jqXHR, textStatus, errorThrown) { 
+            console.log(JSON.stringify(jqXHR));
+            console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+        }
+    });
+    if($(".event_city_id").val()=="")
+    {
+        $(".venue_options").empty()
+        //$(".venue_options").append("<option value="">"--Select a venue--"</option>")
+    }
 }
       $(".event_city_id").change(function(){
          $.ajax({
