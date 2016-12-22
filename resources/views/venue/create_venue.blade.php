@@ -41,7 +41,7 @@
     var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
     if(!namefilter.test(NameTB.value))
     {
-      alert("EVENT NAME IS NOT VALID");
+      alert("VENUE NAME IS NOT VALID");
       return false;
     }
 
@@ -225,7 +225,7 @@ return false;
                         {{ Form::label('venuename', 'Venue Name') }}
                         </div>
                         <div class="col-md-8">
-                      <input id="venue_name" type="text" class="form-control" name="venue_name" placeholder="Venue Name"required>
+                      <input id="venue_name" type="text" class="form-control" name="venue_name" placeholder="Venue Name"maxlenght="30"required>
                     </div>
                 </div>
             </div>
@@ -248,7 +248,7 @@ return false;
                         {{ Form::label('venuecategory', 'Venue Category') }}
                         </div>
                         <div class="col-md-8">
-                        <input id="venue_category" type="text" class="form-control" name="venue_category" placeholder="Venue Category Name"required>
+                        <input id="venue_category" type="text" class="form-control" name="venue_category" placeholder="Venue Category Name"maxlenght="30"required>
                   </div>
               </div>
           </div>
@@ -259,7 +259,7 @@ return false;
                         {{ Form::label('latitude', 'Latitude') }}
                         </div>
                         <div class="col-md-8">
-                        <input id="latitude" type="text" class="form-control" name="latitude" placeholder="latitude"required>
+                        <input id="latitude" type="text" class="form-control" name="latitude" placeholder="latitude"maxlenght="20"required>
                      </div>
                  </div>
              </div>
@@ -270,7 +270,7 @@ return false;
                         {{ Form::label('longitude', 'Longitude') }}
                         </div>
                        <div class="col-md-8">
-                        <input id="longitude" type="text" class="form-control" name="longitude" placeholder="longitude"required>
+                        <input id="longitude" type="text" class="form-control" name="longitude" placeholder="longitude"maxlenght="20"required>
 
                      </div>
                  </div>

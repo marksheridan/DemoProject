@@ -95,14 +95,14 @@ td{
                             <div class= "col-md-1">
                                 <td>
                                     
-                                         <img src="/images/logo_1_2.png" width="20px"onclick="ConfirmDelete()">
+                                         <img src="/images/logo_1_2.png" width="20px"onclick="ConfirmDelete($vv->venue_id)">
                                          <script type="text/javascript">
-                              function ConfirmDelete()
+                              function ConfirmDelete(num)
                               {
                                  var ans=confirm("Are you sure you want to delete?");
                                  if(ans==true)
                                  {
-                                       window.location.href="{{ url('/deletevenue/'. $vv->venue_id) }}";
+                                       window.location.href="/deletevenue/"+num;
                                  }
                               }
                            </script>

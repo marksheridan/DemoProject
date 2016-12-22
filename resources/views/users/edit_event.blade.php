@@ -80,102 +80,38 @@
     }
 
 
-    var e = document.getElementById("event_day");
-var strUser = e.options[e.selectedIndex].value;
+   
 
-var strUser1 = e.options[e.selectedIndex].text;
-if(strUser==0)
+var est = document.getElementById("event_start_time").value;
+var eet = document.getElementById("event_end_time").value;
+var ect = document.getElementById("event_closing_time").value;
+
+if(est=='')
 {
-alert("INVALID DAY");
-return false;
+    alert("event start time cannot be null");
+    return false;
 }
- var e = document.getElementById("event_day");
-var strUser = e.options[e.selectedIndex].value;
-
-var strUser1 = e.options[e.selectedIndex].text;
-if(strUser==0)
+if(eet=='')
 {
-alert("INVALID DAY");
-return false;
+    alert("event end time cannot be null");
+    return false;
 }
-
-var e = document.getElementById("event_month");
-var strUser = e.options[e.selectedIndex].value;
-
-var strUser1 = e.options[e.selectedIndex].text;
-if(strUser==0)
+if (ect=='')
 {
-alert("INVALID MONTH");
-return false;
+    alert("guestlist closetime cannot be null");
+    return false;
 }
 
-
-var e = document.getElementById("event_year");
-var strUser = e.options[e.selectedIndex].value;
-
-var strUser1 = e.options[e.selectedIndex].text;
-if(strUser==0)
-{
-alert("INVALID YEAR");
-return false;
-}
-
-var e = document.getElementById("sevent_hour");
-var strUser = e.options[e.selectedIndex].value;
-
-var strUser1 = e.options[e.selectedIndex].text;
-if(strUser==0)
-{
-alert("INVALID START TIME");
-return false;
-}
-
-var e = document.getElementById("eevent_hour");
-var strUser = e.options[e.selectedIndex].value;
-
-var strUser1 = e.options[e.selectedIndex].text;
-if(strUser==0)
-{
-alert("INVALID END TIME");
-return false;
-}
-
-var e = document.getElementById("cevent_hour");
-var strUser = e.options[e.selectedIndex].value;
-
-var strUser1 = e.options[e.selectedIndex].text;
-if(strUser==0)
-{
-alert("INVALID CLOSE TIME");
-return false;
-}
-
-var starteventele = document.getElementById("sevent_hour");
-var strStartEventUser = starteventele.options[starteventele.selectedIndex].value;
-
-var endeventele = document.getElementById("eevent_hour");
-var strEndEventUser = endeventele.options[endeventele.selectedIndex].value;
-
-var closeeventele = document.getElementById("cevent_hour");
-var strCloseEventUser = closeeventele.options[closeeventele.selectedIndex].value;
-
-var starttimeele = document.getElementById("stime");
-var strStartTime = starttimeele.options[starttimeele.selectedIndex].value;
-
-var endtimeele = document.getElementById("etime");
-var strEndTime = endtimeele.options[endtimeele.selectedIndex].value;
-
-var closetimeele = document.getElementById("ctime");
-var strCloseTime = closetimeele.options[closetimeele.selectedIndex].value;
-
-if ( strStartEventUser > strEndEventUser && strStartTime == strEndTime)
+if ( est > eet )
     {
         alert("Start Time shoul be earlier than end time");
+        return false;
     }
 
-if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUser && strEndTime == strCloseTime )
+ if ( ect < est || ect > eet )
     {
         alert("Close time should be inbetween start and end time");
+        return false;
     }
 
 
@@ -190,7 +126,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
         }
 
 
-         var EANameTB = document.getElementById("artist_name");
+        /* var EANameTB = document.getElementById("artist_name");
     var eanamefilter= new RegExp("^[a-zA-Z\ ]+$","g");
     if(!eanamefilter.test(EANameTB.value))
     {
@@ -204,7 +140,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
     {
       alert("PROMOTER NAME IS NOT VALID");
       return false;
-    }
+    }*/
 
 }
 </script>
@@ -227,7 +163,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                     </div>
                         
                     <div class="col-md-5">
-                        <input type="text" value="{{$event->event_name}}" id="event_name" name="event_name">  
+                        <input type="text" value="{{$event->event_name}}" id="event_name" name="event_name"maxlength="30">  
                     </div>
 
                 </div><br><br>
@@ -235,355 +171,44 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                     <div class="col-md-2">
                         <label>Date</label>
                     </div>
-                    <div class="col-md-3">
-                      <select name="event_day"id="event_day">
-                                <option value="0">0</option> 
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                              </select>
+                    <div class="col-md-8">
+                      <input type="text" id="event_date" name ="event_date" class="form-control" required>
                     </div> 
-                    <div class="col-md-3">
-                        <select name="event_month" id="event_month">
-                                <option value="0">0</option> 
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                
-                              </select>
-                    </div> 
-                    <div class="col-md-1">
-                       <select name="event_year" id="event_year">
-                                 <option value="0">0000</option>
-                                 <option value="2017">2017</option>
-                                <option value="2018">2018</option>
-                                <option value="2019">2019</option>
-                                <option value="2020">2020</option>
-                                </select>
-                    </div>   
+                   
+                   
                     
                 </div><br>
                   <div class="row">
                     <div class="col-md-2">
                         <label>Start Time</label>
                     </div>
-                    <div class="col-md-3">
-                       <select name="sevent_hour"id="sevent_hour">
-                               <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                              </select>
+                    <div class="col-md-8">
+                       <input id="event_start_time" type="time" class="form-control" name="event_start_time" placeholder="enter the start-time"required>
                     </div> 
-                    <div class="col-md-3">
-                      <select name="sevent_min" id="sevent_min">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                                <option value="46">46</option>
-                                <option value="48">48</option>
-                                <option value="49">49</option>
-                                <option value="50">50</option>
-                                <option value="51">51</option>
-                                <option value="52">52</option>
-                                <option value="53">53</option>
-                                <option value="54">54</option>
-                                <option value="55">55</option>
-                                <option value="56">56</option>
-                                <option value="57">57</option>
-                                <option value="58">58</option>
-                                <option value="59">59</option>
-                              </select>
-                    </div> 
-                    <div class="col-md-3">
-                       <select name="stime" class="ampm"id="stime">
-                                <option>am</option>
-                                <option>pm</option>
-                                
-                            </select>
-                    </div>   
+                   
+                   
                     
                 </div>  
                 <div class="row">
                     <div class="col-md-2">
                         <label>End Time</label>
                     </div>
-                    <div class="col-md-3">
-                       <select name="eevent_hour"id="eevent_hour">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                              </select>
+                    <div class="col-md-8">
+                       <input id="event_end_time" type="time" class="form-control" name="event_end_time" placeholder="enter the end-time"required>
                     </div> 
-                    <div class="col-md-3">
-                       <select name="time" class="ampm"id="eevent_min">
-                                 <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                                <option value="46">46</option>
-                                <option value="48">48</option>
-                                <option value="49">49</option>
-                                <option value="50">50</option>
-                                <option value="51">51</option>
-                                <option value="52">52</option>
-                                <option value="53">53</option>
-                                <option value="54">54</option>
-                                <option value="55">55</option>
-                                <option value="56">56</option>
-                                <option value="57">57</option>
-                                <option value="58">58</option>
-                                <option value="59">59</option>
-                                
-
-
-                                
-                            </select>
-                    </div> 
-                    <div class="col-md-3">
-                       <select name="etime" class="ampm"id="etime">
-                                <option>am</option>
-                                <option>pm</option>
-                                
-                            </select>
-                    </div>   
+              
+                    
                     
                 </div>
                  <div class="row">
                     <div class="col-md-2">
                         <label>Guestlist close Time</label>
                     </div>
-                    <div class="col-md-3">
-                       <select name="time" class="ampm"id="cevent_hour">
-                               <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                              </select>
+                    <div class="col-md-8">
+                      <input id="event_closing_time" type="time" class="form-control" name="event_closing_time" placeholder="enter the close-time"required>
                     </div> 
-                    <div class="col-md-3">
-                       <select name="time" class="ampm"id="cevent_min">
-                                 <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                                <option value="46">46</option>
-                                <option value="48">48</option>
-                                <option value="49">49</option>
-                                <option value="50">50</option>
-                                <option value="51">51</option>
-                                <option value="52">52</option>
-                                <option value="53">53</option>
-                                <option value="54">54</option>
-                                <option value="55">55</option>
-                                <option value="56">56</option>
-                                <option value="57">57</option>
-                                <option value="58">58</option>
-                                <option value="59">59</option>
-                                
-
-
-                                
-                            </select>
-                    </div> 
-                    <div class="col-md-3">
-                       <select name="ctime" class="ampm"id="ctime">
-                                <option>am</option>
-                                <option>pm</option>
-                                
-                            </select>
-                    </div> <br><br><br>
+                   
+                    
                     <div class="row">
                         <div class="col-md-8">
                             <!-- <textarea maxlength="500" col="70" rows="5"> When you wish to run the Vagrant commands, 
@@ -608,7 +233,7 @@ if ( strCloseEventUser < strStartEventUser || strCloseEventUser > strEndEventUse
                     </div>
                         
                     <div class="col-md-6">
-                         <input type="number" value="{{$event->event_guest_limit}}"  id="event_glimit" min="1" max="500" required>
+                         <input type="number" value="{{$event->event_guest_limit}}"  id="event_glimit" min="1" max="500">
                     </div>
 
                 </div><br><br>

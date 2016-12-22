@@ -34,7 +34,7 @@ li{
     var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
     if(!namefilter.test(NameTB.value))
     {
-      alert("EVENT NAME IS NOT VALID");
+      alert("VENUE NAME IS NOT VALID");
       return false;
     }
 
