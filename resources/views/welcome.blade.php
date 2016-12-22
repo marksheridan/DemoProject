@@ -114,7 +114,6 @@ select{
 }
   </style>
 <body>
-
 <div class="container">
     <br>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -184,12 +183,7 @@ select{
     
     <div class="row" id="displayitem">
     @foreach($events as $event)
-        
- 
         <div class="col-md-4 col-sm-2 col-xs-10">
-         
-            
-                
                 <a href="{{'/eventdisplay/'.$event->id}}">
                     <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="294" height="100">
                 </a>
@@ -206,10 +200,7 @@ select{
                         </a>
                     </div>
                 </div>
-                
-          
         </div>
-    
     @endforeach
     <br><br>
     </div>

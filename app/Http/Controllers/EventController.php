@@ -48,8 +48,8 @@ class EventController extends Controller
         $input['event_date']=$timestamp;
         $input['event_start_time']=$timestamp;
         
-        $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_close_time));
-        $input['event_close_time']=$timestamp;
+        $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_closing_time));
+        $input['event_closing_time']=$timestamp;
 
         $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_end_time));
         $input['event_end_time']=$timestamp;
@@ -80,9 +80,22 @@ class EventController extends Controller
 
     public function update(Request $request,$id)
     {
-    	$input=$request->all();
+        
+    	
+        $input=$request->except('_token','event_date','event_start_time','event_end_time','event_close_time');
+
+        $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_start_time));
+        $input['event_date']=$timestamp;
+        $input['event_start_time']=$timestamp;
+        
+        $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_closing_time));
+        $input['event_closing_time']=$timestamp;
+
+        $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_end_time));
+        $input['event_end_time']=$timestamp;
+
     	Event::where('id',$id)->update($input);
-    	return("Success");
+    	return redirect('/usereventlist');
     }
     
     public function delete($id)

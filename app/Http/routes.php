@@ -93,10 +93,9 @@ Route::post('/eventstore','EventController@store');
 
 Route::get('/search','HomeController@search');
 
+//Events Part
 
-
-
-
+Route::post('/eventupdate/{num}','EventController@update');
 
 //user profile part
 

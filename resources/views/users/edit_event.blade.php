@@ -154,8 +154,9 @@ if ( est > eet )
  			 <img src="{{url('eventimages').'/'.$event->event_banner}}" width="1300"height="400">
         	</div><br>
 <div class="container">
-   <form method="post">
-    <div class="col-md-4">
+    <form method="post" action="{{ url('/eventupdate'.'/'.$event->id) }}" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="col-md-4">
             <div class="jumbotron" id="users">
                 <div class="row">   
                     <div class="col-md-2">
@@ -172,7 +173,7 @@ if ( est > eet )
                         <label>Date</label>
                     </div>
                     <div class="col-md-8">
-                      <input type="text" id="event_date" name ="event_date" class="form-control" required>
+                      <input type="text" id="event_date" name ="event_date" class="form-control" value="{{$event->event_date}}" required>
                     </div> 
                    
                    
@@ -183,7 +184,7 @@ if ( est > eet )
                         <label>Start Time</label>
                     </div>
                     <div class="col-md-8">
-                       <input id="event_start_time" type="time" class="form-control" name="event_start_time" placeholder="enter the start-time"required>
+                       <input id="event_start_time" type="time" class="form-control" name="event_start_time" value="{{$event->event_start_time}}" required>
                     </div> 
                    
                    
@@ -194,20 +195,19 @@ if ( est > eet )
                         <label>End Time</label>
                     </div>
                     <div class="col-md-8">
-                       <input id="event_end_time" type="time" class="form-control" name="event_end_time" placeholder="enter the end-time"required>
+                       <input id="event_end_time" type="time" class="form-control" name="event_end_time" value="{{$event->event_end_time}}" required>
                     </div> 
-              
-                    
-                    
                 </div>
+                
                  <div class="row">
+                    @if($event->event_end_time=="Guestlist")
                     <div class="col-md-2">
                         <label>Guestlist close Time</label>
                     </div>
                     <div class="col-md-8">
-                      <input id="event_closing_time" type="time" class="form-control" name="event_closing_time" placeholder="enter the close-time"required>
+                      <input id="event_closing_time" type="time" class="form-control" name="event_closing_time" value="{{$event->event_close_time}}" required>
                     </div> 
-                   
+                    @endif   
                     
                     <div class="row">
                         <div class="col-md-8">
@@ -216,7 +216,8 @@ if ( est > eet )
                              over where the VM itself is created unless you s
                              tart editing and customising the scripts. </textarea> -->
                         </div>   
-                    </div>  
+                    </div>
+                  
                     
                 </div>
                 
@@ -302,16 +303,17 @@ if ( est > eet )
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <br><br>
-                            <button type="button" class="btn btn-primary" align="center" onclick="return validate()">
+                            <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
                             UPDATE GUESTLIST EVENT</button>
                             <br><br>
                         </div>    
                     </div>    
                 </div>    
             </div>
-            </form>
         </div>        
-    </div>            
+    </div>
+    </form>        
+
 </div>
 <script type="text/javascript">
 

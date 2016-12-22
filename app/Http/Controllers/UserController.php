@@ -101,6 +101,20 @@ class UserController extends Controller
     {
         $cities=City::where("city_status","=","active")->lists('city_name','city_id');
         $event=Event::where('id',$id)->first();
+
+        //dd($event->event_date);
+        $datetime = explode(" ",$event->event_date);
+        $event['event_date'] = $datetime[0];
+        $event['event_start_time'] = $datetime[1];
+
+        $datetime = explode(" ",$event->event_end_time);
+        $event['event_end_time'] = $datetime[1];
+        if($event->event_type!="RSVP")
+        {
+            $datetime = explode(" ",$event->event_close_time);
+            $event['event_close_time'] = $datetime[1];
+        }
+
         return view('users.edit_event',compact('event','cities'));
     }
 
