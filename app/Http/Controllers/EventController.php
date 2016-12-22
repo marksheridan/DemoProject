@@ -23,7 +23,7 @@ class EventController extends Controller
             return view('events.addevent',compact('cities','cust'));
         }else{
             $cust="RSVP";
-            return view('events.rsvp',compact('cities','cust'));
+            return view('events.rsvpaddevent',compact('cities','cust'));
         }
     }
 
