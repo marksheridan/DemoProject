@@ -42,7 +42,10 @@ class GuestController extends Controller
         $tgl=$evn['event_total_guest']+$request->no_of_couples;
         Event::where('id',$id)->update(array('event_total_guest'=>$tgl));
         Guest::create($input);
-        return redirect('/');
+
+        //dd($input['guest_name']);
+        return view ('auth.guest_display',compact('input'));
     
     }
+   
 }

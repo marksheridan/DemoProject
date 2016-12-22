@@ -1,12 +1,11 @@
 @extends('layouts.secondapp')
 
 @section('content')
+ 
 
 
 
 
-
-<body>
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -53,12 +52,15 @@ position: absolute;
 <script type="text/javascript">
   function validate()
   {
+  	var flag=0;
     var GNameTB = document.getElementById("guest_name");
     var gnamefilter= new RegExp("^[a-zA-Z\ ]+$","g");
     if(!gnamefilter.test(GNameTB.value))
     {
       alert("EVENT NAME IS NOT VALID");
+      flag=1;
       return false;
+
     }
 
  var GPhoneTB = document.getElementById("guest_phone_no");
@@ -69,6 +71,7 @@ position: absolute;
         {
           alert("Phone number must have 10 digit");
           GPhoneTB.focus();
+          flag=1;
           return false;
         }
 
@@ -79,9 +82,12 @@ position: absolute;
       if(!gemailfilter.test(GEmailTB.value))
         {
           alert("Invalid email ID.");
+          flag=1;
           return false;
            GEmailTB.focus();
         }
+        
+
 
 
     }
@@ -121,7 +127,7 @@ position: absolute;
 							</label>
 					
 						<div class="col-md-6">
-							<input id="guest_name" type="text" class="form-control" name="guest_name" placeholder="Eg:Aneesh chacko">
+							<input id="guest_name" type="text" class="form-control" name="guest_name" maxlength="30" placeholder="Eg:Aneesh chacko">
 					</div>
 				</div>
 			</div>
@@ -199,40 +205,22 @@ position: absolute;
 						<div class="form-group">
 							<div class="col-md-4">
 							</div>
-							<button type="button" class="btn btn-primary" align="center" data-toggle="modal" data-target="#myModal" onclick="return validate()">
+							<a href="{{ url('/guest_display/') }}">
+							<button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
 							Add</button>
-					
+						</a>
+
+
 			</div>
 		</form>
 	</div>
 </div>
 <footer>
 
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"id="modalheader">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><strong>!Clubbers</strong></h4>
-            </div>
-            
-            <div class="modal-body"id="modalbody">
-                <div class="row">
-                    
-                   <h4><strong>THANK YOU :) For Booking an Event Using Our Site</strong></h4>
-                   
-                </div> 
-            </div>
-        </div>
-    </div>
-</div>
+
+					
 </footer>
-	
 
-
-
-
-</body>
 
 
 

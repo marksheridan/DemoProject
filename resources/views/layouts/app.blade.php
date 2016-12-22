@@ -13,6 +13,9 @@
         .fa-btn {
             margin-right: 6px;
         }
+        #nav{
+          background-color: #E7EEF1; 
+        }
         
          .Button{
   border-radius:16px;
@@ -32,10 +35,19 @@ position: relative;
 }
 #event_city_id{
   -webkit-appearance:none;
-  background-color:#FEF5F5;
-  border: none;
-  color: #100101;
-  width: 90px;
+  background-color:#F0E6E6;
+  border: none; 
+ 
+ color: #150101;
+ -webkit-border-radius: none;
+ border-radius: 0px;
+ font-size: 12px;
+ padding: 15px;
+ width: 40%;
+ cursor: pointer;
+
+ background: #E7EEF1 url("/images/ic_expand_down.png") no-repeat right center;
+ background-size: 20px 20px; 
 }
 .form-control{
   text-align: center;
@@ -50,7 +62,7 @@ position: relative;
     </style>
 </head>
 <body id="secondapp-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top"id="nav">
        
 <div class="container-fluid text-centxser hidden-"></div>
        <div class="container-fluid"> 

@@ -38,9 +38,9 @@
 }
 #container{
   border-radius: 25px;
-    background: #243569;
+    background: #EEEEEF;
     padding: 20px; 
-    color: #FFFFFF;
+    color: #0E0B0B;
 
 }
 
@@ -57,7 +57,24 @@ Button{
   border: 2px solid #48B4F2;
 }
 select{
-  color:#0C99D1;
+  
+  position: relative;
+}
+#event_city_id{
+  -webkit-appearance:none;
+  background-color:#F0E6E6;
+  border: none; 
+ 
+ color: #150101;
+ -webkit-border-radius: none;
+ border-radius: 0px;
+ font-size: 12px;
+ padding: 15px;
+ width: 40%;
+ cursor: pointer;
+
+ background: #E7EEF1 url("/images/ic_expand_down.png") no-repeat right center;
+ background-size: 20px 20px; 
   
 }
 .text-left{
