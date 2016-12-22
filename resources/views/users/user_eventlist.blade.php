@@ -16,13 +16,13 @@
 		background-color:  #0D0D1A;
 	}
 	#cover{
-		background-color: #6FACC3;
+		background-color: #C8CACB;
 	}
   #table{
     color:#09579D; 
   }
   img{
-    border-radius: 20px;
+    border-radius: 50px;
   }
   strong{
     color: #F2EBEB;
@@ -33,15 +33,15 @@
 </style>
 
 
-<div class="container">
-	<div class="row" id="">
-		<div class="col-md-12" style: align="center">
-			<div class="jumbotron" id="cover">
- 			 <img src="/images/mountains1.jpg" width="900">
-        	</div>
-		</div>
+<div class="text-center">
 
-	</div>	
+	
+			
+ 			 <img src="/images/8.jpg" width="1250" height="400">
+        
+	
+<br><br>
+	
 <div class="container">
 	<div class="row">
  		<div class="col-md-4">
