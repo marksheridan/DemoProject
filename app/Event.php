@@ -19,6 +19,7 @@ class Event extends Model
 
     public function guests()
     {
-    return $this->hasMany('App\Guest', 'business_user_id', 'id');
+        return $this->hasMany('App\Guest', 'business_user_id', 'id');
     }
+
 }

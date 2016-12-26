@@ -43,6 +43,10 @@ class EventController extends Controller
         
     	$input=$request->except('_token','event_banner','event_date','event_start_time','event_end_time','event_close_time');
 
+        if($input['event_guest_limit']==0)
+        {
+            $input['event_guest_limit']=null;   
+        }
         
         $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_start_time));
         $input['event_date']=$timestamp;
@@ -81,7 +85,6 @@ class EventController extends Controller
     public function update(Request $request,$id)
     {
         
-    	
         $input=$request->except('_token','event_date','event_start_time','event_end_time','event_close_time');
 
         $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_start_time));
@@ -93,6 +96,23 @@ class EventController extends Controller
 
         $timestamp = date('Y-m-d G:i:s', strtotime($request->event_date ." ". $request->event_end_time));
         $input['event_end_time']=$timestamp;
+
+
+        $destinationPath = public_path('flyer');
+        $filepath=public_path('/eventimages/');
+        
+        $file=$request->event_banner;
+        if($request->hasfile('event_banner'))
+        { 
+            $ext = File::extension($file);
+            $input['event_banner'] = time().'.'. $file->getClientOriginalExtension();
+
+            $img = Image::make($file->getRealPath());
+            $img->resize(1000, 400)->save($destinationPath.'/'.$input['event_banner']);
+            
+              
+            $file->move($filepath, $input['event_banner']);
+        }
 
     	Event::where('id',$id)->update($input);
     	return redirect('/usereventlist');

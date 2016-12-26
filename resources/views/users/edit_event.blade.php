@@ -117,11 +117,11 @@ if ( est > eet )
 
 
         
-         var GlimitTB = document.getElementById("event_glimit").value;
+         var GlimitTB = document.getElementById("event_guest_limit").value;
          /*var photofilter= new RegExp("^[a-zA-Z\ ]+$","g");*/
       if(GlimitTB == '')
         {
-          alert("gustlimit field is empty.");
+          alert("Guestlimit field is empty.");
           return false;
         }
 
@@ -232,10 +232,16 @@ if ( est > eet )
                      <div class="col-md-6">
                         </label> Guest limit</label>
                     </div>
-                        
-                    <div class="col-md-6">
-                         <input type="number" value="{{$event->event_guest_limit}}"  id="event_glimit" min="1" max="500">
-                    </div>
+                    @if($event->event_type=="RSVP")
+                        <div class="col-md-6">
+                         <input type="number" value="{{$event->event_guest_limit}}"  id="event_guest_limit" min="1" max="500" readonly>
+                        </div>
+                    @else
+                        <div class="col-md-6">
+                         <input type="number" value="{{$event->event_guest_limit}}"  id="event_guest_limit" min="1" max="500">
+                        </div>
+                    @endif    
+                    
 
                 </div><br><br>
                 <div class="row">

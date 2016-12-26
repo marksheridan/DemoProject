@@ -251,7 +251,7 @@
                             </div>
                             <div class="col-md-2">
                                 <td>
-                                    2 Months ago
+                                    <?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($gg->created_at))->diffForHumans() ?>
                                 </td>
                             </div>
                             

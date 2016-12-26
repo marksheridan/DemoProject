@@ -77,18 +77,18 @@
 
                			<a href="{{url('/usereventlist') }}">
 
-                  			 <img src="/images/house-logo-hi (1).png" width="44">
+                  			 <img src="/images/userhome.png" width="44">
                 		 <a>
                 		
 
                 		 <a href="{{url('/userprofile') }}">
 
-                   			<img src="/images/customer.png" width="50">
+                   			<img src="/images/profile.png" width="50">
                 		 <a>
                  		
                  		 <a href="{{url('/logout') }}">
 
-                  			 <img src="/images/100-UI_app_icons_100_smart_stroke_circle_solid.ai-512.png" width="44">
+                  			 <img src="/images/logout.png" width="44">
                          <a>
            	
                    

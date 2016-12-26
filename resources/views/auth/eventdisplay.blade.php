@@ -131,6 +131,8 @@ select{
           <h4>About</h4>
           <p style="width:750px" id="para">{{ $event->event_description }} 
           </p>
+          <p style="width:750px" id="para"><?php  echo \Carbon\Carbon::parse($event->event_date)->formatLocalized('%A %d %B %Y');?> 
+          </p>
         </div>
 
 

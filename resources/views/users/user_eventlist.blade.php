@@ -37,7 +37,7 @@
 
 	
 			
- 			 <img src="/images/8.jpg" width="1250" height="400">
+ 			 <img src="/images/mountains1.jpg" width="1250" height="400">
         
 	
 <br><br>

@@ -13,18 +13,21 @@ use Carbon\Carbon;
 class GuestController extends Controller
 {
     //
-      public function create($id)
+    public function create($id)
     {
-       // return("hai");
-    	//dd($id);
-        //$dt=Carbon::create(2012,12,01,0);
-        //$dt=Carbon::today();
+        $cc=$id;
+        if(Auth::guest())
+        {
+            return view('auth.add_to_guestlist',compact('cc'));
+        }
+        else
+        {
+            return view('users.user_add_to_guestlist',compact('cc'));
+        }
 
-       
-        //dd($dt);
 
-		$cc=$id;
-        return view('auth.add_to_guestlist',compact('cc'));
+		//$cc=$id;
+        
         
     }
 
@@ -44,8 +47,12 @@ class GuestController extends Controller
         Guest::create($input);
 
         //dd($input['guest_name']);
-        return view ('auth.guest_display',compact('input'));
-    
+        if(Auth::guest())
+        {
+            return view ('auth.guest_display',compact('input'));
+        }else{
+            return view ('users.user_guest_display',compact('input'));
+        }
     }
    
 }

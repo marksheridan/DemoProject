@@ -34,7 +34,12 @@ class AdminController extends Controller
 
     public function mainpage()
     {
-        $users=User::all();
+
+        $users=User::events();
+        /*foreach ($users as $user) {
+            $user['t_events']=count($user->event);
+        }
+        dd($users->all());*/
         return view('admin.main_admin',compact('users'));
     }
 }

@@ -25,6 +25,11 @@ class User extends \Eloquent implements Authenticatable
 
     public function guests()
     {
-    return $this->hasMany('App\Guest', 'business_user_id', 'id');
+        return $this->hasMany('App\Guest', 'business_user_id', 'id');
+    }
+
+    public function event()
+    {
+        return $this->hasMany('App\Event');
     }
 }

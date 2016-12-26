@@ -65,10 +65,12 @@ th,td{
 	</div>
 	</tr>
 </thead>
+<?php $slno=1; ?>
 	@foreach($users as $user)
+
 	<tr>
 		<td>
-			-num-
+			<?php echo "$slno" ?>
 		</td>
 		<td>
 			{{ $user->user_name }}
@@ -80,15 +82,16 @@ th,td{
 			Last visited
 		</td>
 		<td>
-			T_guest Events
+			{{ $user->t_event }}
 		</td>
 		<td>
-			T-couple
+			{{ $user->t_guest }}
 		</td>
-		<td>
+		<!-- <td>
 			T-clubbers
-		</td>
+		</td> -->
 	</tr>
+	<?php $slno+=1; ?>
 	@endforeach
 
 

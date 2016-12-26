@@ -120,18 +120,19 @@ select{
             </button>
           </a> 
 			   </div>
-      </td>
+    </td>
 		</tr>
-
-
-      <tr>
+    <tr>
         <td width="500px">
 
         <div class="col-md-6">
             <h4>About</h4>
             <p style="width:750px" id="para">
-                {{ $event->event_description }} 
-          </p>
+                {{ $event->event_description }}. 
+            </p>
+            <p>
+                <?php  echo \Carbon\Carbon::parse($event->event_date)->formatLocalized('%A %d %B %Y');?>
+            </p>
         </div>
 
 

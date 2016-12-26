@@ -40,13 +40,22 @@ class HomeController extends Controller
 
     public function index()
     { 
+
         $event=Event::where('user_id',Auth::User()->id)->get();
         $users=User::all();
+        foreach ($users as $user) {
+            $user['t_event']=count($user->event);
+            $user['t_guest']=$user->event->sum('event_total_guest');
+        }
         return view('home',compact('users','event'));
     }
 
     public function root()
     {
+        if(Auth::check())
+        {
+            return redirect('/home');
+        }
         $current_time = Carbon::now()->toDateTimeString();
 
         $cities=City::where('city_status',"active")->lists('city_name','city_id');
@@ -58,14 +67,10 @@ class HomeController extends Controller
             ->select('events.*','cities.city_name', 'venues.venue_name')
             ->take(6)
             ->get();
-
-
-
-
-        //dd($events);
-
-        //$popular=Event::orderBy('event_total_guest','desc')->take(3)->get();
-
+        
+        foreach ($events as $e) {
+            $e->edate= Carbon::parse($e->event_date)->formatLocalized('%A %d %B %Y');
+        }
         $popular=DB::table('events')
             ->where('event_start_time','<',$current_time)
             ->join('cities', 'events.event_city_id', '=', 'cities.city_id')
@@ -75,10 +80,14 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
+        foreach ($popular as $e)
+        {    
+            $e->edate=Carbon::parse($e->event_date)->formatLocalized('%A %d %B %Y');
+        }
 
         $flyer=Event::lists('id','event_banner');
         return view('homepage',compact('events','flyer','cities','popular'));
-    }
+    }    
 
     public function getmore($type)
     {
@@ -102,6 +111,10 @@ class HomeController extends Controller
                 ->take(3)
                 ->skip($skipval)
                 ->get();   
+        }
+        foreach ($events as $e)
+        {
+            $e->edate=Carbon::parse($e->event_date)->formatLocalized('%A %d %B %Y');
         }
 
         return($events);
@@ -131,7 +144,10 @@ class HomeController extends Controller
             //->skip($skipnum)
             ->get();   
         }
-        //$events=Event::where('event_city_id',$val)->take(3)->get();
+        foreach ($events as $e) 
+        {
+            $e->edate=Carbon::parse($e->event_date)->formatLocalized('%A %d %B %Y');
+        }
         return($events);
     }
 
@@ -147,7 +163,7 @@ class HomeController extends Controller
             ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
             ->select('events.*','cities.city_name', 'venues.venue_name')
             ->take(6)
-            ->skip($skipval)
+            //->skip($skipval)
             ->get();
         }else{
              $events = DB::table('events')
@@ -157,13 +173,13 @@ class HomeController extends Controller
             ->join('venues', 'events.event_venue_id', '=', 'venues.venue_id')
             ->select('events.*','cities.city_name', 'venues.venue_name')
             ->take(6)
-            ->skip($skipval)
+            //->skip($skipval)
             ->get();
         }
 
-       
-
-        //$events=Event::take(3)->skip($skipval)->get();
+        foreach ($events as $e) {
+            $e->edate=Carbon::parse($e->event_date)->formatLocalized('%A %d %B %Y');
+        }    
         return($events);
     }
 
@@ -194,9 +210,11 @@ class HomeController extends Controller
                 ->skip($skipval)
                 ->get();   
         }
+        foreach ($events as $e)
+        {
+            $e->edate=Carbon::parse($e->event_date)->formatLocalized('%A %d %B %Y');
 
-        //$events=Event::take(3)->skip($skipval)->get();
-        
+        }
         return($events);
     }
 
@@ -224,7 +242,10 @@ class HomeController extends Controller
                 ->skip($skipnum)
                 ->get();   
         }
-
+        foreach ($popular as $e)
+        {    
+            $e->edate=Carbon::parse($e->event_date)->formatLocalized('%A %d %B %Y');
+        }
         return($popular);
     }
 
@@ -257,7 +278,10 @@ class HomeController extends Controller
             ->get();
             //$dd($popular);
         }
-
+        foreach ($popular as $e)
+        {    
+            $e->edate=Carbon::parse($e->event_date)->formatLocalized('%A %d %B %Y');
+        }
         return($popular);
 
     }

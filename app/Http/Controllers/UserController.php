@@ -109,10 +109,15 @@ class UserController extends Controller
 
         $datetime = explode(" ",$event->event_end_time);
         $event['event_end_time'] = $datetime[1];
-        if($event->event_type!="RSVP")
+        
+        if($event->event_type=="Guestlist")
         {
-            $datetime = explode(" ",$event->event_close_time);
-            $event['event_close_time'] = $datetime[1];
+            $datetime = explode(" ",$event->event_closing_time);
+            $event['event_closing_time'] = $datetime[1];
+        }
+        else
+        {
+            $event['event_guest_limit']=NULL;
         }
 
         return view('users.edit_event',compact('event','cities'));

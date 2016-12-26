@@ -192,7 +192,7 @@ select{
                         {{ $event->event_name }}
                     </div>
                     <div class="eventvenue text-center">
-                        <strong>{{$event->venue_name}}, {{$event->venue_name}} </strong> {{$event->event_date}}
+                        {{$event->venue_name}}, {{$event->city_name}}. {{$event->edate}}
                     </div>
                     <div class="type text-center">
                         <a href="{{ url('/addtoguestlist/'.$event->id) }}">
@@ -263,7 +263,7 @@ select{
                         {{ $e->event_name }}
                     </div>
                     <div class="eventvenue text text-center">
-                        <strong>{{$e->venue_name}}, {{$e->city_name}}</strong> {{$e->event_date}}
+                        {{$event->venue_name}}, {{$event->city_name}}.{{$event->edate}}
                     </div>
                     <div class="type text-center">
                         <a href="{{ url('/addtoguestlist/'.$e->id) }}">
@@ -299,14 +299,20 @@ select{
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-
 <script type="text/javascript">
-
+/*<?php  //echo \Carbon\Carbon::parse($event->event_date)->formatLocalized('%A %d %B %Y');?>*/
+var skipval=6;
+var skipnum=6;
 $("#mptype").change(function(){
+    skipval=6;
+    skipnum=6;
     console.log("MPType")
     $.ajax({
         method:'GET',
         url:'/get-popular-type/'+ $(this).val(),
+        data:{
+                'skip':skipnum,
+            },
 
         success: function(response){
             console.log("success MPType")
@@ -323,7 +329,7 @@ $("#mptype").change(function(){
                     $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
-                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
+                    $html+=obj.venue_name+", "+obj.city_name+". "+obj.edate
                     $html+="</div>                   <div class=\"type text-center\">"
                     $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
@@ -343,10 +349,14 @@ $("#mptype").change(function(){
 
     $("#etype").change(function(){
         console.log("In ajax")
+        skipval=6;
+        skipnum=6;
         $.ajax({
             method:'GET',
             url:'/get-events-city/'+ $(this).val()+"/"+ $("#event_city_id").val(),
-
+            data:{
+                'skip':skipval,
+            },
             success: function(response){
                 console.log("success")
                 $("#displayitem").empty()
@@ -362,7 +372,7 @@ $("#mptype").change(function(){
                     $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
-                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
+                    $html+=obj.venue_name+", "+obj.city_name+". "+obj.edate
                     $html+="</div>                   <div class=\"type text-center\">"
                     $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
@@ -380,11 +390,15 @@ $("#mptype").change(function(){
     })
     
     $("#event_city_id").change(function(){
+        skipval=6;
+        skipnum=6;
         $("#eb").html($("#event_city_id option:selected").text());
         $.ajax({
             method: 'GET', 
             url:'/get-events-city/'+  $("#etype").val()+"/"+ $(this).val(),
-
+            data:{
+                'skip':skipval,
+            },
             success: function(response){ 
                 skipval=6;
                 $("#displayitem").empty()
@@ -400,7 +414,7 @@ $("#mptype").change(function(){
                     $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
-                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
+                    $html+=obj.venue_name+", "+obj.city_name+". "+obj.edate
                     $html+="</div>                   <div class=\"type text-center\">"
                     $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
@@ -423,8 +437,7 @@ $("#mptype").change(function(){
          
     });
 
-    var skipval=6;
-    var skipnum=6;
+    
 
     $("#morepopular").click(function(){
         $.ajax({
@@ -445,7 +458,7 @@ $("#mptype").change(function(){
                     $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
-                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
+                    $html+=obj.venue_name+", "+obj.city_name+". "+obj.edate
                     $html+="</div>                  <div class=\"type text-center\">"
                     $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"
@@ -482,7 +495,7 @@ $("#mptype").change(function(){
                     $html+="<div class=\"eventname text-center\">"
                     $html+=obj.event_name
                     $html+="</div>                  <div class=\"eventvenue text-center\">"
-                    $html+="<strong>"+obj.venue_name+", "+obj.city_name+"</strong> "+obj.event_date
+                    $html+=obj.venue_name+", "+obj.city_name+". "+obj.edate
                     $html+="</div>                   <div class=\"type text-center\">"
                     $html+="<a href=\"addtoguestlist/"+obj.id+"\">"
                     $html+="<button class=\"RSPV\">"+obj.event_type+"</button>"

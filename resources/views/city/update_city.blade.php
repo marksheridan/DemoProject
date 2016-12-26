@@ -125,7 +125,7 @@ return false;
             <div class="form-group">
 
                            <button type="submit" class="btn btn-primary" align="center" onclick="return validate()">
-                            Add</button>
+                            Update</button>
                         </div>
                     </div>
     
