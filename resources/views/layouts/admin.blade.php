@@ -117,9 +117,10 @@ outline:none
 
     </style>
 </head>
-    <body id="secondapp-layout">
+    <body>
         <nav class="navbar navbar-default navbar-static-top">
           <br>
+          <div class="container-fluid text-centxser hidden-"></div>
             <div class="container-fluid"> 
            <!--  <div class="navbar-header">
             

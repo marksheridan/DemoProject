@@ -127,7 +127,7 @@ $(document).ready(function() {
 $("#event_date").datepicker({
 
 
-	minDate:+1
+	minDate:+0
 	//maxDate:+60
 /*numberOfMonths: 3,*/
 //showButtonPanel: true

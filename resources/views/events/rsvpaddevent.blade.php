@@ -95,7 +95,6 @@ if ( est > eet )
     }
 
 
-
 var ENameTB = document.getElementById("event_description");
 		var namefilter= new RegExp("^[a-zA-Z\ ]+$","g");
 		if(!namefilter.test(ENameTB.value))

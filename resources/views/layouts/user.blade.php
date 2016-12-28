@@ -58,6 +58,7 @@
      <body id="secondapp-layout">
         <nav class="navbar navbar-default navbar-static-top"id="navuser">
           <br>
+          <div class="container-fluid text-centxser hidden-"></div>
             <div class="container-fluid"> 
                <div class="row">
                 <div class="col-md-9">
@@ -67,10 +68,10 @@
                     <a>
                         
                 </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 text-right">
                			<a data-toggle="modal" data-target="#myModal">
 
-                       		 <img src="/images/64579-add-button.png" width="44">
+                       		 <img src="/images/64579-add-button.png" width="34">
                     	<a>
 
 
@@ -78,18 +79,18 @@
 
                			<a href="{{url('/usereventlist') }}">
 
-                  			 <img src="/images/userhome.png" width="44">
+                  			 <img src="/images/userhome.png" width="34">
                 		 <a>
                 		
 
                 		 <a href="{{url('/userprofile') }}">
 
-                   			<img src="/images/profile.png" width="50">
+                   			<img src="/images/profile.png" width="34">
                 		 <a>
                  		
                  		 <a href="{{url('/logout') }}">
 
-                  			 <img src="/images/logout.png" width="44">
+                  			 <img src="/images/logout.png" width="34">
                          <a>
            	
                    
@@ -111,11 +112,7 @@
         <footer>
           <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-        <script>
-                $(function() {
-                $( "#event_date" ).datepicker();
-                });
-        </script>
+      
           <div class="container">
 
             <div class="nav">
@@ -174,15 +171,7 @@
     </div>
 </div>
                                                                            
-                            <!--         </div> 
-                                                             </div> 
-                                                        </div>
-                                                       
-                                                      </div>
-                                  
-                                                  </div>
-                                                </div> -->
-
+                          
     
     
     </body>
