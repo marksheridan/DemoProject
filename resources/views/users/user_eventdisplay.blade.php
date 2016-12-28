@@ -104,13 +104,14 @@ select{
 
 	<table>
 		<tr>
-			   <td width="500px">
-				    <div class="col-md-6">
+      <div class="row">
+			   <td width="400px">
+				    <div class="col-md-5">
 					   <img src="{{ url('eventimages').'/'. $event->event_banner}}" width="560px">
 				    </div>
 			   </td>
 
-			 <td>
+			 <td width="500px">
 			     <div class="col-md-6">
 				    <p id="hid">{{$event->event_name}}</p>
                     <p id="date"><strong>{{ $venuename->venue_name }}, {{ $cityname->city_name }}</strong></p>
@@ -121,6 +122,7 @@ select{
           </a> 
 			   </div>
     </td>
+  </div>
 		</tr>
     <tr>
         <td width="500px">
@@ -182,7 +184,7 @@ select{
       </td>
 
       <td>
-        <div class="col-md-6">
+        <div class="col-md-10">
         <p id="hid">Monkey Bar</p>
         <p id="date">#610, 12th Main, Indiranagar, Towards 80ft Road, Opp. SBI, Bengaluru,
          Karnataka 560038 Bangalore</p>
