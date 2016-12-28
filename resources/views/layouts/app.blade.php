@@ -63,9 +63,13 @@ position: relative;
 </head>
 <body id="secondapp-layout">
     <nav class="navbar navbar-default navbar-static-top"id="nav">
-       
+       <br>
 <div class="container-fluid text-centxser hidden-"></div>
        <div class="container-fluid"> 
+        <div class=row>
+          <div class="col-md-12">
+          </div>
+        </div>
            
             <div class="row">
             <div class="col-md-3 col-xs-6">
@@ -171,7 +175,9 @@ position: relative;
            <div> -->
 
                    
-                   </div> 
+                  
+        </div>
+        </div>
         </div> 
     </nav>
 

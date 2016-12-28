@@ -57,6 +57,7 @@
     </style>
      <body id="secondapp-layout">
         <nav class="navbar navbar-default navbar-static-top"id="navuser">
+          <br>
             <div class="container-fluid"> 
                <div class="row">
                 <div class="col-md-9">

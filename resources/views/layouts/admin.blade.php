@@ -119,6 +119,7 @@ outline:none
 </head>
     <body id="secondapp-layout">
         <nav class="navbar navbar-default navbar-static-top">
+          <br>
             <div class="container-fluid"> 
            <!--  <div class="navbar-header">
             

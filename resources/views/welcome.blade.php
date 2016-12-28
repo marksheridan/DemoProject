@@ -198,6 +198,7 @@ select{
                         <a href="{{ url('/addtoguestlist/'.$event->id) }}">
                             <button class="RSPV">{{ $event->event_type }}</button>
                         </a>
+                        <br><br>
                     </div>
                 </div>
         </div>
@@ -269,6 +270,7 @@ select{
                         <a href="{{ url('/addtoguestlist/'.$e->id) }}">
                             <button class="RSPV">{{ $e->event_type }}</button>
                         </a>
+                        <br><br>
                     </div>
                 </div>
             
